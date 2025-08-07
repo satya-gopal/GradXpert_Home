@@ -3,7 +3,7 @@ import { FolderOpen, Link, Github, Award, Sparkles, Code, Globe, Briefcase } fro
 
 const Powerfolio = () => {
   return (
-    <section id="portfolio" className="py-32 bg-gradient-to-br from-blue-50 via-blue-100 to-sky-50 relative overflow-hidden">
+    <section id="portfolio" className="py-16 bg-gradient-to-br from-blue-50 via-blue-100 to-sky-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_50%)]"></div>
@@ -21,7 +21,7 @@ const Powerfolio = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="flex items-center space-x-3 md:space-x-4 mb-6 md:mb-8 justify-center lg:justify-start">
+            <div className="flex md:items-center space-x-3 md:space-x-4 mb-6 md:mb-8 md:justify-center lg:justify-start">
               <div className="relative">
                 <FolderOpen className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600" />
                 <Sparkles className="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 text-indigo-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
@@ -33,11 +33,11 @@ const Powerfolio = () => {
                 </span>
               </h2>
             </div>
-            <p className="text-lg md:text-xl lg:text-2xl text-blue-700 mb-8 md:mb-10 font-light text-center lg:text-left px-4 lg:px-0">
+            <p className="text-lg md:text-xl lg:text-2xl text-blue-700 mb-8 md:mb-10 font-light md:text-center lg:text-left md:px-4 lg:px-0">
               A public proof of everything you've built.
             </p>
 
-            <div className="space-y-4 md:space-y-6 mb-8 md:mb-10 px-4 lg:px-0">
+            <div className="space-y-4 md:space-y-6 mb-8 md:mb-10 md:px-4 lg:px-0">
               {[
                 {
                   icon: <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-white" />,
@@ -61,7 +61,7 @@ const Powerfolio = () => {
               ))}
             </div>
 
-            <div className="bg-gradient-to-r from-blue-100 to-sky-100 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl mb-6 md:mb-8 border border-blue-200 mx-4 lg:mx-0">
+            <div className="bg-gradient-to-r from-blue-100 to-sky-100 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl mb-6 md:mb-8 border border-blue-200 md:mx-4 lg:mx-0">
               <div className="flex items-center space-x-2 md:space-x-3 mb-3">
                 <Globe className="h-5 w-5 md:h-6 md:w-6 text-blue-600" />
                 <span className="font-bold text-blue-800 text-sm md:text-base">Build Your Digital Presence</span>

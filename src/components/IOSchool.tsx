@@ -64,13 +64,13 @@ const IOSchool = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Title - Mobile/Tablet only */}
-        <div className="text-center mb-8 lg:hidden">
-          <div className="flex items-center justify-center space-x-3 md:space-x-4 mb-4 md:mb-6">
+        <div className="md:text-center mb-8 lg:hidden">
+          <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-4 md:mb-6">
             <div className="relative">
               <BookOpen className="h-8 w-8 md:h-10 md:w-10 text-purple-600" />
               <Zap className="h-4 w-4 md:h-5 md:w-5 text-violet-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-pulse" />
             </div>
-            <h2 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-3xl  font-black text-slate-900 tracking-tight">
               Learn at{' '}
               <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
                 I/O School

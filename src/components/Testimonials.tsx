@@ -229,9 +229,9 @@ const Testimonials = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="md:text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">
-            <div className="flex items-center justify-center space-x-3 md:space-x-4 mb-2">
+            <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-2">
               <Trophy className="h-6 w-6 md:h-8 md:w-8 text-yellow-600" />
               <span>Success Stories &{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
@@ -453,7 +453,7 @@ const Testimonials = () => {
         </div>
 
         {/* Outcomes Section */}
-        <div className="bg-white/80 backdrop-blur-xl rounded-2xl lg:rounded-3xl p-6 md:p-8 border border-slate-200 shadow-lg mb-12">
+        {/* <div className="bg-white/80 backdrop-blur-xl rounded-2xl lg:rounded-3xl p-6 md:p-8 border border-slate-200 shadow-lg mb-12">
           <div className="text-center mb-6 md:mb-8">
             <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 md:mb-4">Verified Impact & Outcomes</h3>
             <p className="text-slate-600 text-sm md:text-base">Real numbers from our student community</p>
@@ -476,7 +476,7 @@ const Testimonials = () => {
               );
             })}
           </div>
-        </div>
+        </div> */}
 
         {/* Trust Indicators */}
         <div className="bg-gradient-to-r from-slate-100 to-blue-100 rounded-xl lg:rounded-2xl p-6 md:p-8 border border-slate-200 ">

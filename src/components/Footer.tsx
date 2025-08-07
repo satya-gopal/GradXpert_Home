@@ -1,5 +1,6 @@
 import React from 'react';
 import { GraduationCap, MapPin, Mail, Phone, ArrowRight, ExternalLink, Star, Shield, Award, Users, Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
+import { FaLinkedinIn, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   const quickLinks = [
@@ -44,27 +45,27 @@ const Footer = () => {
 
   const trustBadges = [
     { 
-      logo: "/studentos-logo.png", 
+      logo: "https://gradxpert.com/brand-logos/sub-brands/studentos-xy.jpg",
       text: "StudentOs", 
       bgColor: "bg-white/5"
     },
     { 
-      logo: "io-school-logo.png", 
+      logo: "https://gradxpert.com/brand-logos/sub-brands/ioschool-xy.jpg",
       text: "IO School", 
       bgColor: "bg-white/5"
     },
     { 
-      logo: "kickstack-logo.png", 
+      logo: "https://gradxpert.com/brand-logos/sub-brands/kickstack-xy.jpg",
       text: "Kickstack", 
       bgColor: "bg-white/5"
     },
     { 
-      logo: "Powerfolio-Logo.png", 
+      logo: "https://gradxpert.com/brand-logos/sub-brands/powerfolio-xy.jpg",
       text: "Powerfolio", 
       bgColor: "bg-white/5"
     },
     { 
-      logo: "Boldstartup-logo-full.png", 
+      logo: "https://gradxpert.com/brand-logos/sub-brands/boldstartup-xy.jpg",
       text: "Boldstartup", 
       bgColor: "bg-white/5"
     }
@@ -221,50 +222,48 @@ const Footer = () => {
           
           {/* Trust Badges - Full Width Section */}
           <div className="mb-6 lg:mb-2">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 lg:gap-4">
+            <div className="grid grid-cols-2 gap-5  md:flex md:items-center md:justify-center  md:gap-12">
               {trustBadges.map((badge, index) => (
-                <div 
-                  key={index} 
-                  className="p-3 lg:p-4 rounded-xl bg-white border border-white/10 hover:border-white/20 transition-all duration-300 group hover:scale-[1.02] flex flex-col items-center justify-center h-full min-h-[80px] lg:min-h-[100px]"
-                >
-                  <div className="w-full h-12 lg:h-16 flex items-center justify-center">
-                    <img 
-                      src={badge.logo} 
-                      alt={badge.text}
-                      className="h-8 lg:h-10 max-w-full object-contain filter"
-                    />
-                  </div>
+                <div key={index} className="">
+                  <img
+                    src={badge.logo}
+                    alt={badge.text}
+                    className="h-15 md:h-12 rounded-full w-full object-contain"
+                  />
                 </div>
               ))}
             </div>
           </div>
+
         </div>
         
         {/* Bottom section */}
-        <div className="border-t border-slate-700 py-6 lg:py-2">
+        <div className="border-t border-slate-700 py-6 lg:py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 order-2 md:order-1">
-              <p className="text-slate-400 text-xs lg:text-sm font-medium">
+              <p className="text-slate-400 pt-4 md:pt-0 text-xs lg:text-sm font-medium">
                 © 2025 GradXpert. All rights reserved.
               </p>
             </div>
-            
+
             <div className="flex items-center space-x-4 lg:space-x-6 order-1 md:order-2">
               <div className="flex space-x-3 lg:space-x-4">
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <Linkedin className="text-white w-4 h-4 lg:w-5 lg:h-5" />
+                <div className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border-[0.5px] border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <FaLinkedinIn className="text-slate-400 text-xs lg:text-sm" />
                 </div>
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <Twitter className="text-white w-4 h-4 lg:w-5 lg:h-5" />
+
+                <div className="w-8 h-8 lg:w-8 lg:h-8  rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <FaTwitter className="text-slate-400 text-sm lg:text-base" />
                 </div>
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-pink-500 to-pink-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <Instagram className="text-white w-4 h-4 lg:w-5 lg:h-5" />
+                <div className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <FaInstagram className="text-slate-400 text-sm lg:text-base" />
                 </div>
-                <div className="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <Youtube className="text-white w-4 h-4 lg:w-5 lg:h-5" />
+                <div className="w-8 h-8 lg:w-8 lg:h-8  rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                  <FaYoutube className="text-slate-400 text-sm lg:text-base" />
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>

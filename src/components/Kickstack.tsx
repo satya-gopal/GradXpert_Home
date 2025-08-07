@@ -38,7 +38,7 @@ const Kickstack = () => {
   };
 
   return (
-    <section id="internships" className="py-32 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50 relative overflow-hidden">
+    <section id="internships" className="py-16 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(79,70,229,0.1),transparent_50%)]"></div>
@@ -48,22 +48,22 @@ const Kickstack = () => {
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(79,70,229,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(79,70,229,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-8 relative z-10">
         {/* Section Title - Mobile/Tablet only */}
-        <div className="text-center mb-12 lg:hidden">
-          <div className="flex items-center justify-center space-x-3 md:space-x-4 mb-6 md:mb-8">
+        <div className="md:text-center mb-12 lg:hidden">
+          <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-6 md:mb-8">
             <div className="relative">
               <Briefcase className="h-8 w-8 md:h-10 md:w-10 text-indigo-600" />
               <Zap className="h-4 w-4 md:h-5 md:w-5 text-blue-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-pulse" />
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
               Intern with{' '}
               <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
                 Kickstack
               </span>
             </h2>
           </div>
-          <p className="text-lg md:text-xl text-indigo-700 font-light text-center px-4">
+          <p className="text-lg md:text-xl text-indigo-700 font-light md:text-center md:px-4">
             Real experience. Real confidence. Real proof.
           </p>
         </div>
@@ -85,7 +85,7 @@ const Kickstack = () => {
             </div>
             
 
-            <div className="space-y-3 md:space-y-4 lg:space-y-6 mb-6 md:mb-8 lg:mb-10 px-4 lg:px-0">
+            <div className="space-y-3 md:space-y-4 lg:space-y-6 mb-6 md:mb-8 lg:mb-10 md:px-4 lg:px-0">
               <div className="flex items-start space-x-3 md:space-x-4 p-3 md:p-4 rounded-xl md:rounded-2xl bg-white/60 backdrop-blur-sm border border-slate-200 hover:bg-white/80 transition-all duration-300 shadow-sm md:shadow-lg">
                 <div className="w-3 h-3 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mt-2 animate-pulse"></div>
                 <div>
@@ -283,7 +283,7 @@ const Kickstack = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-indigo-100 to-blue-100 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 lg:mb-8 border border-indigo-200 mx-4 lg:mx-0">
+            <div className="bg-gradient-to-r from-indigo-100 to-blue-100 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 lg:mb-8 border border-indigo-200 md:mx-4 lg:mx-0">
               <div className="flex items-center space-x-2 md:space-x-3 mb-3">
                 <Target className="h-6 w-6 text-indigo-600" />
                 <span className="font-bold text-indigo-800 text-sm md:text-base">Designed for Success</span>
@@ -301,7 +301,7 @@ const Kickstack = () => {
         
         {/* CTA Section */}
         <div className="text-center mt-12 md:mt-16">
-          <button className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 mx-4">
+          <button className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold  text-lg hover:shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 mx-4">
             Apply for Internships
           </button>
         </div>

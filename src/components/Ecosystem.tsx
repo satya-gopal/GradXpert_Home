@@ -102,13 +102,17 @@ const Ecosystem = () => {
       </div>
       
       <div className="container-2xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">
-            <div className="flex items-center justify-center space-x-3 md:space-x-4 mb-2">
-            <div className="relative">
+        <div className="md:text-center mb-16">
+          <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">
+            <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-2">
+            <div className="relative hidden md:block">
               <Layers className="h-6 w-6 md:h-8 md:w-8 text-purple-600" />
               <div className="absolute -top-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse"></div>
             </div>
+            {/* <div className="relative  md:hidden">
+              <Layers className="absolute -top-6 -right-8 h-6 w-6 md:h-8 md:w-8 text-purple-600" />
+              <div className="absolute -top-6 -right-9 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse"></div>
+            </div> */}
             <span>The Ecosystem —{' '}
             <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent drop-shadow-sm">
               All You Need

@@ -58,7 +58,7 @@ export default function AnnouncementBar() {
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
       
       {/* Header - Adjusted for mobile */}
-      <div className="relative text-left md:text-center mb-4 md:mb-6 px-4">
+      <div className="relative  text-center mb-4 md:mb-6 px-4">
         <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 backdrop-blur-sm border border-cyan-500/20 text-cyan-700 px-3 md:px-6 py-1 md:py-3 rounded-full text-xs md:text-sm font-medium mb-2 md:mb-4 shadow-md md:shadow-lg">
           <Zap className="h-4 w-4 md:h-5 md:w-5 animate-pulse text-cyan-600" />
           <span className="font-semibold">Latest Updates</span>

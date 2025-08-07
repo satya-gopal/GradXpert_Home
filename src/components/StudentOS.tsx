@@ -53,8 +53,8 @@ const StudentOS = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-2000 to-white/5"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center space-x-4 mb-8">
+        <div className="md:text-center mb-16">
+          <div className="flex md:items-center md:justify-center space-x-4 mb-8">
             <div className="relative">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/30">
                 <Settings className="h-8 w-8 text-white" />

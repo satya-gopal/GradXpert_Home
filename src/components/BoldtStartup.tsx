@@ -3,7 +3,7 @@ import { Rocket, Lightbulb, TrendingUp, Users, Sparkles, Target, Code, Globe, Za
 
 const BoldtStartup = () => {
   return (
-    <section className="py-32 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.1),transparent_50%)]"></div>
@@ -22,8 +22,8 @@ const BoldtStartup = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Title - Mobile/Tablet only */}
-        <div className="text-center mb-12 lg:hidden">
-          <div className="flex items-center justify-center space-x-3 md:space-x-4 mb-6 md:mb-8">
+        <div className="md:text-center mb-12 lg:hidden">
+          <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-6 md:mb-8">
             <div className="relative">
               <Rocket className="h-8 w-8 md:h-10 md:w-10 text-emerald-600" />
               <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-green-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
@@ -35,12 +35,12 @@ const BoldtStartup = () => {
               </span>
             </h2>
           </div>
-          <p className="text-lg md:text-xl text-emerald-700 font-light text-center px-4">
+          <p className="text-lg md:text-xl text-emerald-700 font-light md:text-center md:px-4">
             Students don't just learn. They build.
           </p>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 md:items-center">
           <div className="relative order-2 lg:order-1">
             {/* Main hero image */}
             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-emerald-500/20 mb-8">
@@ -109,7 +109,7 @@ const BoldtStartup = () => {
               </p>
             </div>
             
-            <div className="space-y-4 md:space-y-6 mb-8 md:mb-10 px-4 lg:px-0">
+            <div className="space-y-4 md:space-y-6 mb-8 md:mb-10 px-0 md:px-4 lg:px-0">
               <div className="flex items-start space-x-3 md:space-x-4 p-3 md:p-4 rounded-xl md:rounded-2xl bg-white/60 backdrop-blur-sm border border-slate-200 hover:bg-white/80 transition-all duration-300 shadow-sm md:shadow-lg">
                 <div className="w-3 h-3 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full mt-2 animate-pulse"></div>
                 <div>
@@ -136,7 +136,7 @@ const BoldtStartup = () => {
               </div>
             </div>
             
-            <div className="bg-gradient-to-r from-emerald-100 to-green-100 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl mb-6 md:mb-8 border border-emerald-200 mx-4 lg:mx-0">
+            <div className="bg-gradient-to-r from-emerald-100 to-green-100 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl mb-6 md:mb-8 border border-emerald-200 mx-0 md:mx-4 lg:mx-0">
               <div className="flex items-center space-x-2 md:space-x-3 mb-3">
                 <Target className="h-5 w-5 md:h-6 md:w-6 text-emerald-600" />
                 <span className="font-bold text-emerald-800 text-sm md:text-base">For Student Entrepreneurs</span>
@@ -153,7 +153,7 @@ const BoldtStartup = () => {
         
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105 mx-4">
+          <button className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-lg md:text-lg hover:shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105 mx-4">
             Submit Your Idea
           </button>
         </div>
