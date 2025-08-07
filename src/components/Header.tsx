@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, GraduationCap, Home, Settings, BookOpen, Briefcase, FolderOpen, Rocket, ChevronDown, Users, Star, Crown, Handshake } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleVipProClick = () => {
+    navigate('/explore');
+  };
 
   // Close menu when clicking outside or on escape key
   useEffect(() => {
@@ -42,14 +48,14 @@ const Header = () => {
   const menuItems = [
     { href: "#", label: "Home", icon: Home },
     { href: "#studentos", label: "StudentOS", icon: Settings },
-    { href: "#courses", label: "I/O School", icon: BookOpen },
-    { href: "#internships", label: "Kickstack", icon: Briefcase },
-    { href: "#portfolio", label: "Powerfolio", icon: FolderOpen },
-    { href: "#boldtstartup", label: "BoldtStartup", icon: Rocket },
+    { href: "#ioschool", label: "I/O School", icon: BookOpen },
+    { href: "#kickstack", label: "Kickstack", icon: Briefcase },
+    { href: "#powerfolio", label: "Powerfolio", icon: FolderOpen },
+    { href: "#boldstartup", label: "BoldStartup", icon: Rocket },
     { href: "#talentpool", label: "Talent Pool", icon: Star },
-    { href: "#about", label: "About Us", icon: Users },
-    { href: "#careers", label: "Careers", icon: Briefcase },
-    { href: "#contact", label: "Contact Us", icon: Users },
+    { href: "/about", label: "About Us", icon: Users },
+  { href: "/careers", label: "Careers", icon: Briefcase },
+  { href: "/contact", label: "Contact Us", icon: Users }
   ];
 
   return (
@@ -77,13 +83,13 @@ const Header = () => {
                 <a href="#studentos" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   StudentOS
                 </a>
-                <a href="#courses" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-violet-500 hover:to-violet-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                <a href="#ioschool" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-violet-500 hover:to-violet-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   I/O School
                 </a>
-                <a href="#internships" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-indigo-700 hover:to-indigo-800 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                <a href="#kickstack" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-indigo-700 hover:to-indigo-800 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   Kickstack
                 </a>
-                <a href="#portfolio" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                <a href="#powerfolio" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   Powerfolio
                 </a>
                 
@@ -117,16 +123,16 @@ const Header = () => {
                         </button>
                         
                         {/* Events Submenu Items */}
-                        <div className="absolute left-full top-0 ml-1 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover/events:opacity-100 group-hover/events:visible transition-all duration-150 z-50">
+                        {/* <div className="absolute left-full top-0 ml-1 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover/events:opacity-100 group-hover/events:visible transition-all duration-150 z-50">
                           <div className="p-2">
-                            <a href="#online-events" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
+                            <a href="/newevents" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
                               Online Events
                             </a>
-                            <a href="#training-programs" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
+                            <a href="/training-program-details" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
                               Training Programs
                             </a>
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                       
                       {/* Partnerships Submenu */}
@@ -142,16 +148,16 @@ const Header = () => {
                         {/* Partnerships Submenu Items */}
                         <div className="absolute left-full top-0 ml-1 w-52 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover/partnerships:opacity-100 group-hover/partnerships:visible transition-all duration-150 z-50">
                           <div className="p-2">
-                            <a href="#partner-with-us" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
+                            <a href="/partner-with-us" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
                               Partner With Us
                             </a>
-                            <a href="#invite-to-college" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150 text-sm">
+                            <a href="/invite-to-college" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150 text-sm">
                               Invite to College
                             </a>
-                            <a href="#collaboration-program" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
+                            <a href="/collaboration-program" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
                               Collaboration Program
                             </a>
-                            <a href="#become-mentor" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150 text-sm">
+                            <a href="/become-mentor" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150 text-sm">
                               Become a Mentor
                             </a>
                           </div>
@@ -171,23 +177,23 @@ const Header = () => {
                   {/* Dropdown Menu */}
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                     <div className="p-2">
-                      <a href="#boldtstartup" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
+                      <a href="#boldstartup" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
                         <Rocket className="h-4 w-4" />
-                        <span>BoldtStartup</span>
+                        <span>BoldStartup</span>
                       </a>
                       <a href="#talentpool" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150">
                         <Star className="h-4 w-4" />
                         <span>Talent Pool</span>
                       </a>
-                      <a href="#about" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150">
+                      <a href="/about" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150">
                         <Users className="h-4 w-4" />
                         <span>About Us</span>
                       </a>
-                      <a href="#careers" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150">
+                      <a href="/careers" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150">
                         <Briefcase className="h-4 w-4" />
                         <span>Careers</span>
                       </a>
-                      <a href="#contact" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150">
+                      <a href="/contact" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150">
                         <Users className="h-4 w-4" />
                         <span>Contact Us</span>
                       </a>
@@ -201,9 +207,9 @@ const Header = () => {
                 <button className="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 font-medium text-sm transition-all duration-300">
                   Sign In
                 </button>
-                <button className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                <button onClick={handleVipProClick} className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2">
                   <Crown className="h-4 w-4" />
-                  <span>Start VIP Pro</span>
+                  <span>Explore</span>
                 </button>
               </div>
             

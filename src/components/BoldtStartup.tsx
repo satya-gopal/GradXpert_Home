@@ -3,7 +3,7 @@ import { Rocket, Lightbulb, TrendingUp, Users, Sparkles, Target, Code, Globe, Za
 
 const BoldtStartup = () => {
   return (
-    <section className="py-16 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+    <section id='boldstartup' className="py-16 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.1),transparent_50%)]"></div>

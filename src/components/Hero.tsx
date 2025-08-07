@@ -4,7 +4,7 @@ import { ArrowRight, Search, Sparkles, Zap } from 'lucide-react';
 const Hero = () => {
   return (
     // <section className="relative bg-white section-padding pt-32 md:pt-40 overflow-hidden">
-      <section className="relative  bg-gradient-to-br from-gray-50/30 via-white to-indigo-50/20 pt-32 md:pt-40  overflow-hidden grid-pattern">
+      <section id='#' className="relative  bg-gradient-to-br from-gray-50/30 via-white to-indigo-50/20 pt-32 md:pt-40  overflow-hidden grid-pattern">
 
       {/* Animated background elements */}
       {/* <div className="absolute inset-0">

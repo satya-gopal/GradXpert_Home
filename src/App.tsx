@@ -43,7 +43,7 @@ const HomePage = () => (
     <BoldtStartup />
     <TalentPool />
     <Events />
-    <VIPPro />
+    {/* <VIPPro /> */}
     <Testimonials />
     <FAQ />
     <CTA />
@@ -69,6 +69,7 @@ function App() {
             <Route path="/newevents" element={<NewEvents />} />
             <Route path="/explore" element={<Explore />} />
             <Route path="/course/:courseId" element={<CourseDetails />} />
+            <Route path="/vip-pro" element={<VIPPro />} />
         </Routes>
         <Footer />
       </div>

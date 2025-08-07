@@ -52,7 +52,7 @@ const IOSchool = () => {
   };
 
   return (
-    <section id="courses" className="py-16 md:py-32 bg-gradient-to-br from-purple-50 via-violet-50 to-blue-50 relative overflow-hidden">
+    <section id="ioschool" className="py-16 md:py-32 bg-gradient-to-br from-purple-50 via-violet-50 to-blue-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.1),transparent_50%)]"></div>

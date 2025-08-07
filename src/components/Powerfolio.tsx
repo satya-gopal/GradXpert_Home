@@ -3,7 +3,7 @@ import { FolderOpen, Link, Github, Award, Sparkles, Code, Globe, Briefcase } fro
 
 const Powerfolio = () => {
   return (
-    <section id="portfolio" className="py-16 bg-gradient-to-br from-blue-50 via-blue-100 to-sky-50 relative overflow-hidden">
+    <section id="powerfolio" className="py-16 bg-gradient-to-br from-blue-50 via-blue-100 to-sky-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_50%)]"></div>

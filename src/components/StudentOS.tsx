@@ -21,7 +21,7 @@ const aiTools = [
 
 const StudentOS = () => {
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+    <section id='studentos' className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.2),transparent_50%)]"></div>
