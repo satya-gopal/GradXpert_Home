@@ -32,6 +32,7 @@ import CourseDetails from './components/CourseDetails'
 import PrivacyPolicy from './components/privacypolicy';
 import TermsAndConditions from './components/termsandconditions';
 import RefundPolicy from './components/RefundPolicy';
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 
 const HomePage = () => (
@@ -82,6 +83,7 @@ function App() {
 
         </Routes>
         <Footer />
+        <ScrollToTopButton /> {/* <-- here */}
       </div>
     </Router>
   );

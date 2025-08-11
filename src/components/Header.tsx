@@ -112,7 +112,8 @@ const Header = () => {
     { href: "#talentpool", label: "Talent Pool", icon: Star },
     { href: "/about", label: "About Us", icon: Users },
     { href: "/careers", label: "Careers", icon: Briefcase },
-    { href: "/contact", label: "Contact Us", icon: Users }
+    { href: "/contact", label: "Contact Us", icon: Users },
+    { href: "/signin", label: "Signin", icon: Users }
   ];
 
   const quickLinksItems = [
@@ -181,8 +182,19 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                           <div className="flex items-center space-x-3">
                             <Users className="h-4 w-4" />
                             <span>Events</span>
+                            <ChevronDown className="h-3 w-3" />
                           </div>
                         </button>
+                        <div className="absolute left-full top-0 ml-1 w-52 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover/events:opacity-100 group-hover/events:visible transition-all duration-150 z-50">
+                          <div className="p-2">
+                            <button onClick={() => handleNavigation('#events')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
+                              Online Events
+                            </button>
+                            <button onClick={() => handleNavigation('#events')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150 text-sm">
+                              Offline Events
+                            </button>
+                          </div>
+                        </div>
                       </div>
                       
                       {/* Partnerships Submenu */}
@@ -227,13 +239,13 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                   {/* Dropdown Menu */}
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                     <div className="p-2">
-                      <button onClick={() => handleNavigation('#boldstartup')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
-                        <Rocket className="h-4 w-4" />
-                        <span>BoldStartup</span>
-                      </button>
                       <button onClick={() => handleNavigation('#talentpool')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150">
                         <Star className="h-4 w-4" />
                         <span>Talent Pool</span>
+                      </button>
+                      <button onClick={() => handleNavigation('#boldstartup')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
+                        <Rocket className="h-4 w-4" />
+                        <span>Bold Startup</span>
                       </button>
                       <button onClick={() => handleNavigation('/about')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150">
                         <Users className="h-4 w-4" />
@@ -250,11 +262,16 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                     </div>
                   </div>
                 </div>
+
+                <button  onClick={() => handleNavigation('/')}
+className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                  Signin
+                </button>
               </nav>
               
               {/* CTA Buttons */}
               <div className="hidden lg:flex items-center space-x-3">
-                <button onClick={() => handleNavigation('/explore')} className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                <button onClick={() => handleNavigation('/explore')} className="bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2">
                   <Crown className="h-4 w-4" />
                   <span>Explore Our Programs</span>
                 </button>
@@ -321,7 +338,7 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                     onClick={() => handleNavigation(item.href)}
                     className="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-150 group"
                   >
-                    <div className="w-8 h-8 bg-gradient-to-r from-slate-100 to-slate-200 group-hover:from-blue-100 group-hover:to-purple-100 rounded-lg flex items-center justify-center transition-all duration-150">
+                    <div className="w-3 h-3 bg-gradient-to-r from-slate-100 to-slate-200 group-hover:from-blue-100 group-hover:to-purple-100 rounded-lg flex items-center justify-center transition-all duration-150">
                       <Icon className="h-4 w-4 text-slate-600 group-hover:text-blue-600" />
                     </div>
                     <span className="font-medium text-sm">{item.label}</span>
@@ -377,7 +394,7 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
           {/* Bottom CTA Section */}
           <div className="p-4 border-t border-slate-200/50 bg-gradient-to-r from-slate-50/50 to-blue-50/50">
             <div className="space-y-2">
-              <button onClick={() => handleNavigation('/explore')} className="w-full flex items-center justify-center bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 space-x-2">
+              <button onClick={() => handleNavigation('/explore')} className="w-full flex items-center justify-center bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 space-x-2">
                 <Crown className="h-4 w-4" />
                 <span>Explore Our Programs</span>
               </button>
