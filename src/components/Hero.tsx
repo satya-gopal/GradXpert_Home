@@ -205,26 +205,26 @@ const Hero = () => {
         "https://gradxpert.com/brand-logos/msme-logo.jpg",
         "https://gradxpert.com/brand-logos/startup-andhra-pradesh-logo.jpg",
         "https://gradxpert.com/brand-logos/google-for-education-partner-logo.jpg",
-        "https://gradxpert.com/brand-logos/aicte-logo.jpg",
-        "https://gradxpert.com/brand-logos/apsche-logo.jpg",
+        // "https://gradxpert.com/brand-logos/aicte-logo.jpg",
+        // "https://gradxpert.com/brand-logos/apsche-logo.jpg",
         "https://gradxpert.com/brand-logos/apssdc-logo.jpg",
-        "https://gradxpert.com/brand-logos/gem-logo.jpg",
-        "https://gradxpert.com/brand-logos/nip-logo.jpg",
+        // "https://gradxpert.com/brand-logos/gem-logo.jpg",
+        // "https://gradxpert.com/brand-logos/nip-logo.jpg",
         "https://gradxpert.com/brand-logos/nvidia-inception-program-logo.jpg",
-        "https://gradxpert.com/brand-logos/skill-india-logo.jpg",
+        // "https://gradxpert.com/brand-logos/skill-india-logo.jpg",
         // duplicated again to make the scroll loop smoothly
         "https://gradxpert.com/brand-logos/startup-india-logo.jpg",
         "https://gradxpert.com/brand-logos/iso-9001-logo.jpg",
         "https://gradxpert.com/brand-logos/msme-logo.jpg",
         "https://gradxpert.com/brand-logos/startup-andhra-pradesh-logo.jpg",
         "https://gradxpert.com/brand-logos/google-for-education-partner-logo.jpg",
-        "https://gradxpert.com/brand-logos/aicte-logo.jpg",
-        "https://gradxpert.com/brand-logos/apsche-logo.jpg",
+        // "https://gradxpert.com/brand-logos/aicte-logo.jpg",
+        // "https://gradxpert.com/brand-logos/apsche-logo.jpg",
         "https://gradxpert.com/brand-logos/apssdc-logo.jpg",
-        "https://gradxpert.com/brand-logos/gem-logo.jpg",
-        "https://gradxpert.com/brand-logos/nip-logo.jpg",
+        // "https://gradxpert.com/brand-logos/gem-logo.jpg",
+        // "https://gradxpert.com/brand-logos/nip-logo.jpg",
         "https://gradxpert.com/brand-logos/nvidia-inception-program-logo.jpg",
-        "https://gradxpert.com/brand-logos/skill-india-logo.jpg"
+        // "https://gradxpert.com/brand-logos/skill-india-logo.jpg"
       ].map((logo, index) => (
         <div
           key={index}

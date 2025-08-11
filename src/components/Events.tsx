@@ -563,7 +563,7 @@ const Events = () => {
   };
 
   return (
-    <section className="py-20 bg-white relative overflow-hidden">
+    <section id='events' className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
@@ -581,7 +581,7 @@ const Events = () => {
 
         {/* Tab Navigation */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white/80 backdrop-blur-xl rounded-2xl p-2 border border-slate-200 shadow-lg">
+          <div className="bg-white/80 backdrop-blur-xl  rounded-2xl p-2 border border-slate-200 shadow-lg">
             <div className="flex space-x-2">
               <button
                 onClick={() => {

@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Code, Database, Brain, Cloud, GitBranch, Rocket, ArrowRight, Clock, Star, Users, 
   Calendar, MapPin, Filter, Search, Building, Award, Play, Zap, Trophy, Target,
   ChevronDown, X, BookOpen, Briefcase, GraduationCap, Settings, Plus, Edit3,
   Save, Eye, EyeOff, Shield, UserCheck, LogOut
 } from 'lucide-react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 type ProgramType = 'course' | 'internship' | 'training' | 'bootcamp';
 type ProgramLevel = 'beginner' | 'intermediate' | 'advanced';
@@ -46,12 +47,15 @@ interface AdminUser {
 }
 
 export default function Explore() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [activeFilter, setActiveFilter] = useState<'all' | ProgramType>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
   const [levelFilter, setLevelFilter] = useState<ProgramLevel | 'all'>('all');
   const [formatFilter, setFormatFilter] = useState<ProgramFormat | 'all'>('all');
   
+  console.log('activeFilter:', activeFilter);
   // Admin states
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
   const [showAdminLogin, setShowAdminLogin] = useState(false);
@@ -59,6 +63,17 @@ export default function Explore() {
   const [showAddCategory, setShowAddCategory] = useState(false);
   const [adminCredentials, setAdminCredentials] = useState({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    const filter = searchParams.get("filter");
+    if (filter) {
+      setActiveFilter(filter as 'all' | ProgramType);
+    }
+  }
+  , [searchParams]);
+
+    // Check if admin is logged in from localStorage
+    
 
   // Mock admin user (in real app, this would be handled by backend authentication)
   const adminUser: AdminUser = {
@@ -476,6 +491,13 @@ export default function Explore() {
       alert('Invalid credentials');
     }
   };
+  const handleButton = (type: string) => {
+    if (type === 'course') {
+      navigate('/course-details')
+    } else if (type === 'training') {
+      navigate('/training-program-details')
+    }
+  }
 
   const handleAdminLogout = () => {
     setIsAdminLoggedIn(false);
@@ -701,7 +723,7 @@ export default function Explore() {
           </div>
           
           {/* CTA Button */}
-          <button className={`w-full bg-gradient-to-r ${program.gradient} text-white py-3 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group-hover:scale-105 relative overflow-hidden`}>
+          <button onClick={()=> handleButton(program.type) } className={`w-full bg-gradient-to-r ${program.gradient} text-white py-3 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group-hover:scale-105 relative overflow-hidden`}>
             <span className="relative">
               {program.type === 'course' ? 'Enroll Now' :
                program.type === 'internship' ? 'Apply Now' :
@@ -718,7 +740,7 @@ export default function Explore() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
+      <section className="pt-28 pb-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -743,7 +765,7 @@ export default function Explore() {
             </div>
             
             {/* Admin Section */}
-            <div className="absolute top-6 right-6">
+            <div className="absolute top-6 right-6 hidden md:block">
               {!isAdminLoggedIn ? (
                 <button
                   onClick={() => setShowAdminLogin(true)}
@@ -851,11 +873,11 @@ export default function Explore() {
               </div>
             </div>
             
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
+            {/* <div className="mt-6 p-4 bg-gray-50 rounded-lg">
               <p className="text-sm text-gray-600 mb-2">Demo Credentials:</p>
               <p className="text-xs text-gray-500">Username: admin</p>
               <p className="text-xs text-gray-500">Password: ioschool2024</p>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

@@ -35,13 +35,39 @@ export default function Partnership() {
   ];
 
   return (
-    <section className="py-20  bg-gray-900 relative">
+    <section className="section-padding bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
       {/* Radial gradient pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.05)_1px,transparent_0)] bg-[length:24px_24px]"></div>
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_30%,rgba(147,51,234,0.15),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_80%,rgba(236,72,153,0.12),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_60%,rgba(16,185,129,0.12),transparent_60%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_90%_70%,rgba(251,146,60,0.12),transparent_60%)]"></div>
+      </div>
+      
+      {/* Animated grid */}
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(147,51,234,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(147,51,234,0.04)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+      
+      {/* Floating elements */}
+      <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-r from-blue-300/30 to-purple-300/30 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-r from-pink-300/30 to-orange-300/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+      <div className="absolute top-1/2 left-10 w-24 h-24 bg-gradient-to-r from-emerald-300/25 to-teal-300/25 rounded-full blur-2xl animate-pulse delay-500"></div>
+      <div className="absolute top-1/3 right-10 w-36 h-36 bg-gradient-to-r from-amber-300/25 to-yellow-300/25 rounded-full blur-3xl animate-pulse delay-2000"></div>
+      
+      {/* Animated particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-blue-400 rounded-full animate-ping"></div>
+        <div className="absolute top-3/4 right-1/4 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+        <div className="absolute top-1/2 left-3/4 w-4 h-4 bg-pink-400 rounded-full animate-bounce"></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-emerald-400 rounded-full animate-ping"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-orange-400 rounded-full animate-pulse"></div>
+      </div>
+
+      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.05)_1px,transparent_0)] bg-[length:24px_24px]"></div> */}
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-left md:text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-6">
+          <h2 className="text-4xl font-bold text-black mb-6">
             Partner with <span className="bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">GradXpert</span> to Make a Bigger Impact
           </h2>
         </div>

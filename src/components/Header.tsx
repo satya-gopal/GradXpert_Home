@@ -1,25 +1,75 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, GraduationCap, Home, Settings, BookOpen, Briefcase, FolderOpen, Rocket, ChevronDown, Users, Star, Crown, Handshake } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Menu, X, GraduationCap, Home, Settings, BookOpen, Briefcase, FolderOpen, Rocket, ChevronDown, Users, Star, Crown, Handshake, ChevronRight } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isQuickLinksOpen, setIsQuickLinksOpen] = useState(false);
 
-  const handleVipProClick = () => {
-    navigate('/explore');
+  const handleNavigation = (path: string) => {
+    setIsMenuOpen(false);
+    setIsQuickLinksOpen(false);
+    
+    // If it's a hash link and we're already on the homepage
+    if (path.startsWith('#') && location.pathname === '/') {
+      const section = document.querySelector(path);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+    
+    // If it's a hash link but we're not on homepage
+    if (path.startsWith('#')) {
+      navigate('/', { state: { scrollTo: path }, replace: true });
+      return;
+    }
+    
+    // Regular route navigation - reset scroll position
+    navigate(path);
+    window.scrollTo(0, 0);
   };
+  
+  useEffect(() => {
+    // Only handle scroll if we have a hash in the URL and no scrollTo state
+    if (location.hash && !location.state?.scrollTo) {
+      const section = document.querySelector(location.hash);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }, 300); // Increased delay for more reliability
+      }
+    }
+    
+    // Handle scrollTo state from navigation
+    if (location.state?.scrollTo) {
+      const section = document.querySelector(location.state.scrollTo);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+          // Clean up the state to prevent duplicate scrolls
+          navigate(location.pathname, { replace: true, state: {} });
+        }, 300);
+      }
+    }
+  }, [location, navigate]);
 
   // Close menu when clicking outside or on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setIsMenuOpen(false);
+      if (e.key === 'Escape') {
+        setIsMenuOpen(false);
+        setIsQuickLinksOpen(false);
+      }
     };
     
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (isMenuOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
         setIsMenuOpen(false);
+        setIsQuickLinksOpen(false);
       }
     };
 
@@ -45,6 +95,13 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
+  // Reset quick links dropdown when main menu closes
+  useEffect(() => {
+    if (!isMenuOpen) {
+      setIsQuickLinksOpen(false);
+    }
+  }, [isMenuOpen]);
+
   const menuItems = [
     { href: "#", label: "Home", icon: Home },
     { href: "#studentos", label: "StudentOS", icon: Settings },
@@ -54,8 +111,18 @@ const Header = () => {
     { href: "#boldstartup", label: "BoldStartup", icon: Rocket },
     { href: "#talentpool", label: "Talent Pool", icon: Star },
     { href: "/about", label: "About Us", icon: Users },
-  { href: "/careers", label: "Careers", icon: Briefcase },
-  { href: "/contact", label: "Contact Us", icon: Users }
+    { href: "/careers", label: "Careers", icon: Briefcase },
+    { href: "/contact", label: "Contact Us", icon: Users }
+  ];
+
+  const quickLinksItems = [
+    { href: '/explore?filter=course', label: 'Courses', icon: BookOpen },
+    { href: '/explore?filter=internship', label: 'Internships', icon: Briefcase },
+    { href: '#events', label: 'Events', icon: Users },
+    { href: '/partner-with-us', label: 'Partner With Us', icon: Handshake },
+    { href: '/invite-to-college', label: 'Invite to College', icon: GraduationCap },
+    { href: '/collaboration-program', label: 'Collaboration Program', icon: Users },
+    { href: '/become-mentor', label: 'Become a Mentor', icon: Star }
   ];
 
   return (
@@ -66,32 +133,28 @@ const Header = () => {
           <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/50 shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3">
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-3">
-                <div className="relative">
-                  <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg">
-                    <GraduationCap className="h-6 w-6 text-white" />
-                  </div>
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse"></div>
-                </div>
-                <span className="font-bold text-xl text-slate-900 tracking-tight">GradXpert</span>
+                <img onClick={() =>handleNavigation('/')} src="/Red-Black-Name-Logo.png" alt="GradXpert Logo" className="h-10 w-auto cursor-pointer" />
               </div>
             
               {/* Desktop Navigation */}
               <nav className="hidden lg:flex items-center space-x-1">
-                <a href="#" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-slate-500 hover:to-gray-500 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                <button onClick={() => handleNavigation('/')} className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-slate-500 hover:to-gray-500 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   Home
-                </a>
-                <a href="#studentos" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                </button>
+                <button  onClick={() => handleNavigation('#studentos')}
+className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   StudentOS
-                </a>
-                <a href="#ioschool" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-violet-500 hover:to-violet-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                </button>
+                <button onClick={() => handleNavigation('#ioschool')}
+                   className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-violet-500 hover:to-violet-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   I/O School
-                </a>
-                <a href="#kickstack" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-indigo-700 hover:to-indigo-800 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                </button>
+                <button onClick={() => handleNavigation('#kickstack')} className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-indigo-700 hover:to-indigo-800 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   Kickstack
-                </a>
-                <a href="#powerfolio" className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                </button>
+                <button onClick={() => handleNavigation('#powerfolio')} className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   Powerfolio
-                </a>
+                </button>
                 
                 {/* Quick Links Dropdown */}
                 <div className="relative group">
@@ -103,36 +166,23 @@ const Header = () => {
                   {/* Quick Links Dropdown Menu */}
                   <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                     <div className="p-2">
-                      <a href="#courses" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-violet-50 hover:text-purple-700 transition-all duration-150">
+                      <button onClick={() => handleNavigation('/explore?filter=course')} className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-violet-50 hover:text-purple-700 transition-all duration-150">
                         <BookOpen className="h-4 w-4" />
                         <span>Courses</span>
-                      </a>
-                      <a href="#internships" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-150">
+                      </button>
+                      <button onClick={() => handleNavigation('/explore?filter=internship')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-150">
                         <Briefcase className="h-4 w-4" />
                         <span>Internships</span>
-                      </a>
+                      </button>
                       
                       {/* Events Submenu */}
                       <div className="relative group/events">
-                        <button className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150">
+                        <button onClick={() => handleNavigation('#events')} className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150">
                           <div className="flex items-center space-x-3">
                             <Users className="h-4 w-4" />
                             <span>Events</span>
                           </div>
-                          <ChevronDown className="h-3 w-3" />
                         </button>
-                        
-                        {/* Events Submenu Items */}
-                        {/* <div className="absolute left-full top-0 ml-1 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover/events:opacity-100 group-hover/events:visible transition-all duration-150 z-50">
-                          <div className="p-2">
-                            <a href="/newevents" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
-                              Online Events
-                            </a>
-                            <a href="/training-program-details" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
-                              Training Programs
-                            </a>
-                          </div>
-                        </div> */}
                       </div>
                       
                       {/* Partnerships Submenu */}
@@ -148,18 +198,18 @@ const Header = () => {
                         {/* Partnerships Submenu Items */}
                         <div className="absolute left-full top-0 ml-1 w-52 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover/partnerships:opacity-100 group-hover/partnerships:visible transition-all duration-150 z-50">
                           <div className="p-2">
-                            <a href="/partner-with-us" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
+                            <button onClick={() => handleNavigation('/partner-with-us')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
                               Partner With Us
-                            </a>
-                            <a href="/invite-to-college" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150 text-sm">
+                            </button>
+                            <button onClick={() => handleNavigation('/invite-to-college')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150 text-sm">
                               Invite to College
-                            </a>
-                            <a href="/collaboration-program" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
+                            </button>
+                            <button onClick={() => handleNavigation('/collaboration-program')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
                               Collaboration Program
-                            </a>
-                            <a href="/become-mentor" className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150 text-sm">
+                            </button>
+                            <button onClick={() => handleNavigation('/become-mentor')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150 text-sm">
                               Become a Mentor
-                            </a>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -177,26 +227,26 @@ const Header = () => {
                   {/* Dropdown Menu */}
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                     <div className="p-2">
-                      <a href="#boldstartup" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
+                      <button onClick={() => handleNavigation('#boldstartup')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
                         <Rocket className="h-4 w-4" />
                         <span>BoldStartup</span>
-                      </a>
-                      <a href="#talentpool" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150">
+                      </button>
+                      <button onClick={() => handleNavigation('#talentpool')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150">
                         <Star className="h-4 w-4" />
                         <span>Talent Pool</span>
-                      </a>
-                      <a href="/about" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150">
+                      </button>
+                      <button onClick={() => handleNavigation('/about')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150">
                         <Users className="h-4 w-4" />
                         <span>About Us</span>
-                      </a>
-                      <a href="/careers" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150">
+                      </button>
+                      <button onClick={() => handleNavigation('/careers')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150">
                         <Briefcase className="h-4 w-4" />
                         <span>Careers</span>
-                      </a>
-                      <a href="/contact" className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150">
+                      </button>
+                      <button onClick={() => handleNavigation('/contact')} className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150">
                         <Users className="h-4 w-4" />
                         <span>Contact Us</span>
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -204,12 +254,9 @@ const Header = () => {
               
               {/* CTA Buttons */}
               <div className="hidden lg:flex items-center space-x-3">
-                <button className="px-4 py-2 rounded-xl text-slate-600 hover:text-slate-900 font-medium text-sm transition-all duration-300">
-                  Sign In
-                </button>
-                <button onClick={handleVipProClick} className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                <button onClick={() => handleNavigation('/explore')} className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2">
                   <Crown className="h-4 w-4" />
-                  <span>Explore</span>
+                  <span>Explore Our Programs</span>
                 </button>
               </div>
             
@@ -251,13 +298,7 @@ const Header = () => {
         {/* Menu Header */}
         <div className="flex items-center justify-between p-6 border-b border-slate-200/50">
           <div className="flex items-center space-x-3">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg">
-                <GraduationCap className="h-6 w-6 text-white" />
-              </div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse"></div>
-            </div>
-            <span className="font-bold text-xl text-slate-900 tracking-tight">GradXpert</span>
+            <img src="/Red-Black-Name-Logo.png" alt="GradXpert Logo" className="h-10 w-auto" />
           </div>
           <button 
             onClick={() => setIsMenuOpen(false)}
@@ -275,50 +316,70 @@ const Header = () => {
               {menuItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <a
+                  <button
                     key={index}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center space-x-3 px-3 py-2.5 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-150 group"
+                    onClick={() => handleNavigation(item.href)}
+                    className="w-full flex items-center space-x-3 px-3 py-2.5 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-150 group"
                   >
                     <div className="w-8 h-8 bg-gradient-to-r from-slate-100 to-slate-200 group-hover:from-blue-100 group-hover:to-purple-100 rounded-lg flex items-center justify-center transition-all duration-150">
                       <Icon className="h-4 w-4 text-slate-600 group-hover:text-blue-600" />
                     </div>
                     <span className="font-medium text-sm">{item.label}</span>
-                  </a>
+                  </button>
                 );
               })}
             </div>
 
-            {/* VIP Pro Highlight */}
-            <div className="mt-6 p-3 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl border border-amber-200/50">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="w-8 h-8 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-lg flex items-center justify-center">
-                  <Crown className="h-4 w-4 text-amber-600" />
+            {/* Quick Links Dropdown Section for Mobile */}
+            <div className="mt-6">
+              <button 
+                onClick={() => setIsQuickLinksOpen(!isQuickLinksOpen)}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-gradient-to-r hover:from-slate-50 hover:to-slate-100 transition-all duration-150 group"
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-slate-100 to-slate-200 group-hover:from-slate-200 group-hover:to-slate-300 rounded-lg flex items-center justify-center transition-all duration-150">
+                    <Briefcase className="h-4 w-4 text-slate-600 group-hover:text-slate-700" />
+                  </div>
+                  <span className="font-semibold text-sm">Quick Links</span>
                 </div>
-                <span className="font-bold text-amber-800 text-sm">VIP Pro</span>
-              </div>
-              <p className="text-xs text-amber-700 mb-2">Complete career transformation package</p>
-              <button className="w-full bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-3 py-2 rounded-xl font-medium text-xs hover:shadow-lg transition-all duration-150">
-                Learn More
+                <ChevronRight 
+                  className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${
+                    isQuickLinksOpen ? 'rotate-90' : ''
+                  }`} 
+                />
               </button>
+              
+              {/* Quick Links Dropdown Items */}
+              <div className={`overflow-hidden transition-all duration-300 ${
+                isQuickLinksOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              }`}>
+                <div className="pl-4 mt-2 space-y-1 border-l-2 border-slate-100 ">
+                  {quickLinksItems.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => handleNavigation(item.href)}
+                        className="w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-150 group text-left"
+                      >
+                        <div className="w-6 h-6 bg-gradient-to-r from-slate-50 to-slate-100 group-hover:from-blue-50 group-hover:to-purple-50 rounded-lg flex items-center justify-center transition-all duration-150">
+                          <Icon className="h-3.5 w-3.5 text-slate-500 group-hover:text-blue-600" />
+                        </div>
+                        <span className="font-medium text-sm">{item.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </nav>
 
           {/* Bottom CTA Section */}
           <div className="p-4 border-t border-slate-200/50 bg-gradient-to-r from-slate-50/50 to-blue-50/50">
             <div className="space-y-2">
-              <button 
-                onClick={() => setIsMenuOpen(false)}
-                className="w-full text-slate-600 hover:text-slate-900 font-medium py-2.5 px-3 rounded-xl hover:bg-white/80 transition-all duration-150 text-sm"
-              >
-                Sign In
-              </button>
-              <button 
-                onClick={() => setIsMenuOpen(false)}
-                className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white px-3 py-2.5 rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all duration-150 font-medium shadow-lg hover:shadow-xl hover:shadow-purple-500/25 hover:scale-105 text-sm"
-              >
-                Start Your Journey
+              <button onClick={() => handleNavigation('/explore')} className="w-full flex items-center justify-center bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 space-x-2">
+                <Crown className="h-4 w-4" />
+                <span>Explore Our Programs</span>
               </button>
             </div>
             

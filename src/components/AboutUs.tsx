@@ -458,6 +458,7 @@ import {
   ChevronRight,
   Quote
 } from 'lucide-react';
+import Promise from './Promise';
 
 const ecosystemItems = [
   { icon: Settings, name: "StudentOS", function: "Tools & productivity layer", color: "from-slate-600 to-slate-700" },
@@ -646,17 +647,17 @@ const AboutUs = () => {
   }, []);
 
   const nextProfessional = () => {
-    setCurrentProfessional((prev) => (prev + 1) % Math.ceil(professionals.length / 2));
+    setCurrentProfessional((prev) => (prev + 1) % Math.ceil(professionals.length ));
   };
 
   const prevProfessional = () => {
-    setCurrentProfessional((prev) => (prev - 1 + Math.ceil(professionals.length / 2)) % Math.ceil(professionals.length / 2));
+    setCurrentProfessional((prev) => (prev - 1 + Math.ceil(professionals.length )) % Math.ceil(professionals.length));
   };
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.1),transparent_50%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(147,51,234,0.1),transparent_50%)]"></div>
@@ -665,8 +666,8 @@ const AboutUs = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-4 mb-8">
-              <GraduationCap className="h-12 w-12 text-blue-600" />
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight">
+              <GraduationCap className="h-12 w-12 text-blue-600 hidden md:block" />
+              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
                 We're Building the{' '}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                   Career Engine
@@ -676,7 +677,7 @@ const AboutUs = () => {
               </h1>
             </div>
             
-            <p className="text-xl text-slate-700 mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-700 mb-8 max-w-4xl mx-auto leading-relaxed">
               GradXpert is on a mission to bridge the gap between education and employability by giving students one unified ecosystem — from career clarity to internships, portfolios, and real opportunities.
             </p>
             
@@ -693,7 +694,7 @@ const AboutUs = () => {
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center space-x-3 mb-6">
@@ -734,19 +735,21 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+          <Promise />
+
 
       {/* Ecosystem Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Zap className="h-8 w-8 text-purple-600" />
+          <div className="md:text-center mb-16">
+            <div className="flex md:items-center md:justify-center space-x-3 mb-6">
+              <Zap className="h-8 w-8 text-purple-600 hidden md:block" />
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
                 One Platform. Every Layer of Career Building.
               </h2>
             </div>
-            <p className="text-xl text-slate-700 max-w-3xl mx-auto">
+            <p className="text-lg text-slate-700 max-w-3xl mx-auto">
               The GradXpert ecosystem is designed to guide students through every stage of their journey
             </p>
           </div>
@@ -777,13 +780,13 @@ const AboutUs = () => {
       {/* Goal Section */}
       <section className="py-20 bg-gradient-to-br from-emerald-50 to-teal-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Target className="h-8 w-8 text-emerald-600" />
+          <div className="text-left md:text-center">
+            <div className="flex items-center md:justify-center space-x-3 mb-6">
+              <Target className="h-6 w-6 md:h-8 md:w-8 text-emerald-600" />
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Goal</h2>
             </div>
             
-            <div className="bg-white/90 backdrop-blur-xl p-12 rounded-3xl border border-emerald-200 shadow-2xl max-w-4xl mx-auto">
+            <div className="bg-white/90 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-emerald-200 shadow-2xl max-w-4xl md:mx-auto">
               <div className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-6">
                 10 Million Students
               </div>
@@ -801,8 +804,8 @@ const AboutUs = () => {
       {/* Enhanced Team Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center space-x-3 mb-6">
+          <div className="md:text-center mb-16">
+            <div className="flex md:items-center md:justify-center space-x-3 mb-6">
               <Users className="h-8 w-8 text-blue-600" />
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Meet Our Core Team</h2>
             </div>
@@ -882,143 +885,231 @@ const AboutUs = () => {
       {/* Enhanced Professionals Section with Slider */}
       <section className="py-20 bg-gradient-to-br from-purple-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center space-x-3 mb-6">
-              <Award className="h-8 w-8 text-purple-600" />
+          <div className="text-left md:text-center mb-16">
+            <div className="flex items-start md:items-center md:justify-center space-x-3 mb-6">
+              <Award className="h-14 w-14 lg:h-8 lg:w-8 text-purple-600 mt-1 md:mt-0" />
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
                 Backed by Industry Professionals
               </h2>
             </div>
-            <p className="text-xl text-slate-700 mb-8">
+            <p className="text-xl text-slate-700 mb-8 md:max-w-2xl md:mx-auto">
               Hear from the professionals who guide and mentor our students
             </p>
           </div>
           
-          {/* Professional Slider */}
+          {/* Professional Slider - Mobile Optimized */}
           <div className="relative mb-12">
-            <div className="overflow-hidden rounded-2xl">
-              <div 
-                className="flex transition-transform duration-500 ease-in-out"
-                style={{ transform: `translateX(-${currentProfessional * 50}%)` }}
-              >
-                {professionals.map((professional, index) => (
-                  <div key={index} className="w-1/2 flex-shrink-0 px-3">
-                    <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-6 border border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                      {/* Header with Image and Basic Info */}
-                      <div className="flex items-start space-x-4 mb-4">
-                        <div className="relative flex-shrink-0">
-                          <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
-                            <img 
-                              src={professional.image} 
-                              alt={professional.name}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                          <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
-                            <CheckCircle className="h-3 w-3 text-white" />
-                          </div>
-                        </div>
-                        
-                        <div className="flex-1 min-w-0">
-                          <h4 className="text-lg font-bold text-slate-900 mb-1 truncate">
-                            {professional.name}
-                          </h4>
-                          <p className="text-purple-600 font-semibold text-sm mb-1 truncate">
-                            {professional.role}
-                          </p>
-                          <p className="text-slate-600 text-sm truncate">
-                            {professional.company}
-                          </p>
-                        </div>
-                      </div>
-                      
-                      {/* Quote */}
-                      <div className="mb-4">
-                        <Quote className="h-5 w-5 text-purple-400 mb-3" />
-                        <blockquote className="text-slate-700 italic text-sm leading-relaxed line-clamp-4">
-                          "{professional.quote}"
-                        </blockquote>
-                      </div>
-                      
-                      {/* Expertise Badge */}
-                      <div className="flex justify-between items-center">
-                        <div className="bg-gradient-to-r from-purple-100 to-indigo-100 px-3 py-1 rounded-full">
-                          <span className="text-purple-700 font-medium text-xs">
-                            {professional.expertise}
-                          </span>
-                        </div>
-                        <div className="text-xs text-slate-500">
-                          Industry Expert
-                        </div>
-                      </div>
+            {/* Mobile View - Single Card */}
+            <div className="md:hidden">
+              <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-6 border border-purple-200 shadow-lg">
+                <div className="flex items-start space-x-4 mb-4">
+                  <div className="relative flex-shrink-0">
+                    <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
+                      <img 
+                        src={professionals[currentProfessional].image} 
+                        alt={professionals[currentProfessional].name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
+                      <CheckCircle className="h-3 w-3 text-white" />
                     </div>
                   </div>
-                ))}
+                  
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-lg font-bold text-slate-900 mb-1">
+                      {professionals[currentProfessional].name}
+                    </h4>
+                    <p className="text-purple-600 font-semibold text-sm mb-1">
+                      {professionals[currentProfessional].role}
+                    </p>
+                    <p className="text-slate-600 text-sm">
+                      {professionals[currentProfessional].company}
+                    </p>
+                  </div>
+                </div>
+                
+                {/* Quote */}
+                <div className="mb-4">
+                  <Quote className="h-5 w-5 text-purple-400 mb-3" />
+                  <blockquote className="text-slate-700 text-sm leading-relaxed">
+                    "{professionals[currentProfessional].quote}"
+                  </blockquote>
+                </div>
+                
+                {/* Expertise Badge */}
+                <div className="flex justify-between items-center">
+                  <div className="bg-gradient-to-r from-purple-100 to-indigo-100 px-3 py-1 rounded-full">
+                    <span className="text-purple-700 font-medium text-xs">
+                      {professionals[currentProfessional].expertise}
+                    </span>
+                  </div>
+                  <div className="text-xs text-slate-500">
+                    Industry Expert
+                  </div>
+                </div>
+              </div>
+              
+              {/* Mobile Navigation */}
+              <div className="flex justify-between items-center mt-4">
+                <button 
+                  onClick={prevProfessional}
+                  className="bg-white/90 backdrop-blur-xl p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-purple-200"
+                >
+                  <ChevronLeft className="h-5 w-5 text-purple-600" />
+                </button>
+                
+                <div className="flex space-x-2">
+                  {professionals.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentProfessional(index)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentProfessional 
+                          ? 'bg-purple-600 scale-125' 
+                          : 'bg-purple-300'
+                      }`}
+                    />
+                  ))}
+                </div>
+                
+                <button 
+                  onClick={nextProfessional}
+                  className="bg-white/90 backdrop-blur-xl p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-purple-200"
+                >
+                  <ChevronRight className="h-5 w-5 text-purple-600" />
+                </button>
               </div>
             </div>
-            
-            {/* Navigation */}
-            <button 
-              onClick={prevProfessional}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-xl p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-purple-200 z-10"
-            >
-              <ChevronLeft className="h-5 w-5 text-purple-600" />
-            </button>
-            <button 
-              onClick={nextProfessional}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-xl p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-purple-200 z-10"
-            >
-              <ChevronRight className="h-5 w-5 text-purple-600" />
-            </button>
-            
-            {/* Dots Indicator */}
-            <div className="flex justify-center space-x-2 mt-6">
-              {Array.from({ length: Math.ceil(professionals.length / 2) }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentProfessional(index)}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentProfessional 
-                      ? 'bg-purple-600 scale-125' 
-                      : 'bg-purple-300 hover:bg-purple-400'
-                  }`}
-                />
-              ))}
+
+            {/* Desktop View - Two Cards */}
+            <div className="hidden md:block">
+              <div className="overflow-hidden rounded-2xl">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${Math.floor(currentProfessional / 2) * 100}%)` }}
+                >
+                  {Array.from({ length: Math.ceil(professionals.length / 2) }).map((_, slideIndex) => (
+                    <div key={slideIndex} className="w-full flex-shrink-0 flex space-x-6 px-3">
+                      {professionals.slice(slideIndex * 2, slideIndex * 2 + 2).map((professional, index) => (
+                        <div key={slideIndex * 2 + index} className="w-1/2">
+                          <div className="bg-white/90 backdrop-blur-xl rounded-2xl p-6 border border-purple-200 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                            <div className="flex items-start space-x-4 mb-4">
+                              <div className="relative flex-shrink-0">
+                                <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg">
+                                  <img 
+                                    src={professional.image} 
+                                    alt={professional.name}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                                <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center shadow-lg">
+                                  <CheckCircle className="h-3 w-3 text-white" />
+                                </div>
+                              </div>
+                              
+                              <div className="flex-1 min-w-0">
+                                <h4 className="text-lg font-bold text-slate-900 mb-1 truncate">
+                                  {professional.name}
+                                </h4>
+                                <p className="text-purple-600 font-semibold text-sm mb-1 truncate">
+                                  {professional.role}
+                                </p>
+                                <p className="text-slate-600 text-sm truncate">
+                                  {professional.company}
+                                </p>
+                              </div>
+                            </div>
+                            
+                            <div className="mb-4">
+                              <Quote className="h-5 w-5 text-purple-400 mb-3" />
+                              <blockquote className="text-slate-700 italic text-sm leading-relaxed line-clamp-4">
+                                "{professional.quote}"
+                              </blockquote>
+                            </div>
+                            
+                            <div className="flex justify-between items-center">
+                              <div className="bg-gradient-to-r from-purple-100 to-indigo-100 px-3 py-1 rounded-full">
+                                <span className="text-purple-700 font-medium text-xs">
+                                  {professional.expertise}
+                                </span>
+                              </div>
+                              <div className="text-xs text-slate-500">
+                                Industry Expert
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Desktop Navigation */}
+              <button 
+                onClick={() => setCurrentProfessional(Math.max(0, currentProfessional - 2))}
+                className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-xl p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-purple-200 z-10"
+              >
+                <ChevronLeft className="h-5 w-5 text-purple-600" />
+              </button>
+              <button 
+                onClick={() => setCurrentProfessional(Math.min(professionals.length - 2, currentProfessional + 2))}
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-xl p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-purple-200 z-10"
+              >
+                <ChevronRight className="h-5 w-5 text-purple-600" />
+              </button>
+              
+              {/* Desktop Dots Indicator */}
+              <div className="flex justify-center space-x-2 mt-6">
+                {Array.from({ length: Math.ceil(professionals.length / 2) }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentProfessional(index * 2)}
+                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      Math.floor(currentProfessional / 2) === index
+                        ? 'bg-purple-600 scale-125' 
+                        : 'bg-purple-300 hover:bg-purple-400'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
           
           {/* Professional Stats */}
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-purple-200 text-center">
-              <Building className="h-8 w-8 text-purple-600 mx-auto mb-3" />
-              <h3 className="font-bold text-slate-900 mb-2">Top Companies</h3>
-              <p className="text-sm text-slate-600">Google, Microsoft, Amazon, TCS</p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            <div className="bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-purple-200 text-center">
+              <Building className="h-6 w-6 md:h-8 md:w-8 text-purple-600 mx-auto mb-2 md:mb-3" />
+              <h3 className="font-bold text-slate-900 mb-1 md:mb-2 text-sm md:text-base">Top Companies</h3>
+              <p className="text-xs md:text-sm text-slate-600">Google, Microsoft, Amazon, TCS</p>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-purple-200 text-center">
-              <Rocket className="h-8 w-8 text-purple-600 mx-auto mb-3" />
-              <h3 className="font-bold text-slate-900 mb-2">Startup Founders</h3>
-              <p className="text-sm text-slate-600">Product leads & entrepreneurs</p>
+            <div className="bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-purple-200 text-center">
+              <Rocket className="h-6 w-6 md:h-8 md:w-8 text-purple-600 mx-auto mb-2 md:mb-3" />
+              <h3 className="font-bold text-slate-900 mb-1 md:mb-2 text-sm md:text-base">Startup Founders</h3>
+              <p className="text-xs md:text-sm text-slate-600">Product leads & entrepreneurs</p>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-purple-200 text-center">
-              <Users className="h-8 w-8 text-purple-600 mx-auto mb-3" />
-              <h3 className="font-bold text-slate-900 mb-2">HR Leaders</h3>
-              <p className="text-sm text-slate-600">Hiring managers & talent experts</p>
+            <div className="bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-purple-200 text-center">
+              <Users className="h-6 w-6 md:h-8 md:w-8 text-purple-600 mx-auto mb-2 md:mb-3" />
+              <h3 className="font-bold text-slate-900 mb-1 md:mb-2 text-sm md:text-base">HR Leaders</h3>
+              <p className="text-xs md:text-sm text-slate-600">Hiring managers & talent experts</p>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm p-6 rounded-2xl border border-purple-200 text-center">
-              <GraduationCap className="h-8 w-8 text-purple-600 mx-auto mb-3" />
-              <h3 className="font-bold text-slate-900 mb-2">Academic Advisors</h3>
-              <p className="text-sm text-slate-600">From top institutions</p>
+            <div className="bg-white/80 backdrop-blur-sm p-4 md:p-6 rounded-2xl border border-purple-200 text-center">
+              <GraduationCap className="h-6 w-6 md:h-8 md:w-8 text-purple-600 mx-auto mb-2 md:mb-3" />
+              <h3 className="font-bold text-slate-900 mb-1 md:mb-2 text-sm md:text-base">Academic Advisors</h3>
+              <p className="text-xs md:text-sm text-slate-600">From top institutions</p>
             </div>
           </div>
         </div>
       </section>
 
+
       {/* Enhanced Journey Section with Unique UI */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center space-x-3 mb-6">
+          <div className="md:text-center mb-16">
+            <div className="flex md:items-center md:justify-center space-x-3 mb-6">
               <Calendar className="h-8 w-8 text-emerald-600" />
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">Our Journey So Far</h2>
             </div>
@@ -1103,8 +1194,10 @@ const AboutUs = () => {
               })}
             </div>
             
-            {/* Future Vision */}
-            <div className="text-center mt-16">
+           
+          </div>
+           {/* Future Vision */}
+           <div className="text-center mt-16">
               <div className="bg-gradient-to-r from-emerald-100 to-blue-100 p-8 rounded-3xl border border-emerald-200 max-w-2xl mx-auto">
                 <Globe className="h-12 w-12 text-emerald-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">What's Next?</h3>
@@ -1113,16 +1206,15 @@ const AboutUs = () => {
                 </p>
               </div>
             </div>
-          </div>
         </div>
       </section>
 
       {/* Culture Section */}
       <section className="py-20 bg-gradient-to-br from-slate-50 to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="md:text-center mb-16">
             <div className="flex items-center justify-center space-x-3 mb-6">
-              <Heart className="h-8 w-8 text-red-500" />
+              <Heart className="h-12 w-12 lg:h-8 lg:w-8 text-red-500 " />
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900">
                 Work That Matters. A Team That Cares.
               </h2>
@@ -1164,7 +1256,7 @@ const AboutUs = () => {
       </section>
 
       {/* Brands and Partners Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
+      {/* <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(59,130,246,0.1),transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(99,102,241,0.1),transparent_70%)]"></div>
@@ -1186,10 +1278,8 @@ const AboutUs = () => {
             </p>
           </div>
           
-          {/* Top row - scrolling left to right */}
           <div className="mb-8 overflow-hidden">
             <div className="flex animate-scroll-left space-x-12 items-center hover:pause-animation">
-              {/* Duplicate the array to create seamless loop */}
               {[...brands, ...brands].map((brand, index) => (
                 <div key={index} className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 hover:border-blue-300 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group">
                   <img 
@@ -1202,10 +1292,8 @@ const AboutUs = () => {
             </div>
           </div>
 
-          {/* Bottom row - scrolling right to left */}
           <div className="overflow-hidden">
             <div className="flex animate-scroll-right space-x-12 items-center hover:pause-animation">
-              {/* Duplicate the array in reverse to create seamless loop */}
               {[...brands.slice().reverse(), ...brands.slice().reverse()].map((brand, index) => (
                 <div key={index} className="flex-shrink-0 w-40 h-20 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-200 hover:border-blue-300 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group">
                   <img 
@@ -1218,7 +1306,6 @@ const AboutUs = () => {
             </div>
           </div>
           
-          {/* Partnership Stats */}
           <div className="grid md:grid-cols-3 gap-6 mt-12">
             <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-blue-200 text-center shadow-lg">
               <div className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
@@ -1240,10 +1327,10 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
+      {/* <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/10 backdrop-blur-xl p-12 rounded-3xl border border-white/20">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
@@ -1287,7 +1374,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

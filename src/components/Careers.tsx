@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  Briefcase, 
-  MapPin, 
-  Clock, 
-  Users, 
-  Heart, 
-  Zap, 
-  Target, 
-  Award, 
-  Coffee, 
-  Laptop, 
-  Globe, 
+import {
+  Briefcase,
+  MapPin,
+  Clock,
+  Users,
+  Heart,
+  Zap,
+  Target,
+  Award,
+  Coffee,
+  Laptop,
+  Globe,
   TrendingUp,
   CheckCircle,
   ArrowRight,
@@ -211,32 +211,38 @@ const values = [
   {
     icon: Heart,
     title: "Students First",
-    description: "Every decision we make prioritizes student success and outcomes"
+    description: "Every decision we make prioritizes student success and outcomes",
+    color: "from-red-500 to-pink-500"
   },
   {
     icon: Zap,
     title: "Move Fast",
-    description: "We iterate quickly, learn from feedback, and ship features that matter"
+    description: "We iterate quickly, learn from feedback, and ship features that matter",
+    color: "from-yellow-500 to-orange-500"
   },
   {
     icon: Users,
     title: "Collaborate Openly",
-    description: "We believe in transparency, open communication, and collective problem-solving"
+    description: "We believe in transparency, open communication, and collective problem-solving",
+    color: "from-blue-500 to-indigo-500"
   },
   {
     icon: Target,
     title: "Own Your Impact",
-    description: "Take ownership of your work and drive meaningful results"
+    description: "Take ownership of your work and drive meaningful results",
+    color: "from-purple-500 to-pink-500"
   },
   {
     icon: Lightbulb,
     title: "Think Different",
-    description: "Challenge conventional wisdom and innovate for better solutions"
+    description: "Challenge conventional wisdom and innovate for better solutions",
+    color: "from-emerald-500 to-teal-500"
   },
   {
     icon: TrendingUp,
     title: "Grow Together",
-    description: "We invest in each other's growth and celebrate collective wins"
+    description: "We invest in each other's growth and celebrate collective wins",
+    color: "from-cyan-500 to-blue-500"
   }
 ];
 
@@ -287,10 +293,10 @@ const Careers = () => {
 
   const filteredJobs = jobOpenings.filter(job => {
     const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
+      job.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
     const matchesDepartment = selectedDepartment === 'All' || job.department === selectedDepartment;
     const matchesLocation = selectedLocation === 'All' || job.location.includes(selectedLocation);
-    
+
     return matchesSearch && matchesDepartment && matchesLocation;
   });
 
@@ -307,27 +313,27 @@ const Careers = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Hero Section */}
-      <section className="py-20 relative overflow-hidden">
+      <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(99,102,241,0.1),transparent_70%)]"></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <div className="flex items-center justify-center space-x-4 mb-8">
-              <div className="relative">
-                <Briefcase className="h-12 w-12 text-blue-600" />
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse"></div>
-              </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight">
+              {/* <div className="relative hidden md:block"> */}
+              <Briefcase className="h-12 w-12 text-blue-600 hidden md:block" />
+              {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse"></div>
+              </div> */}
+              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
                 Careers at{' '}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                   GradXpert
                 </span>
               </h1>
             </div>
-            <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
               Join us in building India's most comprehensive career ecosystem. Help transform millions of student lives through technology, mentorship, and innovation.
             </p>
             <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
@@ -356,8 +362,8 @@ const Careers = () => {
       {/* Open Positions */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center justify-center space-x-3">
+          <div className="md:text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex md:items-center md:justify-center space-x-3">
               <Search className="h-8 w-8 text-blue-600" />
               <span>Open Positions</span>
             </h2>
@@ -366,9 +372,9 @@ const Careers = () => {
 
           {/* Filters */}
           <div className="mb-8">
-            <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
+            <div className="flex flex-col lg:flex-row gap-4 md:items-center md:justify-between">
               {/* Search */}
-              <div className="relative flex-1 max-w-md">
+              <div className="relative w-full lg:flex-1 lg:max-w-md">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-slate-400" />
                 <input
                   type="text"
@@ -406,51 +412,62 @@ const Careers = () => {
           </div>
 
           {/* Job Listings */}
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 w-full">
             {/* Jobs List */}
-            <div className="lg:col-span-2 space-y-4">
+            <div className="w-full lg:col-span-2 space-y-4">
               {filteredJobs.map((job) => {
                 const DeptIcon = getDepartmentIcon(job.department);
                 return (
                   <div
                     key={job.id}
                     onClick={() => setSelectedJob(job.id)}
-                    className={`bg-white/90 backdrop-blur-xl p-6 rounded-2xl border transition-all duration-300 cursor-pointer hover:shadow-lg hover:-translate-y-1 ${
-                      selectedJob === job.id 
-                        ? 'border-blue-500 shadow-lg ring-2 ring-blue-500/20' 
+                    className={`bg-white/90 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border transition-all duration-300 cursor-pointer hover:shadow-lg hover:-translate-y-1 w-full ${selectedJob === job.id
+                        ? 'border-blue-500 shadow-lg ring-2 ring-blue-500/20'
                         : 'border-slate-200 hover:border-blue-300'
-                    }`}
+                      }`}
                   >
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-start space-x-4">
-                        <div className={`w-12 h-12 bg-gradient-to-r ${getDepartmentColor(job.department)} rounded-xl flex items-center justify-center`}>
-                          <DeptIcon className="h-6 w-6 text-white" />
+                    <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-4">
+                      <div className="flex items-start gap-3 w-full">
+                        {/* Icon */}
+                        <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${getDepartmentColor(job.department)} rounded-xl flex items-center justify-center flex-shrink-0`}>
+                          <DeptIcon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                         </div>
-                        <div>
-                          <div className="flex items-center space-x-2 mb-2">
-                            <h3 className="text-lg font-bold text-slate-900">{job.title}</h3>
-                            {job.urgent && (
-                              <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-medium">
-                                Urgent
-                              </span>
-                            )}
-                          </div>
-                          <div className="flex items-center space-x-4 text-sm text-slate-600 mb-2">
-                            <div className="flex items-center space-x-1">
-                              <Building className="h-4 w-4" />
-                              <span>{job.department}</span>
+
+                        {/* Content */}
+                        <div className="flex-1 min-w-0"> {/* Added min-w-0 to prevent overflow */}
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                            <div className="flex items-center gap-2">
+                              <h3 className="text-base sm:text-lg font-bold text-slate-900 truncate">{job.title}</h3>
+                              {job.urgent && (
+                                <span className="bg-red-100 text-red-700 px-2 py-1 rounded-full text-xs font-medium flex-shrink-0">
+                                  Urgent
+                                </span>
+                              )}
                             </div>
-                            <div className="flex items-center space-x-1">
-                              <MapPin className="h-4 w-4" />
-                              <span>{job.location}</span>
-                            </div>
-                            <div className="flex items-center space-x-1">
-                              <Clock className="h-4 w-4" />
-                              <span>{job.type}</span>
+                            <div className="text-right hidden sm:block">
+                              <div className="text-sm text-slate-500">{job.posted}</div>
                             </div>
                           </div>
-                          <p className="text-slate-700 text-sm mb-3">{job.description}</p>
-                          <div className="flex flex-wrap gap-2 mb-3">
+
+                          {/* Meta info - stack on mobile */}
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 gap-2 text-sm text-slate-600 mb-2">
+                            <div className="flex items-center gap-1">
+                              <Building className="h-4 w-4 flex-shrink-0" />
+                              <span className="truncate">{job.department}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <MapPin className="h-4 w-4 flex-shrink-0" />
+                              <span className="truncate">{job.location}</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <Clock className="h-4 w-4 flex-shrink-0" />
+                              <span className="truncate">{job.type}</span>
+                            </div>
+                          </div>
+
+                          <p className="text-slate-700 text-sm mb-3 line-clamp-2">{job.description}</p>
+
+                          <div className="flex flex-wrap gap-2 mb-2 sm:mb-3">
                             {job.skills.slice(0, 3).map((skill, index) => (
                               <span key={index} className="bg-blue-100 text-blue-700 px-2 py-1 rounded-lg text-xs font-medium">
                                 {skill}
@@ -462,8 +479,10 @@ const Careers = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-sm text-slate-500 mb-2">{job.posted}</div>
+
+                      {/* Posted date - mobile only */}
+                      <div className="text-right sm:hidden w-full">
+                        <div className="text-sm text-slate-500">{job.posted}</div>
                         <div className="text-sm font-medium text-slate-700">{job.experience}</div>
                       </div>
                     </div>
@@ -487,7 +506,7 @@ const Careers = () => {
                   {(() => {
                     const job = jobOpenings.find(j => j.id === selectedJob);
                     if (!job) return null;
-                    
+
                     const DeptIcon = getDepartmentIcon(job.department);
                     return (
                       <div className="bg-white/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg">
@@ -547,7 +566,7 @@ const Careers = () => {
       </section>
 
       {/* Departments Overview */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+      {/* <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Teams & Departments</h2>
@@ -578,32 +597,61 @@ const Careers = () => {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Company Values */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center justify-center space-x-3">
+          <div className="md:text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex md:items-center md:justify-center space-x-3">
               <Heart className="h-8 w-8 text-red-500" />
               <span>Our Values</span>
             </h2>
-            <p className="text-xl text-slate-700">The principles that guide everything we do</p>
+            <p className="text-xl text-slate-700 max-w-3xl mx-auto">The principles that guide everything we do and shape our culture</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => {
               const Icon = value.icon;
               return (
-                <div key={index} className="text-center group">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                    <Icon className="h-8 w-8 text-white" />
+                <div key={index} className="group relative">
+                  <div className="bg-white/90 backdrop-blur-xl p-8 rounded-2xl border border-slate-200 hover:border-slate-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-2 h-full">
+                    {/* Icon with gradient background */}
+                    <div className="relative mb-6 flex  md:justify-center">
+                      <div className={`w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                        <Icon className="h-8 w-8 text-white" />
+                      </div>
+                      {/* Subtle glow effect */}
+                      <div className={`absolute inset-0 w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-300`}></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="text-left md:text-center">
+                      <h3 className="font-bold text-slate-900 mb-4 text-xl group-hover:text-blue-600 transition-colors duration-300">
+                        {value.title}
+                      </h3>
+                      <p className="text-slate-600 leading-relaxed text-sm">
+                        {value.description}
+                      </p>
+                    </div>
+                    
+                    {/* Decorative element */}
+                    <div className="absolute top-4 right-4 w-8 h-8 border border-slate-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute inset-1 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20"></div>
+                    </div>
                   </div>
-                  <h3 className="font-bold text-slate-900 mb-3 text-lg">{value.title}</h3>
-                  <p className="text-slate-600 leading-relaxed">{value.description}</p>
                 </div>
               );
             })}
+          </div>
+
+          {/* Bottom accent */}
+          <div className="mt-16 text-center">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 px-6 py-3 rounded-full">
+              <Star className="h-5 w-5 text-yellow-500 fill-current" />
+              <span className="text-slate-700 font-medium">Values that drive our success</span>
+              <Star className="h-5 w-5 text-yellow-500 fill-current" />
+            </div>
           </div>
         </div>
       </section>
@@ -611,20 +659,20 @@ const Careers = () => {
       {/* Benefits & Perks */}
       <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center justify-center space-x-3">
+          <div className="md:text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex md:items-center md:justify-center space-x-3">
               <Award className="h-8 w-8 text-purple-600" />
               <span>Benefits & Perks</span>
             </h2>
             <p className="text-xl text-slate-700">We invest in our team's success and well-being</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => {
               const Icon = benefit.icon;
               return (
-                <div key={index} className="bg-white/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 hover:border-purple-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 group text-center">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${benefit.color} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                <div key={index} className="bg-white/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 hover:border-purple-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 group md:text-center">
+                  <div className={`w-12 h-12 bg-gradient-to-r ${benefit.color} rounded-xl flex items-center justify-center md:mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                     <Icon className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="font-bold text-slate-900 mb-2">{benefit.title}</h3>
@@ -639,8 +687,8 @@ const Careers = () => {
       {/* Hiring Process */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center justify-center space-x-3">
+          <div className="md:text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex md:items-center md:justify-center space-x-3">
               <Rocket className="h-8 w-8 text-emerald-600" />
               <span>Our Hiring Process</span>
             </h2>
@@ -665,8 +713,8 @@ const Careers = () => {
                     </div>
                     <p className="text-slate-600">{step.description}</p>
                   </div>
-                  {index < hiringProcess.length - 1 && (
-                    <div className="absolute left-6 mt-12 w-0.5 h-8 bg-gradient-to-b from-emerald-300 to-green-300"></div>
+                  {index < hiringProcess.length  && (
+                    <div className="absolute mt-12 w-0.5 h-8 bg-gradient-to-b from-emerald-300 to-green-300"></div>
                   )}
                 </div>
               ))}
@@ -678,7 +726,7 @@ const Careers = () => {
       {/* Life at GradXpert */}
       <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="md:text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Life at GradXpert</h2>
             <p className="text-xl text-slate-700">Get a glimpse into our culture and work environment</p>
           </div>
@@ -717,16 +765,16 @@ const Careers = () => {
               }
             ].map((item, index) => (
               <div key={index} className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <img 
-                  src={item.image} 
+                <img
+                  src={item.image}
                   alt={item.title}
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                {/* <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm opacity-90">{item.description}</p>
-                </div>
+                </div> */}
               </div>
             ))}
           </div>
@@ -734,7 +782,7 @@ const Careers = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+      {/* <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/10 backdrop-blur-xl p-8 rounded-2xl border border-white/20">
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">Ready to Join Our Mission?</h2>
@@ -759,7 +807,7 @@ const Careers = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

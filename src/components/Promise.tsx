@@ -26,8 +26,8 @@ const Promise = () => {
               </h2>
             </div>
             
-            <p className="text-lg text-slate-700 mb-10 leading-relaxed font-semibold">
-              We're building India's most comprehensive career ecosystem, designed specifically for students who want to transform their potential into real-world success.
+            <p className="text-lg text-slate-700 mb-10 leading-relaxed ">
+            GradXpert is a complete career ecosystem that equips students with career clarity, in-demand skills, real-world internships, project-based learning, portfolios, and job opportunities - all before graduation.
             </p>
             
             <div className="space-y-6 mb-10">
@@ -38,8 +38,7 @@ const Promise = () => {
               <div>
                 <h3 className="font-bold text-slate-900 mb-3 text-lg">The Challenge We Solve</h3>
                 <p className="text-slate-600 leading-relaxed">
-                  Students today don't need more theory — they need clarity, skills, proof, and the right network.
-                </p>
+                Today’s students don’t lack potential - they lack direction, real-world exposure, and proof of work. They’re anxious about an AI-driven future and often lack the soft skills required to thrive in a modern workplace.                </p>
               </div>
             </div>
             
@@ -50,9 +49,8 @@ const Promise = () => {
               <div>
                 <h3 className="font-bold text-slate-900 mb-3 text-lg">Our Approach</h3>
                 <p className="text-slate-600 leading-relaxed">
-                  GradXpert gives you the complete career journey — built for Indian students, aligned with the future of work.
-                </p>
-              </div>
+                GradXpert is a complete career ecosystem for Indian students. We focus on AI-integrated learning, first-principles thinking, and real experience - ensuring every student builds a future-ready skillset before graduation.                </p>
+                </div>
             </div>
             </div>
             
@@ -64,7 +62,7 @@ const Promise = () => {
                 Our Mission
               </h3>
               <p className="text-slate-700 leading-relaxed">
-                To bridge the gap between academic learning and industry readiness, empowering every student to build a successful career through practical skills, real experience, and meaningful connections.
+              Our mission is to make every student in India career-ready before they graduate. Not with more theory, but through real-world experience, powerful mentorship, and visible proof of work. We want to change how students learn, grow, and succeed in a fast-moving world.
               </p>
             </div>
           </div>
@@ -95,19 +93,28 @@ const Promise = () => {
               <ul className="space-y-4 text-slate-700">
                 <li className="flex items-center space-x-4 group">
                   <div className="w-4 h-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Complete ecosystem, not just courses</span>
+                  <span className="font-medium">One platform for the entire career journey</span>
                 </li>
                 <li className="flex items-center space-x-4 group">
                   <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Real projects, not just certificates</span>
+                  <span className="font-medium">Courses with AI & first-principles focus                  </span>
                 </li>
                 <li className="flex items-center space-x-4 group">
                   <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Industry mentorship and networking</span>
+                  <span className="font-medium">Real-world internships through Kickstack</span>
                 </li>
                 <li className="flex items-center space-x-4 group">
                   <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Public proof of work</span>
+                  <span className="font-medium">Showcase proof of work via Powerfolio</span>
+                </li>
+                <li className="flex items-center space-x-4 group">
+                  <div className="w-4 h-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                  <span className="font-medium">Access to education tools via StudentOS
+                  </span>
+                </li>
+                <li className="flex items-center space-x-4 group">
+                  <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                  <span className="font-medium">Direct hiring support via the Talent Pool                  </span>
                 </li>
               </ul>
             </div>

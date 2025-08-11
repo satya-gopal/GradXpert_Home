@@ -1,8 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GraduationCap, MapPin, Mail, Phone, ArrowRight, ExternalLink, Star, Shield, Award, Users, Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
-import { FaLinkedinIn, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaLinkedinIn, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavigation = (path: string) => {
+    // If it's a hash link and we're already on the homepage
+    if (path.startsWith('#') && location.pathname === '/') {
+      const section = document.querySelector(path);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+    
+    // If it's a hash link but we're not on homepage
+    if (path.startsWith('#')) {
+      navigate('/', { state: { scrollTo: path }, replace: true });
+      return;
+    }
+    
+    // Regular route navigation - reset scroll position
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    // Only handle scroll if we have a hash in the URL and no scrollTo state
+    if (location.hash && !location.state?.scrollTo) {
+      const section = document.querySelector(location.hash);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    }
+    
+    // Handle scrollTo state from navigation
+    if (location.state?.scrollTo) {
+      const section = document.querySelector(location.state.scrollTo);
+      if (section) {
+        setTimeout(() => {
+          section.scrollIntoView({ behavior: 'smooth' });
+          // Clean up the state to prevent duplicate scrolls
+          navigate(location.pathname, { replace: true, state: {} });
+        }, 300);
+      }
+    }
+  }, [location, navigate]);
+
   const quickLinks = [
     { name: "About", href: "#" },
     { name: "Ecosystem", href: "#ecosystem" },
@@ -13,61 +62,62 @@ const Footer = () => {
   ];
 
   const programs = [
-    { name: "StudentOS", href: "#" },
-    { name: "I/O School", href: "#courses" },
-    { name: "Kickstack", href: "#internships" },
-    { name: "Powerfolio", href: "#portfolio" },
-    { name: "BoldtStartup", href: "#" },
-    { name: "Talent Pool", href: "#" }
+    { name: "StudentOS", href: "https://studentos.in" },
+    { name: "I/O School", href: "https://ioschool.in" },
+    { name: "Kickstack", href: "https://kickstack.in" },
+    { name: "Powerfolio", href: "https://powerfolio.in" },
+    { name: "Talent Pool", href: "https://talentpool.gradxpert.com" },
+    { name: "Bold Startup", href: "https://boldstartup.in" },
   ];
 
   const support = [
-    { name: "Help Center", href: "#" },
-    { name: "Contact Us", href: "#" },
-    { name: "Career Guidance", href: "#" },
+    { name: "About Us", href: "/about" },
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Our Terms", href: "/terms-and-conditions" },
+    { name: "Refund Policy", href: "/refund-policy" },
     { name: "Student Support", href: "#" },
-    { name: "Technical Help", href: "#" },
-    { name: "Feedback", href: "#" },
-    { name: "Privacy Policy", href: "#" },
-    { name: "Terms of Service", href: "#" }
+    { name: "Contact Us", href: "/contact" },
   ];
 
   const resources = [
-    { name: "Student Stories", href: "#" },
-    { name: "Success Metrics", href: "#" },
-    { name: "Career Roadmaps", href: "#" },
-    { name: "Industry Insights", href: "#" },
-    { name: "Placement Reports", href: "#" },
-    { name: "Alumni Network", href: "#" },
-    { name: "Mentor Connect", href: "#" },
-    { name: "Blog & Articles", href: "#" }
+    { name: "Courses", href: "/explore?filter=course" },
+    { name: "Internships", href: "/explore?filter=internship" },
+    { name: "Events", href: "#events" },
+    { name: "Become a Mentor", href: "/become-mentor" },
+    { name: "Invite to College", href: "/invite-to-college" },
+    { name: "Partner with Us", href: "/partner-with-us" },
   ];
 
   const trustBadges = [
     { 
       logo: "https://gradxpert.com/brand-logos/sub-brands/studentos-xy.jpg",
       text: "StudentOs", 
-      bgColor: "bg-white/5"
+      bgColor: "bg-white/5",
+      href: "https://studentos.in"
     },
     { 
       logo: "https://gradxpert.com/brand-logos/sub-brands/ioschool-xy.jpg",
       text: "IO School", 
-      bgColor: "bg-white/5"
+      bgColor: "bg-white/5",
+      href: "https://ioschool.in"
     },
     { 
       logo: "https://gradxpert.com/brand-logos/sub-brands/kickstack-xy.jpg",
       text: "Kickstack", 
-      bgColor: "bg-white/5"
+      bgColor: "bg-white/5",
+      href: "https://kickstack.in"
     },
     { 
       logo: "https://gradxpert.com/brand-logos/sub-brands/powerfolio-xy.jpg",
       text: "Powerfolio", 
-      bgColor: "bg-white/5"
+      bgColor: "bg-white/5",
+      href: "https://powerfolio.in"
     },
     { 
       logo: "https://gradxpert.com/brand-logos/sub-brands/boldstartup-xy.jpg",
       text: "Boldstartup", 
-      bgColor: "bg-white/5"
+      bgColor: "bg-white/5",
+      href: "https://boldstartup.in"
     }
   ];
 
@@ -92,12 +142,12 @@ const Footer = () => {
                 <img
                   src="/Red-White-Name-Logo.png"
                   alt="GradXpert Logo"
-                  className="w-full h-full object-contain rounded-full"
+                  className="h-12 object-contain rounded-full"
                 />
               </div>
 
               <p className="text-slate-300 mb-6 lg:mb-8 text-base lg:text-lg leading-relaxed max-w-lg">
-                India's most comprehensive career ecosystem, empowering students to transform their potential into real-world success through practical skills and meaningful connections.
+                India's complete career ecosystem that equips students with career clarity, in-demand skills, real-world internships, project-based learning, portfolios, and job opportunities - all before graduation.
               </p>
               
               <div className="space-y-3 lg:space-y-4 mb-8 lg:mb-10">
@@ -107,60 +157,60 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center space-x-3 text-slate-400">
                   <Mail className="w-4 h-4 lg:w-5 lg:h-5 text-blue-400 flex-shrink-0" />
-                  <span className="font-medium text-sm lg:text-base">hello@gradxpert.com</span>
+                  <span className="font-medium text-sm lg:text-base">contact@gradxpert.com</span>
                 </div>
                 <div className="flex items-center space-x-3 text-slate-400">
                   <Phone className="w-4 h-4 lg:w-5 lg:h-5 text-purple-400 flex-shrink-0" />
-                  <span className="font-medium text-sm lg:text-base">+91 98765 43210</span>
+                  <span className="font-medium text-sm lg:text-base">+91 9010485481</span>
                 </div>
               </div>
             </div>
             
             {/* Mobile: Combined grid for Programs, Resources, Support */}
-            <div className="grid grid-cols-3 gap-4 md:hidden">
+            <div className="grid grid-cols-3 gap-4 lg:hidden">
               <div>
-                <h3 className="font-bold mb-4 text-sm text-white">Programs</h3>
+                <h3 className="font-bold mb-4 text-sm text-white">Ecosystem</h3>
                 <ul className="space-y-2">
-                  {programs.slice(0, 4).map((program, index) => (
+                  {programs.slice(0, 6).map((program, index) => (
                     <li key={index}>
-                      <a 
-                        href={program.href} 
+                      <button 
+                        onClick={() => program.href.startsWith('http') ? window.open(program.href, '_blank') : handleNavigation(program.href)}
                         className="text-slate-300 hover:text-white transition-colors font-medium text-xs"
                       >
                         {program.name}
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
               </div>
               
               <div>
-                <h3 className="font-bold mb-4 text-sm text-white">Resources</h3>
+                <h3 className="font-bold mb-4 text-sm text-white">Quick Links</h3>
                 <ul className="space-y-2">
-                  {resources.slice(0, 4).map((resource, index) => (
+                  {resources.slice(0, 6).map((resource, index) => (
                     <li key={index}>
-                      <a 
-                        href={resource.href} 
+                      <button 
+                        onClick={() => handleNavigation(resource.href)}
                         className="text-slate-300 hover:text-white transition-colors font-medium text-xs"
                       >
                         {resource.name}
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
               </div>
               
               <div>
-                <h3 className="font-bold mb-4 text-sm text-white">Support</h3>
+                <h3 className="font-bold mb-4 text-sm text-white">More</h3>
                 <ul className="space-y-2">
-                  {support.slice(0, 4).map((item, index) => (
+                  {support.slice(0, 6).map((item, index) => (
                     <li key={index}>
-                      <a 
-                        href={item.href} 
+                      <button 
+                        onClick={() => handleNavigation(item.href)}
                         className="text-slate-300 hover:text-white transition-colors font-medium text-xs"
                       >
                         {item.name}
-                      </a>
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -168,52 +218,52 @@ const Footer = () => {
             </div>
             
             {/* Desktop: Original layout */}
-            <div className="hidden md:block">
-              <h3 className="font-bold mb-6 lg:mb-8 text-lg lg:text-xl text-white">Programs</h3>
+            <div className="hidden lg:block">
+              <h3 className="font-bold mb-6 lg:mb-8 text-lg lg:text-xl text-white">Ecosystem</h3>
               <ul className="space-y-3 lg:space-y-4">
                 {programs.map((program, index) => (
                   <li key={index}>
-                    <a 
-                      href={program.href} 
+                    <button 
+                      onClick={() => program.href.startsWith('http') ? window.open(program.href, '_blank') : handleNavigation(program.href)}
                       className="text-slate-300 hover:text-white transition-colors font-medium flex items-center group text-sm lg:text-base"
                     >
                       <span>{program.name}</span>
                       <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="hidden md:block">
-              <h3 className="font-bold mb-6 lg:mb-8 text-lg lg:text-xl text-white">Resources</h3>
+            <div className="hidden lg:block">
+              <h3 className="font-bold mb-6 lg:mb-8 text-lg lg:text-xl text-white">Quick Links</h3>
               <ul className="space-y-3 lg:space-y-4">
                 {resources.slice(0, 6).map((resource, index) => (
                   <li key={index}>
-                    <a 
-                      href={resource.href} 
+                    <button 
+                      onClick={() => handleNavigation(resource.href)}
                       className="text-slate-300 hover:text-white transition-colors font-medium flex items-center group text-sm lg:text-base"
                     >
                       <span>{resource.name}</span>
                       <ArrowRight className="w-3 h-3 lg:w-4 lg:h-4 ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
             </div>
             
-            <div className="hidden md:block">
-              <h3 className="font-bold mb-6 lg:mb-8 text-lg lg:text-xl text-white">Support</h3>
+            <div className="hidden lg:block">
+              <h3 className="font-bold mb-6 lg:mb-8 text-lg lg:text-xl text-white">More</h3>
               <ul className="space-y-3 lg:space-y-4">
                 {support.slice(0, 6).map((item, index) => (
                   <li key={index}>
-                    <a 
-                      href={item.href} 
+                    <button 
+                      onClick={() => handleNavigation(item.href)}
                       className="text-slate-300 hover:text-white transition-colors font-medium flex items-center group text-sm lg:text-base"
                     >
                       <span>{item.name}</span>
                       <ExternalLink className="w-3 h-3 lg:w-4 lg:h-4 ml-2 opacity-0 group-hover:opacity-100 transition-all duration-300" />
-                    </a>
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -222,19 +272,19 @@ const Footer = () => {
           
           {/* Trust Badges - Full Width Section */}
           <div className="mb-6 lg:mb-2">
-            <div className="grid grid-cols-2 gap-5  md:flex md:items-center md:justify-center  md:gap-12">
+            <div className="grid grid-cols-2 gap-5 md:flex md:items-center md:justify-center md:gap-12">
               {trustBadges.map((badge, index) => (
                 <div key={index} className="">
                   <img
                     src={badge.logo}
                     alt={badge.text}
+                    onClick={() => window.open(badge.href, '_blank')}
                     className="h-15 md:h-12 rounded-full w-full object-contain"
                   />
                 </div>
               ))}
             </div>
           </div>
-
         </div>
         
         {/* Bottom section */}
@@ -248,22 +298,38 @@ const Footer = () => {
 
             <div className="flex items-center space-x-4 lg:space-x-6 order-1 md:order-2">
               <div className="flex space-x-3 lg:space-x-4">
-                <div className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border-[0.5px] border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                <button 
+                  onClick={() => window.open('https://www.linkedin.com/company/gradxpert/', '_blank')}
+                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border-[0.5px] border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                >
                   <FaLinkedinIn className="text-slate-400 text-xs lg:text-sm" />
-                </div>
-
-                <div className="w-8 h-8 lg:w-8 lg:h-8  rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <FaTwitter className="text-slate-400 text-sm lg:text-base" />
-                </div>
-                <div className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
-                  <FaInstagram className="text-slate-400 text-sm lg:text-base" />
-                </div>
-                <div className="w-8 h-8 lg:w-8 lg:h-8  rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer">
+                </button>
+                <button 
+                  onClick={() => window.open('https://www.youtube.com/@GradXpert', '_blank')}
+                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                >
                   <FaYoutube className="text-slate-400 text-sm lg:text-base" />
-                </div>
+                </button>
+                <button 
+                  onClick={() => window.open('https://www.youtube.com/@GradXpert', '_blank')}
+                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                >
+                  <FaWhatsapp className="text-slate-400 text-sm lg:text-base" />
+                </button>
+                <button 
+                  onClick={() => window.open('https://www.instagram.com/gradxpert/', '_blank')}
+                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                >
+                  <FaInstagram className="text-slate-400 text-sm lg:text-base" />
+                </button>
+                <button 
+                  onClick={() => window.open('https://x.com/gradxpert/', '_blank')}
+                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                >
+                  <FaTwitter className="text-slate-400 text-sm lg:text-base" />
+                </button>
               </div>
             </div>
-
           </div>
         </div>
       </div>

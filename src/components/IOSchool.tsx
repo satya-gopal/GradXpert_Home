@@ -6,7 +6,7 @@ const courses = [
     title: "Full Stack Web Development",
     instructor: "Rahul Sharma",
     duration: "12 weeks",
-    level: "Beginner to Advanced",
+    level: "Advanced",
     description: "Master React, Node.js, MongoDB and build production-ready web applications",
     image: "https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&cs=tinysrgb&w=400",
     rating: 4.9,
@@ -126,14 +126,14 @@ const IOSchool = () => {
           <div className="flex-1">
             <h4 className="text-lg font-semibold text-slate-900">{course.title}</h4>
             <p className="text-sm text-purple-600 font-medium">{course.instructor}</p>
-            <div className="flex items-center text-sm text-slate-600 gap-2 mt-1">
+          </div>
+        </div>
+        <div className="flex items-center text-sm text-slate-600 gap-2 mt-1">
               <Clock className="w-4 h-4" />
               <span>{course.duration}</span>
               <span>•</span>
               <span>{course.level}</span>
             </div>
-          </div>
-        </div>
 
         <p className="text-sm text-slate-700">{course.description}</p>
 
