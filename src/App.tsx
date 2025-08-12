@@ -47,7 +47,7 @@ const HomePage = () => (
     <Powerfolio />
     <BoldtStartup />
     <TalentPool />
-    <Events />
+    {/*<Events />*/}
     {/* <VIPPro /> */}
     <Testimonials />
     <FAQ />

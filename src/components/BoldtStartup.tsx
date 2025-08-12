@@ -153,7 +153,7 @@ const BoldtStartup = () => {
         
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-lg md:text-lg hover:shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105 mx-4">
+          <button onClick={() => window.location.href = "https://boldstartup.in"} className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-lg md:text-lg hover:shadow-2xl hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105 mx-4">
             Submit Your Idea
           </button>
         </div>

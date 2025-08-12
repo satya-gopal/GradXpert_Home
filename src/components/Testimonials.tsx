@@ -158,7 +158,7 @@ const Testimonials = () => {
     
     const timer = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % Math.ceil(getFilteredTestimonials().length / getItemsPerSlide()));
-    }, 6000);
+    }, 20000);
     return () => clearInterval(timer);
   }, [isAutoPlaying, selectedCategory]);
 
@@ -235,7 +235,7 @@ const Testimonials = () => {
               <Trophy className="h-6 w-6 md:h-8 md:w-8 text-yellow-600" />
               <span>Success Stories &{' '}
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  Real Outcomes
+                  Outcomes
                 </span>
               </span>
             </div>
@@ -405,7 +405,7 @@ const Testimonials = () => {
         {/* Gallery Section */}
         <div className="mb-16 md:mb-20">
           <div className="text-center mb-6 md:mb-8">
-            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 md:mb-4">Behind the Scenes</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 md:mb-4">Backed by Industry leaders</h3>
             <p className="text-slate-600 text-sm md:text-base">Glimpses from our vibrant student community</p>
           </div>
           
@@ -481,24 +481,24 @@ const Testimonials = () => {
         {/* Trust Indicators */}
         <div className="bg-gradient-to-r from-slate-100 to-blue-100 rounded-xl lg:rounded-2xl p-6 md:p-8 border border-slate-200 ">
           <div className="text-center">
-            <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-4">Trusted by Students Across India</h3>
+            <h3 className="text-lg md:text-xl font-bold text-slate-900 mb-4">Trusted by</h3>
             <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 lg:gap-8 text-xs md:text-sm text-slate-600">
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-emerald-500" />
-                <span>IITs, NITs, BITS</span>
+                <span>Government, private, and autonomous colleges</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-emerald-500" />
-                <span>Tier 1, 2, 3 Colleges</span>
+                <span>All branches of engineering and technology</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-emerald-500" />
-                <span>All Engineering Branches</span>
+                <span>From freshers to final-year graduates</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle className="h-4 w-4 text-emerald-500" />
-                <span>1st Year to Final Year</span>
-              </div>
+              {/*<div className="flex items-center space-x-2">*/}
+              {/*  <CheckCircle className="h-4 w-4 text-emerald-500" />*/}
+              {/*  <span>1st Year to Final Year</span>*/}
+              {/*</div>*/}
             </div>
           </div>
         </div>

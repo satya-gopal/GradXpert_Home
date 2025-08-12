@@ -14,7 +14,7 @@ const steps = [
   {
     icon: Brain,
     title: "Discover Your Career Path",
-    description: "Use AI tools to map your interests",
+    description: "Use our Mentors & AI tools to map your interests",
     color: "from-blue-500 to-blue-600"
   },
   {
@@ -69,13 +69,13 @@ const HowItWorks = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-            <div className="flex items-center justify-center space-x-4 mb-2">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 text-left md:text-center">
+            <div className="flex md:justify-center items-center space-x-4 mb-2">
               <Workflow className="h-8 w-8 text-blue-600" />
               <span>How It Works</span>
             </div>
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
+          <p className="text-xl text-gray-600 mb-8 text-left md:text-center">
             From Confused to Career-Ready in 6 Steps
           </p>
 
@@ -129,8 +129,8 @@ const HowItWorks = () => {
       {steps.map((step, index) => {
         const Icon = step.icon;
         return (
-          <div key={index} className="w-full flex-shrink-0 px-4">
-            <div className="bg-white/80 backdrop-blur-xl p-4 rounded-xl border border-slate-200 shadow-lg text-center">
+          <div key={index} className="w-full flex-shrink-0 px-6">
+            <div className="bg-white/80 backdrop-blur-xl p-0 rounded-xl border border-slate-200 shadow-lg text-center">
               <div className={`w-12 h-12 bg-gradient-to-r ${step.color} rounded-xl flex items-center justify-center mx-auto mb-3`}>
                 <Icon className="h-6 w-6 text-white" />
               </div>
@@ -168,7 +168,7 @@ const HowItWorks = () => {
             const Icon = step.icon;
             return (
               <div key={index} className="relative group">
-                <div className="bg-white p-4 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+                <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100">
                   <div className={`w-12 h-12 bg-gradient-to-r ${step.color} rounded-xl flex items-center justify-center mb-4`}>
                     <Icon className="h-6 w-6 text-white" />
                   </div>

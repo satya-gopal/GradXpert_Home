@@ -18,7 +18,7 @@ const TalentPool = () => {
       </div>
       
       {/* Grid pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(202,138,4,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(202,138,4,0.1)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(16,185,129,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       
       {/* Animated particles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -134,7 +134,7 @@ const TalentPool = () => {
         
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <button className="bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-yellow-500/25 transition-all duration-300 hover:scale-105">
+          <button onClick={() => window.location.href = "https://talentpool.gradxpert.com/"} className="bg-gradient-to-r from-yellow-600 to-orange-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-yellow-500/25 transition-all duration-300 hover:scale-105">
             Unlock Talent Pool Access
           </button>
         </div>

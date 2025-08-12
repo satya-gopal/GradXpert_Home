@@ -1,5 +1,22 @@
 import React from 'react';
-import { BookOpen, Clock, Users, Award, Zap, Target, ChevronLeft, ChevronRight, Star, MapPin, Code, Brain, Palette, BarChart } from 'lucide-react';
+import {
+  BookOpen,
+  Clock,
+  Users,
+  Award,
+  Zap,
+  Target,
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  MapPin,
+  Code,
+  Brain,
+  Palette,
+  BarChart,
+  Sparkles
+} from 'lucide-react';
+import {useNavigate} from "react-router-dom";
 
 const courses = [
   {
@@ -50,7 +67,7 @@ const IOSchool = () => {
   const prevCourse = () => {
     setCurrentCourse((prev) => (prev - 1 + courses.length) % courses.length);
   };
-
+  const navigate = useNavigate();
   return (
     <section id="ioschool" className="py-16 md:py-32 bg-gradient-to-br from-purple-50 via-violet-50 to-blue-50 relative overflow-hidden">
       {/* Light background */}
@@ -58,17 +75,18 @@ const IOSchool = () => {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(99,102,241,0.1),transparent_50%)]"></div>
       </div>
-      
+
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(147,51,234,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(147,51,234,0.03)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Title - Mobile/Tablet only */}
         <div className="md:text-center mb-8 lg:hidden">
           <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-4 md:mb-6">
             <div className="relative">
               <BookOpen className="h-8 w-8 md:h-10 md:w-10 text-purple-600" />
-              <Zap className="h-4 w-4 md:h-5 md:w-5 text-violet-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-pulse" />
+              <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-purple-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
+              {/*<Zap className="h-4 w-4 md:h-5 md:w-5 text-violet-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-pulse" />*/}
             </div>
             <h2 className="text-3xl  font-black text-slate-900 tracking-tight">
               Learn at{' '}
@@ -81,7 +99,7 @@ const IOSchool = () => {
             Job-ready skills. Real projects. Expert mentorship.
           </p>
         </div>
-        
+
         <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
           <div className="order-1 lg:order-1">
             {/* Section Title - Desktop only */}
@@ -89,7 +107,8 @@ const IOSchool = () => {
               <div className="flex items-center space-x-4 mb-8">
                 <div className="relative">
                   <BookOpen className="h-10 w-10 lg:h-12 lg:w-12 text-purple-600" />
-                  <Zap className="h-5 w-5 lg:h-6 lg:w-6 text-violet-500 absolute -top-2 -right-2 animate-pulse" />
+                  <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-purple-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
+                  {/*<Zap className="h-5 w-5 lg:h-6 lg:w-6 text-violet-500 absolute -top-2 -right-2 animate-pulse" />*/}
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   Learn at{' '}
@@ -102,13 +121,13 @@ const IOSchool = () => {
                 Job-ready skills. Real projects. Expert mentorship.
               </p>
             </div>
-            
+
             <div className="mt-4 md:mt-6 mb-4 md:mb-6 lg:mb-8">
               <h3 className="font-bold text-slate-900 mb-3 md:mb-4 flex items-center text-base md:text-lg">
                 <BookOpen className="h-5 w-5 text-purple-500 mr-2" />
                 Featured Courses
               </h3>
-              
+
               {/* Desktop Grid */}
 <div className="hidden lg:grid lg:grid-cols-2 gap-6">
   {courses.map((course, index) => (
@@ -231,7 +250,7 @@ const IOSchool = () => {
     </div>
   </div>
 
-  
+
                 {/* Dots Indicator */}
                 <div className="flex justify-center space-x-2 mt-3">
                   {courses.map((_, index) => (
@@ -248,7 +267,7 @@ const IOSchool = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-gradient-to-r from-purple-100 to-violet-100 backdrop-blur-sm p-4 md:p-6 rounded-xl md:rounded-2xl mb-4 md:mb-6 lg:mb-8 border border-purple-200">
               <div className="flex items-center space-x-2 md:space-x-3 mb-3">
                 <Target className="h-5 w-5 md:h-6 md:w-6 text-purple-600" />
@@ -262,12 +281,12 @@ const IOSchool = () => {
               </p>
             </div>
           </div>
-          
+
           <div className="relative order-2 lg:order-2">
             {/* Main hero image */}
             <div className="relative rounded-xl md:rounded-2xl lg:rounded-3xl overflow-hidden shadow-xl lg:shadow-2xl shadow-purple-500/20 mb-4 md:mb-6">
-              <img 
-                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=700" 
+              <img
+                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=700"
                 alt="Students learning in interactive classroom"
                 className="w-full h-56 md:h-80 lg:h-96 object-cover"
               />
@@ -277,7 +296,7 @@ const IOSchool = () => {
                 <div className="text-xs md:text-sm opacity-90">Expert-led courses</div>
               </div> */}
             </div>
-            
+
             {/* Courses Section */}
             <div className="space-y-3 md:space-y-4 lg:space-y-6 mb-4 md:mb-6 lg:mb-8">
               <div className="flex items-start space-x-3 md:space-x-4 p-3 md:p-4 rounded-xl md:rounded-2xl bg-white/60 backdrop-blur-sm border border-slate-200 hover:bg-white/80 transition-all duration-300 shadow-sm md:shadow-lg">
@@ -307,10 +326,10 @@ const IOSchool = () => {
             </div>
           </div>
         </div>
-        
+
         {/* CTA Section */}
         <div className="text-center mt-8 md:mt-12">
-          <button className="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
+          <button onClick={() => navigate('/explore')} className="bg-gradient-to-r from-purple-600 to-violet-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105">
             Explore All Courses
           </button>
         </div>

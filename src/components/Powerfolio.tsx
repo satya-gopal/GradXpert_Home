@@ -129,10 +129,10 @@ const Powerfolio = () => {
         {/* CTA Section */}
         <div className="text-center mt-16">
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4">
-            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105">
+            <button onClick={() => window.location.href = "https://powerfolio.in"} className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105">
               Build Your Powerfolio
             </button>
-            <button className="border-2 border-blue-600 text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <button onClick={() => window.location.href = "https://powerfolio.in"} className="border-2 border-blue-600 text-blue-600 px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-lg hover:bg-blue-50 hover:shadow-xl transition-all duration-300 hover:scale-105">
               Demo Project
             </button>
           </div>

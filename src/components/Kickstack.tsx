@@ -1,5 +1,18 @@
 import React from 'react';
-import { Briefcase, Clock, Users, Award, Zap, Target, ChevronLeft, ChevronRight, Star, MapPin } from 'lucide-react';
+import {
+  Briefcase,
+  Clock,
+  Users,
+  Award,
+  Zap,
+  Target,
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  MapPin,
+  Sparkles
+} from 'lucide-react';
+import {useNavigate} from "react-router-dom";
 
 const internships = [
   {
@@ -37,6 +50,7 @@ const Kickstack = () => {
     setCurrentInternship((prev) => (prev - 1 + internships.length) % internships.length);
   };
 
+  const navigate = useNavigate();
   return (
     <section id="kickstack" className="py-16 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50 relative overflow-hidden">
       {/* Light background */}
@@ -54,7 +68,8 @@ const Kickstack = () => {
           <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-6 md:mb-8">
             <div className="relative">
               <Briefcase className="h-8 w-8 md:h-10 md:w-10 text-indigo-600" />
-              <Zap className="h-4 w-4 md:h-5 md:w-5 text-blue-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-pulse" />
+              <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-indigo-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
+              {/*<Zap className="h-4 w-4 md:h-5 md:w-5 text-blue-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-pulse" />*/}
             </div>
             <h2 className="text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
               Intern with{' '}
@@ -120,7 +135,8 @@ const Kickstack = () => {
               <div className="flex items-center space-x-4 mb-8">
                 <div className="relative">
                   <Briefcase className="h-12 w-12 text-indigo-600" />
-                  <Zap className="h-6 w-6 text-blue-500 absolute -top-2 -right-2 animate-pulse" />
+                  <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-indigo-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
+                  {/*<Zap className="h-6 w-6 text-blue-500 absolute -top-2 -right-2 animate-pulse" />*/}
                 </div>
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   Intern with{' '}
@@ -353,7 +369,7 @@ const Kickstack = () => {
 
         {/* CTA Section */}
         <div className="text-center mt-12 md:mt-16">
-          <button className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold  text-lg hover:shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 mx-4">
+          <button onClick={() => navigate('/explore')}  className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white px-6 md:px-10 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold  text-lg hover:shadow-2xl hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 mx-4">
             Apply for Internships
           </button>
         </div>

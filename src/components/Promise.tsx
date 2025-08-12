@@ -26,7 +26,7 @@ const Promise = () => {
               </h2>
             </div>
             
-            <p className="text-lg text-slate-700 mb-10 leading-relaxed ">
+            <p className="text-md text-slate-700 mb-10 leading-relaxed ">
             GradXpert is a complete career ecosystem that equips students with career clarity, in-demand skills, real-world internships, project-based learning, portfolios, and job opportunities - all before graduation.
             </p>
             
@@ -71,7 +71,7 @@ const Promise = () => {
             {/* Main image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-500/20">
               <img 
-                src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                src="https://gradxpert.com/website-assets/homepage/about-img-map.jpg"
                 alt="Students collaborating and learning together"
                 className="w-full h-[350px] object-cover"
               />
@@ -90,33 +90,50 @@ const Promise = () => {
                 </div>
                 What Makes Us Different
               </h3>
-              <ul className="space-y-4 text-slate-700">
-                <li className="flex items-center space-x-4 group">
-                  <div className="w-4 h-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">One platform for the entire career journey</span>
-                </li>
-                <li className="flex items-center space-x-4 group">
-                  <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Courses with AI & first-principles focus                  </span>
-                </li>
-                <li className="flex items-center space-x-4 group">
-                  <div className="w-4 h-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Real-world internships through Kickstack</span>
-                </li>
-                <li className="flex items-center space-x-4 group">
-                  <div className="w-4 h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Showcase proof of work via Powerfolio</span>
-                </li>
-                <li className="flex items-center space-x-4 group">
-                  <div className="w-4 h-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Access to education tools via StudentOS
-                  </span>
-                </li>
-                <li className="flex items-center space-x-4 group">
-                  <div className="w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
-                  <span className="font-medium">Direct hiring support via the Talent Pool                  </span>
-                </li>
-              </ul>
+             <ul className="space-y-4 text-slate-700">
+              <li className="flex items-center space-x-3 sm:space-x-4 group">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                <span className="font-medium text-sm sm:text-base">
+                  One platform for the entire career journey
+                </span>
+              </li>
+
+              <li className="flex items-center space-x-3 sm:space-x-4 group">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                <span className="font-medium text-sm sm:text-base">
+                  Courses with AI & first-principles focus
+                </span>
+              </li>
+
+              <li className="flex items-center space-x-3 sm:space-x-4 group">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                <span className="font-medium text-sm sm:text-base">
+                  Real-world internships through Kickstack
+                </span>
+              </li>
+
+              <li className="flex items-center space-x-3 sm:space-x-4 group">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                <span className="font-medium text-sm sm:text-base">
+                  Showcase proof of work via Powerfolio
+                </span>
+              </li>
+
+              <li className="flex items-center space-x-3 sm:space-x-4 group">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                <span className="font-medium text-sm sm:text-base">
+                  Access to education tools via StudentOS
+                </span>
+              </li>
+
+              <li className="flex items-center space-x-3 sm:space-x-4 group">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-sm group-hover:scale-125 transition-transform duration-300"></div>
+                <span className="font-medium text-sm sm:text-base">
+                  Direct hiring support via the Talent Pool
+                </span>
+              </li>
+            </ul>
+
             </div>
           </div>
         </div>

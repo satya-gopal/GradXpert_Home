@@ -1,34 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { GraduationCap, Building, Handshake, Users, ArrowRight } from 'lucide-react';
+import {GraduationCap, Building, Handshake, Users, ArrowRight, Briefcase, Sparkles} from 'lucide-react';
 
 export default function Partnership() {
   const partnerships = [
     {
       icon: GraduationCap,
-      title: 'IIIT Students – Become a Mentor',
-      description: 'If you\'re a top-performing engineering student who wants to teach, inspire, and earn — join us as an I/O School Mentor.',
+      title: 'Become a Mentor',
+      description: 'If you\'re a top-performing engineering student who wants to teach, inspire, and earn — join us as an GradXpert Mentor.',
       cta: 'Apply as a Mentor',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Building,
-      title: 'Colleges – Host a Bootcamp',
+      title: 'Colleges – Host a Program',
       description: 'Bring our training programs to your campus to give your students a competitive edge.',
       cta: 'Invite Us to Your College',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
       icon: Handshake,
-      title: 'EdTech Companies – Partner With Us',
+      title: 'EdTech Companies – Partner With GradXpert',
       description: 'Let\'s collaborate on tech education delivery, platform tools, and content distribution.',
       cta: 'Partner With I/O School',
       gradient: 'from-emerald-500 to-cyan-500'
     },
     {
       icon: Users,
-      title: 'TPOs / Trainers – Affiliate or Collaborate',
-      description: 'Work with us to train, co-host events, or bring I/O School access to your network.',
+      title: 'TPOs / Students – Affiliate or Collaborate - Collaborate With Us',
+      description: 'Work with us to train, co-host events, or bring GradXpert access to your network.',
       cta: 'Affiliate With Us',
       gradient: 'from-orange-500 to-red-500'
     }
@@ -66,10 +66,22 @@ export default function Partnership() {
       {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.05)_1px,transparent_0)] bg-[length:24px_24px]"></div> */}
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/*<div className="text-left md:text-center mb-16">*/}
+        {/*  <h2 className="text-4xl font-bold text-black mb-6">*/}
+        {/*    Partner with <span className="bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">GradXpert</span> to Make a Bigger Impact*/}
+        {/*  </h2>*/}
+        {/*</div>*/}
         <div className="text-left md:text-center mb-16">
-          <h2 className="text-4xl font-bold text-black mb-6">
-            Partner with <span className="bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">GradXpert</span> to Make a Bigger Impact
-          </h2>
+          <div className="flex items-center justify-start md:justify-center gap-3">
+            <Handshake className="h-8 w-8 text-rose-600 mb-4" />
+            <h2 className="text-4xl font-bold text-black mb-6">
+              Partner with{" "}
+              <span className="bg-gradient-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">
+                GradXpert
+              </span>{" "}
+              {/*to Make a Bigger Impact*/}
+            </h2>
+          </div>
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
