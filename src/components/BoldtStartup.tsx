@@ -3,7 +3,7 @@ import { Rocket, Lightbulb, TrendingUp, Users, Sparkles, Target, Code, Globe, Za
 
 const BoldtStartup = () => {
   return (
-    <section id='boldstartup' className="py-16 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
+    <section id='boldstartup' className="py-20 md:py-24 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.1),transparent_50%)]"></div>
@@ -25,13 +25,13 @@ const BoldtStartup = () => {
         <div className="md:text-center mb-12 lg:hidden">
           <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-6 md:mb-8">
             <div className="relative">
-              <Rocket className="h-8 w-8 md:h-10 md:w-10 text-emerald-600" />
+              <Rocket className="h-10 w-10  md:h-10 md:w-10 text-emerald-600" />
               <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-green-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
             </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Build with{' '}
               <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                BoldStartup
+                Bold Startup
               </span>
             </h2>
           </div>
@@ -100,7 +100,7 @@ const BoldtStartup = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   Build with{' '}
                   <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                    BoldStartup
+                    Bold Startup
                   </span>
                 </h2>
               </div>

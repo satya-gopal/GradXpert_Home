@@ -46,7 +46,7 @@ export default function AnnouncementBar() {
   ];
 
   return (
-    <section className="py-6 md:py-12 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
+    <section className="py-20 md:py-24 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
       {/* Animated Background Effects - Reduced intensity on mobile */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-0 w-48 md:w-96 h-48 md:h-96 bg-gradient-to-r from-cyan-200/20 md:from-cyan-200/30 to-blue-200/20 md:to-blue-200/30 rounded-full blur-xl md:blur-3xl animate-pulse"></div>

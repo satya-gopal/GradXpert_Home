@@ -3,7 +3,7 @@ import { Star, Target, Zap } from 'lucide-react';
 
 const Promise = () => {
   return (
-    <section className="section-padding bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 relative overflow-hidden">
+    <section className="section py-20 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20 relative overflow-hidden">
       {/* Subtle background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.04),transparent_70%)]"></div>
@@ -19,7 +19,7 @@ const Promise = () => {
           <div>
             <div className="flex items-center space-x-4 mb-8">
               <div className="icon-md bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25">
-                <Star className="icon-sm text-white" />
+                <Star className="h-10 w-10  icon-sm text-white" />
               </div>
               <h2 className="text-3xl font-bold text-slate-900 tracking-tight">
                 About GradXpert

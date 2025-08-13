@@ -430,15 +430,15 @@
 // export default AboutUs;
 
 import React, { useState, useEffect } from 'react';
-import { 
-  GraduationCap, 
-  Target, 
-  Users, 
-  Lightbulb, 
-  Award, 
-  Rocket, 
-  Star, 
-  MapPin, 
+import {
+  GraduationCap,
+  Target,
+  Users,
+  Lightbulb,
+  Award,
+  Rocket,
+  Star,
+  MapPin,
   Calendar,
   CheckCircle,
   ExternalLink,
@@ -456,7 +456,7 @@ import {
   Settings,
   ChevronLeft,
   ChevronRight,
-  Quote
+  Quote, Handshake
 } from 'lucide-react';
 import Promise from './Promise';
 
@@ -773,6 +773,64 @@ const AboutUs = () => {
             <p className="text-lg text-slate-700 font-medium">
               Whether a student is just starting out or preparing for their first job — GradXpert meets them where they are, and takes them forward.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section className="py-12 bg-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="md:text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center md:justify-center space-x-3">
+              <Handshake className="h-8 w-8 text-green-600" />
+              <span>Our Partners</span>
+            </h2>
+            <p className="text-lg text-slate-700">Trusted by leading organizations and platforms</p>
+          </div>
+
+          <div className="relative z-10 pb-12">
+            <div className="overflow-hidden group">
+              <div className="flex space-x-12 items-center motion-safe:animate-[scroll-left_8s_linear_infinite] md:motion-safe:animate-[scroll-left_15s_linear_infinite] lg:motion-safe:animate-[scroll-left_30s_linear_infinite] group-hover:[animation-play-state:paused]">
+                {[
+                  "https://gradxpert.com/brand-logos/startup-india-logo.jpg",
+                  "https://gradxpert.com/brand-logos/iso-9001-logo.jpg",
+                  "https://gradxpert.com/brand-logos/msme-logo.jpg",
+                  "https://gradxpert.com/brand-logos/startup-andhra-pradesh-logo.jpg",
+                  "https://gradxpert.com/brand-logos/google-for-education-partner-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/aicte-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/apsche-logo.jpg",
+                  "https://gradxpert.com/brand-logos/apssdc-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/gem-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/nip-logo.jpg",
+                  "https://gradxpert.com/brand-logos/nvidia-inception-program-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/skill-india-logo.jpg",
+                  // duplicated again to make the scroll loop smoothly
+                  "https://gradxpert.com/brand-logos/startup-india-logo.jpg",
+                  "https://gradxpert.com/brand-logos/iso-9001-logo.jpg",
+                  "https://gradxpert.com/brand-logos/msme-logo.jpg",
+                  "https://gradxpert.com/brand-logos/startup-andhra-pradesh-logo.jpg",
+                  "https://gradxpert.com/brand-logos/google-for-education-partner-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/aicte-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/apsche-logo.jpg",
+                  "https://gradxpert.com/brand-logos/apssdc-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/gem-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/nip-logo.jpg",
+                  "https://gradxpert.com/brand-logos/nvidia-inception-program-logo.jpg",
+                  // "https://gradxpert.com/brand-logos/skill-india-logo.jpg"
+                ].map((logo, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 flex items-center justify-center bg-white/60 backdrop-blur-sm rounded-xl border border-white/30 hover:border-white/50 transition-all duration-300 hover:scale-105 shadow-sm"
+                  >
+                    <img
+                      src={logo}
+                      alt={`Partner logo ${index + 1}`}
+                      className="w-full h-14 object-contain opacity-80 group-hover:opacity-100 transition-all duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1106,7 +1164,7 @@ const AboutUs = () => {
 
       {/* Enhanced Journey Section with Unique UI */}
       <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-blue-50"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#FFF8E7] to-[#E6F4EA]"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="md:text-center mb-16">
             <div className="flex md:items-center md:justify-center space-x-3 mb-6">
@@ -1117,18 +1175,18 @@ const AboutUs = () => {
               From an idea in a dorm room to a growing student movement.
             </p>
           </div>
-          
+
           {/* Unique Timeline Design */}
           <div className="relative">
             {/* Central Timeline Path */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-emerald-500 via-blue-500 to-purple-500 rounded-full hidden lg:block"></div>
-            
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-[#FF9933] via-white to-[#138808] rounded-full hidden lg:block"></div>
+
             {/* Milestone Cards */}
             <div className="space-y-16">
               {milestones.map((milestone, index) => {
                 const Icon = milestone.icon;
                 const isEven = index % 2 === 0;
-                
+
                 return (
                   <div key={index} className={`flex items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} flex-col`}>
                     {/* Content Card */}
@@ -1137,18 +1195,18 @@ const AboutUs = () => {
                         {/* Header */}
                         <div className="flex items-center justify-between mb-6">
                           <div className="flex items-center space-x-3">
-                            <div className="bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold">
+                            <div className="bg-gradient-to-r from-[#FF9933] to-[#138808] text-white px-4 py-2 rounded-full text-sm font-bold">
                               {milestone.year} {milestone.quarter}
                             </div>
                             <div className="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">
                               {milestone.metrics}
                             </div>
                           </div>
-                          <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-12 h-12 bg-gradient-to-r from-[#FF9933] to-[#138808] rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                             <Icon className="h-6 w-6 text-white" />
                           </div>
                         </div>
-                        
+
                         {/* Content */}
                         <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-emerald-600 transition-colors duration-300">
                           {milestone.event}
@@ -1156,50 +1214,50 @@ const AboutUs = () => {
                         <p className="text-slate-600 leading-relaxed mb-4">
                           {milestone.description}
                         </p>
-                        
+
                         {/* Progress Bar */}
                         <div className="w-full bg-slate-200 rounded-full h-2 mb-4">
-                          <div 
-                            className="bg-gradient-to-r from-emerald-500 to-blue-500 h-2 rounded-full transition-all duration-1000 group-hover:w-full"
+                          <div
+                            className="bg-gradient-to-r from-[#FF9933] via-white to-[#138808] h-2 rounded-full transition-all duration-1000 group-hover:w-full"
                             style={{ width: `${((index + 1) / milestones.length) * 100}%` }}
                           ></div>
                         </div>
-                        
+
                         {/* Timeline Position */}
                         <div className="text-xs text-slate-500 font-medium">
                           Milestone {index + 1} of {milestones.length}
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Central Timeline Node */}
                     <div className="relative z-20 lg:mx-0 mx-auto mb-8 lg:mb-0">
-                      <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full flex items-center justify-center shadow-2xl border-4 border-white relative">
+                      <div className="w-20 h-20 bg-gradient-to-r from-[#FF9933] to-[#138808] rounded-full flex items-center justify-center shadow-2xl border-4 border-white relative">
                         <Icon className="h-10 w-10 text-white" />
-                        
+
                         {/* Pulse Animation */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 animate-ping opacity-20"></div>
-                        
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#FF9933] to-[#138808] animate-ping opacity-20"></div>
+
                         {/* Year Badge */}
                         <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-white px-3 py-1 rounded-full shadow-lg border border-slate-200">
                           <span className="text-xs font-bold text-slate-700">{milestone.year}</span>
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Spacer for opposite side */}
                     <div className="flex-1 hidden lg:block"></div>
                   </div>
                 );
               })}
             </div>
-            
-           
+
+
           </div>
            {/* Future Vision */}
            <div className="text-center mt-16">
-              <div className="bg-gradient-to-r from-emerald-100 to-blue-100 p-8 rounded-3xl border border-emerald-200 max-w-2xl mx-auto">
-                <Globe className="h-12 w-12 text-emerald-600 mx-auto mb-4" />
+              <div className="bg-gradient-to-r from-orange-100 to-green-100 p-8 rounded-3xl border border-emerald-200 max-w-2xl mx-auto">
+                <Globe className="h-12 w-12 text-[#FF9933] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-slate-900 mb-4">What's Next?</h3>
                 <p className="text-slate-700 leading-relaxed">
                   Expanding to reach 10 million students across India, building partnerships with 500+ colleges, and creating the world's largest student career ecosystem.

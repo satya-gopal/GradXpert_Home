@@ -65,13 +65,13 @@ const HowItWorks = () => {
   }, []);
 
   return (
-    <section className="py-12 bg-gray-50">
+    <section className="py-20 md:py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 text-left md:text-center">
             <div className="flex md:justify-center items-center space-x-4 mb-2">
-              <Workflow className="h-8 w-8 text-blue-600" />
+              <Workflow className="h-10 w-10  text-blue-600" />
               <span>How It Works</span>
             </div>
           </h2>

@@ -117,7 +117,7 @@ const FAQ = () => {
     setCurrentCategorySlide((prev) => (prev - 1 + Math.ceil(faqs.length / 2)) % Math.ceil(faqs.length / 2));
   };
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
+    <section className="py-20 md:py-24 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.08),transparent_70%)]"></div>

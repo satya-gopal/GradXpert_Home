@@ -45,8 +45,8 @@ const HomePage = () => (
     <IOSchool />
     <Kickstack />
     <Powerfolio />
-    <BoldtStartup />
     <TalentPool />
+    <BoldtStartup />
     {/*<Events />*/}
     {/* <VIPPro /> */}
     <Testimonials />

@@ -21,7 +21,7 @@ const aiTools = [
 
 const StudentOS = () => {
   return (
-    <section id='studentos' className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+    <section id='studentos' className="py-20 md:py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.2),transparent_50%)]"></div>
@@ -57,16 +57,16 @@ const StudentOS = () => {
           <div className="flex md:items-center md:justify-center space-x-4 mb-8">
             <div className="relative">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/30">
-                <Settings className="h-8 w-8 text-white" />
+                <Settings className="h-10 w-10  text-white" />
               </div>
               <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl">
-                <Sparkles className="h-4 w-4 text-white animate-spin" />
+                <Sparkles className="h-5 w-5 text-white animate-spin" />
               </div>
               {/* <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                 <Zap className="h-3 w-3 text-white" />
               </div> */}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Try Our Latest{' '}
               <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 bg-clip-text text-transparent drop-shadow-sm">
                 StudentOS

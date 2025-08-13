@@ -76,7 +76,7 @@ const Ecosystem = () => {
     const navigate = useNavigate();
 
   return (
-    <section id="ecosystem" className="section-padding bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+    <section id="ecosystem" className="section py-20 md:py-24 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
       {/* Light background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]"></div>
@@ -109,7 +109,7 @@ const Ecosystem = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">
             <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-2">
             <div className="relative hidden md:block">
-              <Layers className="h-6 w-6 md:h-8 md:w-8 text-purple-600" />
+              <Layers className="h-10 w-10  md:h-10 md:w-10 text-purple-600" />
               <div className="absolute -top-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse"></div>
             </div>
             {/* <div className="relative  md:hidden">

@@ -1,7 +1,19 @@
 import React, { useEffect } from 'react';
 import { GraduationCap, MapPin, Mail, Phone, ArrowRight, ExternalLink, Star, Shield, Award, Users, Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
-import { FaLinkedinIn, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp } from "react-icons/fa";
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import {
+  FaLinkedinIn,
+  FaYoutube,
+  FaTwitter
+} from "react-icons/fa";
+import {
+  FaWhatsappSquare,
+  FaInstagramSquare
+} from "react-icons/fa";
+
+
+
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -16,7 +28,12 @@ const Footer = () => {
       }
       return;
     }
-    
+
+    if (path.startsWith('https://wa.me/')) {
+      window.location.href = path;
+      return;
+    }
+
     // If it's a hash link but we're not on homepage
     if (path.startsWith('#')) {
       navigate('/', { state: { scrollTo: path }, replace: true });
@@ -75,7 +92,7 @@ const Footer = () => {
     { name: "Privacy Policy", href: "/privacy-policy" },
     { name: "Our Terms", href: "/terms-and-conditions" },
     { name: "Refund Policy", href: "/refund-policy" },
-    { name: "Student Support", href: "#" },
+    { name: "Student Support", href: "https://wa.me/919010485481?text=Hello%20GradXpert%20team,%20I%20want%20support%20to%20enroll%20in%20the%20programs"},
     { name: "Contact Us", href: "/contact" },
   ];
 
@@ -115,7 +132,7 @@ const Footer = () => {
     },
     { 
       logo: "https://gradxpert.com/brand-logos/sub-brands/boldstartup-xy.jpg",
-      text: "Boldstartup", 
+      text: "Bold Startup",
       bgColor: "bg-white/5",
       href: "https://boldstartup.in"
     }
@@ -142,7 +159,7 @@ const Footer = () => {
                 <img
                   src="/Red-White-Name-Logo.png"
                   alt="GradXpert Logo"
-                  className="h-12 object-contain rounded-full"
+                  className="h-10 object-contain rounded-full"
                 />
               </div>
 
@@ -272,14 +289,14 @@ const Footer = () => {
           
           {/* Trust Badges - Full Width Section */}
           <div className="mb-6 lg:mb-2">
-            <div className="grid grid-cols-2 gap-5 md:flex md:items-center md:justify-center md:gap-12">
+            <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:flex md:items-center md:justify-center md:gap-12">
               {trustBadges.map((badge, index) => (
                 <div key={index} className="">
                   <img
                     src={badge.logo}
                     alt={badge.text}
                     onClick={() => window.open(badge.href, '_blank')}
-                    className="h-15 md:h-12 rounded-full w-full object-contain"
+                    className="h-10 md:h-12 sm:h-12 rounded-full w-full object-contain"
                   />
                 </div>
               ))}
@@ -295,41 +312,80 @@ const Footer = () => {
                 © 2025 GradXpert. All rights reserved.
               </p>
             </div>
-
             <div className="flex items-center space-x-4 lg:space-x-6 order-1 md:order-2">
               <div className="flex space-x-3 lg:space-x-4">
-                <button 
+                <button
                   onClick={() => window.open('https://www.linkedin.com/company/gradxpert/', '_blank')}
-                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border-[0.5px] border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-8 h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 >
                   <FaLinkedinIn className="text-slate-400 text-xs lg:text-sm" />
                 </button>
-                <button 
+
+                <button
                   onClick={() => window.open('https://www.youtube.com/@GradXpert', '_blank')}
-                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-8 h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 >
-                  <FaYoutube className="text-slate-400 text-sm lg:text-base" />
+                  <FaYoutube className="text-slate-400 text-xs lg:text-sm" />
                 </button>
-                <button 
-                  onClick={() => window.open('https://www.youtube.com/@GradXpert', '_blank')}
-                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+
+                <button
+                  onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+                  className="w-8 h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 >
-                  <FaWhatsapp className="text-slate-400 text-sm lg:text-base" />
+                  <FaWhatsappSquare className="text-slate-400 text-xs lg:text-sm" />
                 </button>
-                <button 
+
+                <button
                   onClick={() => window.open('https://www.instagram.com/gradxpert/', '_blank')}
-                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-8 h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 >
-                  <FaInstagram className="text-slate-400 text-sm lg:text-base" />
+                  <FaInstagramSquare className="text-slate-400 text-xs lg:text-sm" />
                 </button>
-                <button 
+
+                <button
                   onClick={() => window.open('https://x.com/gradxpert/', '_blank')}
-                  className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  className="w-8 h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 >
-                  <FaTwitter className="text-slate-400 text-sm lg:text-base" />
+                  <FaTwitter className="text-slate-400 text-xs lg:text-sm" />
                 </button>
               </div>
             </div>
+
+
+            {/*<div className="flex items-center space-x-4 lg:space-x-6 order-1 md:order-2">*/}
+            {/*  <div className="flex space-x-3 lg:space-x-4">*/}
+            {/*    <button */}
+            {/*      onClick={() => window.open('https://www.linkedin.com/company/gradxpert/', '_blank')}*/}
+            {/*      className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border-[0.5px] border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"*/}
+            {/*    >*/}
+            {/*      <FaLinkedinIn className="text-slate-400 text-xs lg:text-sm" />*/}
+            {/*    </button>*/}
+            {/*    <button */}
+            {/*      onClick={() => window.open('https://www.youtube.com/@GradXpert', '_blank')}*/}
+            {/*      className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"*/}
+            {/*    >*/}
+            {/*      <FaYoutube className="text-slate-400 text-sm lg:text-base" />*/}
+            {/*    </button>*/}
+            {/*    <button */}
+            {/*      onClick={() => window.open('https://www.youtube.com/@GradXpert', '_blank')}*/}
+            {/*      className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"*/}
+            {/*    >*/}
+            {/*      <FaWhatsapp className="text-slate-400 text-sm lg:text-base" />*/}
+            {/*    </button>*/}
+            {/*    <button */}
+            {/*      onClick={() => window.open('https://www.instagram.com/gradxpert/', '_blank')}*/}
+            {/*      className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"*/}
+            {/*    >*/}
+            {/*      <FaInstagram className="text-slate-400 text-sm lg:text-base" />*/}
+            {/*    </button>*/}
+            {/*    <button */}
+            {/*      onClick={() => window.open('https://x.com/gradxpert/', '_blank')}*/}
+            {/*      className="w-8 h-8 lg:w-8 lg:h-8 rounded-full border border-slate-400 flex items-center justify-center hover:scale-110 transition-transform duration-300 cursor-pointer"*/}
+            {/*    >*/}
+            {/*      <FaTwitter className="text-slate-400 text-sm lg:text-base" />*/}
+            {/*    </button>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
         </div>
       </div>

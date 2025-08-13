@@ -69,7 +69,7 @@ const IOSchool = () => {
   };
   const navigate = useNavigate();
   return (
-    <section id="ioschool" className="py-16 md:py-32 bg-gradient-to-br from-purple-50 via-violet-50 to-blue-50 relative overflow-hidden">
+    <section id="ioschool" className="py-20 md:py-24 bg-gradient-to-br from-purple-50 via-violet-50 to-blue-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(147,51,234,0.1),transparent_50%)]"></div>
@@ -84,11 +84,11 @@ const IOSchool = () => {
         <div className="md:text-center mb-8 lg:hidden">
           <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-4 md:mb-6">
             <div className="relative">
-              <BookOpen className="h-8 w-8 md:h-10 md:w-10 text-purple-600" />
+              <BookOpen className="h-10 w-10  md:h-10 md:w-10 text-purple-600" />
               <Sparkles className="h-4 w-4 md:h-5 md:w-5 text-purple-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
               {/*<Zap className="h-4 w-4 md:h-5 md:w-5 text-violet-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-pulse" />*/}
             </div>
-            <h2 className="text-3xl  font-black text-slate-900 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl  font-black text-slate-900 tracking-tight">
               Learn at{' '}
               <span className="bg-gradient-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">
                 I/O School

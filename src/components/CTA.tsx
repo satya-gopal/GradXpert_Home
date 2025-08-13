@@ -31,11 +31,32 @@ export default function Partnership() {
       description: 'Work with us to train, co-host events, or bring GradXpert access to your network.',
       cta: 'Affiliate With Us',
       gradient: 'from-orange-500 to-red-500'
+    },
+    {
+      icon: Users,
+      title: 'IIIT',
+      description: 'Official Partner with RGUKT AP-IIITs',
+      cta: 'Join',
+      gradient: 'from-orange-500 to-blue-500'
+    },
+    {
+      icon: Users,
+      title: 'Campus Voice',
+      description: 'The voice of our students are recognized as an important component of shared decision-making.',
+      cta: 'Read',
+      gradient: 'from-blue-500 to-green-500'
+    },
+    {
+      icon: Users,
+      title: 'Collage Club',
+      description: 'Join Collage Club for some mindful making at the GradXpert',
+      cta: 'Apply',
+      gradient: 'from-green-500 to-orange-500'
     }
   ];
 
   return (
-    <section className="section-padding bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+    <section className="section py-20 md:py-24 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
       {/* Radial gradient pattern overlay */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]"></div>
@@ -84,7 +105,7 @@ export default function Partnership() {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           {partnerships.map((partnership, index) => (
             <div key={index} className="group relative bg-white rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
               {/* Subtle Gradient Border Effect */}

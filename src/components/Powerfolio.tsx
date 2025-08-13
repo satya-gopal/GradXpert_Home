@@ -3,7 +3,7 @@ import { FolderOpen, Link, Github, Award, Sparkles, Code, Globe, Briefcase } fro
 
 const Powerfolio = () => {
   return (
-    <section id="powerfolio" className="py-16 bg-gradient-to-br from-blue-50 via-blue-100 to-sky-50 relative overflow-hidden">
+    <section id="powerfolio" className="py-20 md:py-24 bg-gradient-to-br from-blue-50 via-blue-100 to-sky-50 relative overflow-hidden">
       {/* Light background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_50%)]"></div>
@@ -23,7 +23,7 @@ const Powerfolio = () => {
           <div>
             <div className="flex md:items-center space-x-3 md:space-x-4 mb-6 md:mb-8 md:justify-center lg:justify-start">
               <div className="relative">
-                <FolderOpen className="h-8 w-8 md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600" />
+                <FolderOpen className="h-10 w-10  md:h-10 md:w-10 lg:h-12 lg:w-12 text-blue-600" />
                 <Sparkles className="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 text-indigo-500 absolute -top-1 -right-1 md:-top-2 md:-right-2 animate-spin" />
               </div>
               <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">

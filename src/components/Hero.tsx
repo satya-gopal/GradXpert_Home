@@ -7,10 +7,7 @@ const Hero = () => {
   return (
     // <section className="relative bg-white section-padding pt-32 md:pt-40 overflow-hidden">
     //   <section id='#' className="relative  bg-gradient-to-br from-gray-50/30 via-white to-indigo-50/20 pt-32 md:pt-40  overflow-hidden grid-pattern">
-<section
-  id="#"
-  className="relative pt-32 md:pt-40 overflow-hidden grid-pattern"
->
+<section id="#" className="relative pt-28 md:pt-40 overflow-hidden grid-pattern">
   {/* Gradient Overlay */}
   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/70 to-white pointer-events-none" />
 
@@ -106,7 +103,7 @@ const Hero = () => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden">
               <img 
-                src="https://gradxpert.com/website-assets/homepage/hero-img.png"
+                src="https://gradxpert.com/website-assets/homepage/social-og.jpg"
                 alt="Students collaborating on futuristic technology"
                 className="w-full h-full object-cover"
               />
