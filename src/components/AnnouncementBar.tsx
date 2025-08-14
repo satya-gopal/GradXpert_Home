@@ -25,7 +25,7 @@ export default function AnnouncementBar() {
     },
     {
       icon: Star,
-      text: "4.9/5 rating maintained across 50+ college partnerships",
+      text: "4.9/5 rating maintained across 50+ campus partnerships",
       gradient: "from-indigo-500 to-purple-500"
     },
     {

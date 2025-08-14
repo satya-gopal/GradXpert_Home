@@ -9,7 +9,7 @@ import StudentOS from './components/StudentOS';
 import IOSchool from './components/IOSchool';
 import Kickstack from './components/Kickstack';
 import Powerfolio from './components/Powerfolio';
-import BoldtStartup from './components/BoldtStartup';
+import BoldStartup from './components/BoldStartup';
 import TalentPool from './components/TalentPool';
 import Events from './components/Events';
 import VIPPro from './components/VIPPro';
@@ -23,7 +23,7 @@ import ContactUs from './components/ContactUs';
 import Careers from './components/Careers';
 import BecomeMentor from './components/BecomeMentor';
 import CollaborationProgram from './components/CollaborationProgram'
-import InviteToCollege from './components/InviteToCollege'
+import InviteToCampus from './components/InviteToCampus'
 import PartnerWithUs from './components/PartnerWithUs'
 import TrainingProgramDetails from './components/TrainingProgramDetails'
 import NewEvents from './components/NewEvents'
@@ -32,6 +32,7 @@ import CourseDetails from './components/CourseDetails'
 import PrivacyPolicy from './components/privacypolicy';
 import TermsAndConditions from './components/termsandconditions';
 import RefundPolicy from './components/RefundPolicy';
+import Admin from './components/Admin';
 
 
 const HomePage = () => (
@@ -44,7 +45,7 @@ const HomePage = () => (
     <IOSchool />
     <Kickstack />
     <Powerfolio />
-    <BoldtStartup />
+    <BoldStartup />
     <TalentPool />
     <Events />
     {/* <VIPPro /> */}
@@ -63,11 +64,12 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path='/careers' element={<Careers />}/>
           <Route path="/become-mentor" element={<BecomeMentor />} />
           <Route path="/collaboration-program" element={<CollaborationProgram />} />
-          <Route path="/invite-to-college" element={<InviteToCollege />} />
+          <Route path="/invite-to-campus" element={<InviteToCampus />} />
           <Route path="/partner-with-us" element={<PartnerWithUs />} />
           <Route path="/training-program-details" element={<TrainingProgramDetails />} />
           <Route path="/newevents" element={<NewEvents />} />

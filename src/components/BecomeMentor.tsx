@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  GraduationCap, 
-  Users, 
-  Award, 
-  BookOpen, 
-  CheckCircle, 
-  Upload, 
+import {
+  GraduationCap,
+  Users,
+  Award,
+  BookOpen,
+  CheckCircle,
+  Upload,
   ArrowRight,
   Star,
   Clock,
@@ -23,11 +23,12 @@ export default function BecomeMentor() {
     phone: '',
     university: '',
     branch: '',
-    yearOfStudy: '',
+    educationalQualification: '',
+    yearsOfExperience: '',
     isWorking: '',
     linkedinProfile: '',
     portfolioLink: '',
-    resume: null,
+    resume: null as File | null,
     projectsAchievements: '',
     whyMentor: '',
     teachingFormat: '',
@@ -38,31 +39,43 @@ export default function BecomeMentor() {
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const universities = [
+  /*const universities = [
     'IIIT Ongole',
     'RKV',
     'SRIK',
     'BASAR',
     'NUZVID'
-  ];
+  ];*/
 
   const branches = [
     'Computer Science Engineering (CSE)',
     'Electronics & Communication Engineering (ECE)',
     'Mechanical Engineering (MECH)',
-    'Civil Engineering (CIVIL)'
+    'Civil Engineering (CIVIL)',
+    'Electrical Engineering (EE)',
+    'Information Technology (IT)',
+    'Artificial Intelligence & Machine Learning (AI & ML)',
+    'Data Science (DS)',
+    'Electronics & Instrumentation Engineering (EIE)',
+    'Chemical Engineering (CHE)',
+    'Bio-Technology (BT)',
+    'Automobile Engineering (AUTO)',
+    'Aerospace Engineering (AERO)',
+    'Industrial Engineering (IE)',
+    'Petroleum Engineering (PE)'
   ];
 
-  const yearOptions = [
-    '2nd Year',
-    '3rd Year',
-    '4th Year',
-    'Graduated'
-  ];
+
+  // const yearOptions = [
+  //   '2nd Year',
+  //   '3rd Year',
+  //   '4th Year',
+  //   'Graduated'
+  // ];
 
   const teachingFormats = [
     'Live Sessions',
-    'Pre-recorded Videos',
+    'On-site Teaching',
     '1-on-1 Mentoring',
     'Any'
   ];
@@ -177,16 +190,16 @@ export default function BecomeMentor() {
             <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
               <CheckCircle className="h-10 w-10 text-white" />
             </div>
-            
+
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
               Application Submitted Successfully!
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Thanks for applying! Our team will review your profile and get back to you shortly. 
+              Thanks for applying! Our team will review your profile and get back to you shortly.
               We're excited about the possibility of having you join our mentor community.
             </p>
-            
+
             <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">What happens next?</h3>
               <div className="space-y-4 text-left">
@@ -210,8 +223,8 @@ export default function BecomeMentor() {
                 </div>
               </div>
             </div>
-            
-            <Link 
+
+            <Link
               to="/"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
@@ -237,7 +250,7 @@ export default function BecomeMentor() {
           <div className="text-center">
             <div className="flex items-center justify-center space-x-4 mb-8">
               <GraduationCap className="h-12 w-12 text-blue-600 hidden md:block" />
-              
+
               <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-2 tracking-tight">
                 Become a{' '}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
@@ -246,12 +259,12 @@ export default function BecomeMentor() {
                 {' '}at GradXpert
               </h1>
             </div>
-            
+
             <p className="text-lg text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Share your knowledge, earn while teaching, and help shape the next generation of tech professionals. 
-              Join our elite community of IIIT mentors making a real impact.
+              Share your knowledge, earn while teaching, and help shape the next generation of tech professionals.
+              Join our elite community of talented mentors making a real impact.
             </p>
-            
+
             <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
               <p className="text-slate-800 font-medium">
                 Transform careers while building your own teaching legacy
@@ -262,7 +275,7 @@ export default function BecomeMentor() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 relative overflow-hidden">
+      {/* <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -277,7 +290,7 @@ export default function BecomeMentor() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Steps Section */}
       <section className="py-16 bg-white/50 backdrop-blur-sm">
@@ -296,14 +309,14 @@ export default function BecomeMentor() {
                   <div className={`w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
                     <step.icon className="h-8 w-8 text-white" />
                   </div>
-                  
+
                   <div className="text-center">
                     <div className="text-sm text-gray-500 mb-2">Step {step.number}</div>
                     <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
                   </div>
                 </div>
-                
+
                 {/* Arrow for desktop */}
                 {index < steps.length - 1 && (
                   <div className="hidden lg:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-gray-300">
@@ -336,7 +349,7 @@ export default function BecomeMentor() {
                   <Users className="h-6 w-6 text-blue-600 mr-3" />
                   Basic Information
                 </h3>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -352,7 +365,7 @@ export default function BecomeMentor() {
                       placeholder="Enter your full name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Email Address *
@@ -367,7 +380,7 @@ export default function BecomeMentor() {
                       placeholder="your.email@example.com"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Phone Number (WhatsApp Preferred) *
@@ -382,25 +395,23 @@ export default function BecomeMentor() {
                       placeholder="+91 9876543210"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       University *
                     </label>
-                    <select
+                    <input
+                      type="text"
                       name="university"
                       value={formData.university}
                       onChange={handleInputChange}
+                      placeholder="Enter your university name"
                       required
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select your university</option>
-                      {universities.map((uni) => (
-                        <option key={uni} value={uni}>{uni}</option>
-                      ))}
-                    </select>
+                    />
                   </div>
-                  
+
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Branch *
@@ -418,25 +429,23 @@ export default function BecomeMentor() {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Year of Study *
+                      Educational Qualification *
                     </label>
-                    <select
-                      name="yearOfStudy"
-                      value={formData.yearOfStudy}
+                    <input
+                      type="text"
+                      name="educationalQualification"
+                      value={formData.educationalQualification}
                       onChange={handleInputChange}
+                      placeholder="Enter your educational qualification"
                       required
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    >
-                      <option value="">Select year</option>
-                      {yearOptions.map((year) => (
-                        <option key={year} value={year}>{year}</option>
-                      ))}
-                    </select>
+                    />
                   </div>
-                  
+
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Working as Employee *
@@ -453,7 +462,23 @@ export default function BecomeMentor() {
                       <option value="no">No</option>
                     </select>
                   </div>
-                  
+
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Years of Experience *
+                    </label>
+                    <input
+                      type="number"
+                      name="yearsOfExperience"
+                      value={formData.yearsOfExperience}
+                      onChange={handleInputChange}
+                      placeholder="Enter your years of experience"
+                      required
+                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    />
+                  </div>
+
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       LinkedIn Profile (Optional)
@@ -467,7 +492,7 @@ export default function BecomeMentor() {
                       placeholder="https://linkedin.com/in/yourprofile"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Portfolio Link (Optional)
@@ -490,7 +515,7 @@ export default function BecomeMentor() {
                   <Upload className="h-6 w-6 text-purple-600 mr-3" />
                   Resume Upload
                 </h3>
-                
+
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     Upload Resume (PDF only) *
@@ -513,23 +538,21 @@ export default function BecomeMentor() {
                   <Star className="h-6 w-6 text-emerald-600 mr-3" />
                   Experience & Motivation
                 </h3>
-                
+
                 <div className="space-y-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Highlight Any Projects or Achievements *
+                      Highlight Any Projects or Achievements 
                     </label>
                     <textarea
                       name="projectsAchievements"
                       value={formData.projectsAchievements}
                       onChange={handleInputChange}
-                      required
-                      rows={4}
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all duration-200 resize-none"
                       placeholder="Briefly describe your key projects, achievements, or relevant experience..."
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Why do you want to become a mentor at GradXpert? *
@@ -553,7 +576,7 @@ export default function BecomeMentor() {
                   <Clock className="h-6 w-6 text-orange-600 mr-3" />
                   Teaching Preferences
                 </h3>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -572,7 +595,7 @@ export default function BecomeMentor() {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Availability per Week *
@@ -590,7 +613,7 @@ export default function BecomeMentor() {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Preferred Time Slot for Sessions *
@@ -638,7 +661,7 @@ export default function BecomeMentor() {
                   Submit Application
                   <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
-                
+
                 <p className="text-gray-500 text-sm mt-4">
                   By submitting this form, you agree to our terms and conditions
                 </p>
@@ -651,7 +674,7 @@ export default function BecomeMentor() {
       {/* Benefits Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (

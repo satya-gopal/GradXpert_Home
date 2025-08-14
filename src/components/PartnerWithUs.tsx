@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Building2, 
-  Users, 
-  Handshake, 
-  CheckCircle, 
+import {
+  Building2,
+  Users,
+  Handshake,
+  CheckCircle,
   ArrowRight,
   Star,
   Globe,
@@ -27,7 +27,7 @@ export default function PartnerWithUs() {
     email: '',
     phone: '',
     companySpecialization: '',
-    collaborationType: [],
+    collaborationType: [] as string[],
     otherCollaboration: '',
     collaborationProposal: '',
     declaration: false
@@ -53,7 +53,7 @@ export default function PartnerWithUs() {
       } else if (name === 'collaborationType') {
         setFormData(prev => ({
           ...prev,
-          [name]: checked 
+          [name]: checked
             ? [...prev[name], value]
             : prev[name].filter(item => item !== value)
         }));
@@ -97,7 +97,7 @@ export default function PartnerWithUs() {
     {
       icon: Target,
       title: 'Market Expansion',
-      description: 'Access to 10,000+ students across 50+ colleges in Andhra Pradesh',
+      description: 'Access to 7000+ students across colleges in Andhra Pradesh',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
@@ -120,12 +120,12 @@ export default function PartnerWithUs() {
     }
   ];
 
-  const stats = [
-    { value: '50+', label: 'Partner Organizations', gradient: 'from-blue-500 to-cyan-500' },
-    { value: '10K+', label: 'Students Reached', gradient: 'from-emerald-500 to-teal-500' },
-    { value: '100+', label: 'Joint Programs', gradient: 'from-purple-500 to-pink-500' },
-    { value: '95%', label: 'Partner Satisfaction', gradient: 'from-orange-500 to-red-500' }
-  ];
+  // const stats = [
+  //   { value: '50+', label: 'Partner Organizations', gradient: 'from-blue-500 to-cyan-500' },
+  //   { value: '10K+', label: 'Students Reached', gradient: 'from-emerald-500 to-teal-500' },
+  //   { value: '100+', label: 'Joint Programs', gradient: 'from-purple-500 to-pink-500' },
+  //   { value: '95%', label: 'Partner Satisfaction', gradient: 'from-orange-500 to-red-500' }
+  // ];
 
   if (isSubmitted) {
     return (
@@ -135,15 +135,15 @@ export default function PartnerWithUs() {
             <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
               <CheckCircle className="h-10 w-10 text-white" />
             </div>
-            
+
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
               Partnership Request Submitted Successfully!
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Thank you for showing interest in partnering with I/O School. Our partnership team will review your proposal and reach out soon to discuss exciting collaboration opportunities.
             </p>
-            
+
             <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">What happens next?</h3>
               <div className="space-y-4 text-left">
@@ -173,16 +173,16 @@ export default function PartnerWithUs() {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
+              <Link
                 to="/"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-600 text-white rounded-xl font-semibold hover:from-emerald-400 hover:to-cyan-500 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Back to Home
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              
+
               <button className="inline-flex items-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 <Mail className="mr-2 h-5 w-5" />
                 Contact Partnership Team
@@ -196,8 +196,8 @@ export default function PartnerWithUs() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 ">
-            {/* Hero Section */}
-<section className="pt-32 pb-20 relative overflow-hidden">
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(99,102,241,0.1),transparent_70%)]"></div>
@@ -210,45 +210,27 @@ export default function PartnerWithUs() {
               <Handshake className="h-12 w-12 text-blue-600 hidden md:block" />
 
               <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-2 tracking-tight">
-              Partner with{' '}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  Partner
+                </span>{' '}
+                with{' '}
+                <span >
                   GradXpert
                 </span>
               </h1>
             </div>
+
             <p className="text-lg text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Join forces with us to create innovative educational solutions, expand market reach, 
-            and build a stronger tech ecosystem together. Let's grow and succeed as partners.            </p>
+              Join forces with us to create innovative educational solutions, expand market reach,
+              and build a stronger tech ecosystem together. Let's grow and succeed as partners.            </p>
             <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
               <p className="text-slate-800 font-medium">
-              Strategic partnerships that drive innovation and mutual growth
+                Strategic partnerships that drive innovation and mutual growth
               </p>
             </div>
           </div>
         </div>
       </section>
-
-        {/* stats Section */}
-
-        <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Stats */}
-          <div className="grid md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <div key={index} className="group bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-100 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg text-center">
-                <div className={`text-3xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 text-sm font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-
       {/* Steps Section */}
       <section className="py-16 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -266,12 +248,12 @@ export default function PartnerWithUs() {
                   <div className={`w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
                     <step.icon className="h-8 w-8 text-white" />
                   </div>
-                  
+
                   <div className="text-sm text-gray-500 mb-2">Step {step.number}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
                 </div>
-                
+
                 {/* Arrow for desktop */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-gray-300">
@@ -304,7 +286,7 @@ export default function PartnerWithUs() {
                   <Building2 className="h-6 w-6 text-blue-600 mr-3" />
                   Company Information
                 </h3>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -320,7 +302,7 @@ export default function PartnerWithUs() {
                       placeholder="Enter your company name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Website URL *
@@ -335,7 +317,7 @@ export default function PartnerWithUs() {
                       placeholder="https://www.yourcompany.com"
                     />
                   </div>
-                  
+
                   <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Company Location (City, Country) *
@@ -359,7 +341,7 @@ export default function PartnerWithUs() {
                   <Users className="h-6 w-6 text-purple-600 mr-3" />
                   Primary Contact Information
                 </h3>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -375,7 +357,7 @@ export default function PartnerWithUs() {
                       placeholder="Enter contact person's name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Designation / Role *
@@ -390,7 +372,7 @@ export default function PartnerWithUs() {
                       placeholder="e.g., Business Development Manager, CEO, CTO"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Work Email Address *
@@ -405,7 +387,7 @@ export default function PartnerWithUs() {
                       placeholder="contact@yourcompany.com"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Contact Number (WhatsApp Preferred) *
@@ -429,7 +411,7 @@ export default function PartnerWithUs() {
                   <Star className="h-6 w-6 text-emerald-600 mr-3" />
                   Company Specialization
                 </h3>
-                
+
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
                     What does your company specialize in? *
@@ -452,7 +434,7 @@ export default function PartnerWithUs() {
                   <Handshake className="h-6 w-6 text-orange-600 mr-3" />
                   Collaboration Details
                 </h3>
-                
+
                 <div className="space-y-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
@@ -472,7 +454,7 @@ export default function PartnerWithUs() {
                         </label>
                       ))}
                     </div>
-                    
+
                     {formData.collaborationType.includes('Other (please specify)') && (
                       <div className="mt-4">
                         <input
@@ -486,7 +468,7 @@ export default function PartnerWithUs() {
                       </div>
                     )}
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Briefly describe your collaboration proposal or goal *
@@ -531,7 +513,7 @@ export default function PartnerWithUs() {
                   Submit Partnership Request
                   <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
-                
+
                 <p className="text-gray-500 text-sm mt-4">
                   Our partnership team will review your proposal and reach out within 24-48 hours
                 </p>
@@ -544,7 +526,7 @@ export default function PartnerWithUs() {
       {/* benifits Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Benefits Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 ">

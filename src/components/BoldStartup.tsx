@@ -1,7 +1,7 @@
 import React from 'react';
 import { Rocket, Lightbulb, TrendingUp, Users, Sparkles, Target, Code, Globe, Zap } from 'lucide-react';
 
-const BoldtStartup = () => {
+const BoldStartup = () => {
   return (
     <section id='boldstartup' className="py-16 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 relative overflow-hidden">
       {/* Light background */}
@@ -162,4 +162,4 @@ const BoldtStartup = () => {
   );
 };
 
-export default BoldtStartup;
+export default BoldStartup;

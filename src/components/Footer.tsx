@@ -84,7 +84,7 @@ const Footer = () => {
     { name: "Internships", href: "/explore?filter=internship" },
     { name: "Events", href: "#events" },
     { name: "Become a Mentor", href: "/become-mentor" },
-    { name: "Invite to College", href: "/invite-to-college" },
+    { name: "Invite to Campus", href: "/invite-to-campus" },
     { name: "Partner with Us", href: "/partner-with-us" },
   ];
 

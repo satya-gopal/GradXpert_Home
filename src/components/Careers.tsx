@@ -33,7 +33,10 @@ import {
   BookOpen,
   Trophy,
   Send,
-  ExternalLink
+  ExternalLink,
+  Linkedin,
+  Instagram,
+  Youtube
 } from 'lucide-react';
 
 const jobOpenings = [
@@ -135,7 +138,7 @@ const jobOpenings = [
     type: "Full-time",
     experience: "3-5 years",
     skills: ["Sales", "Partnership", "Negotiation", "CRM", "Strategy"],
-    description: "Drive partnerships with colleges, companies, and mentors. Expand our ecosystem through strategic alliances and business development.",
+    description: "Drive partnerships with c, companies, and mentors. Expand our ecosystem through strategic alliances and business development.",
     requirements: [
       "3+ years of business development experience",
       "Experience in EdTech, SaaS, or B2B sales",
@@ -285,6 +288,37 @@ const hiringProcess = [
   }
 ];
 
+const socialPlatforms = [
+  {
+    icon: Linkedin,
+    name: "LinkedIn",
+    handle: "linkedin.com/company/gradxpert",
+    url: "https://linkedin.com/company/gradxpert",
+    color: "from-blue-600 to-blue-700"
+  },
+  {
+    icon: Instagram,
+    name: "Instagram",
+    handle: "instagram.com/gradxpert.in",
+    url: "https://instagram.com/gradxpert.in",
+    color: "from-pink-500 to-purple-600"
+  },
+  {
+    icon: Youtube,
+    name: "YouTube",
+    handle: "youtube.com/@gradxpert",
+    url: "https://youtube.com/@gradxpert",
+    color: "from-red-500 to-red-600"
+  },
+  {
+    icon: MessageSquare,
+    name: "WhatsApp Channel",
+    handle: "Join Here",
+    url: "#",
+    color: "from-green-500 to-green-600"
+  }
+];
+
 const Careers = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('All');
@@ -313,37 +347,43 @@ const Careers = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Hero Section */}
-      <section className="pt-32 pb-20 relative overflow-hidden">
+      <section className="pt-24 sm:pt-28 pb-16 sm:pb-20 relative overflow-hidden">
+        {/* Background Effects */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.1),transparent_70%)]"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(99,102,241,0.1),transparent_70%)]"></div>
         </div>
 
+        {/* Content Container */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <div className="flex items-center justify-center space-x-4 mb-8">
-              {/* <div className="relative hidden md:block"> */}
-              <Briefcase className="h-12 w-12 text-blue-600 hidden md:block" />
-              {/* <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-pulse"></div>
-              </div> */}
-              <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight">
+            {/* Icon + Heading */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 flex-wrap">
+              <Briefcase className="h-10 w-10 sm:h-12 sm:w-12 text-blue-600 hidden md:block" />
+              <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight text-center">
                 Careers at{' '}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                   GradXpert
                 </span>
               </h1>
             </div>
-            <p className="text-lg text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg text-slate-700 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed">
               Join us in building India's most comprehensive career ecosystem. Help transform millions of student lives through technology, mentorship, and innovation.
             </p>
-            <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
-              <p className="text-slate-800 font-medium mb-4">
-                We're on a mission to bridge the gap between education and employability
+
+            {/* Info Card */}
+            <div className="bg-white/80 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
+              <p className="text-slate-800 font-medium mb-4 text-sm sm:text-base">
+                We're on a mission to transform education into employability.
               </p>
-              <div className="flex items-center justify-center space-x-6 text-sm text-slate-600">
+
+              {/* Stats */}
+              <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-6 space-y-3 sm:space-y-0 text-xs sm:text-sm text-slate-600">
                 <div className="flex items-center space-x-2">
                   <Users className="h-4 w-4 text-blue-600" />
-                  <span>50+ Team Members</span>
+                  <span>15+ Team Members</span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Globe className="h-4 w-4 text-emerald-600" />
@@ -358,6 +398,7 @@ const Careers = () => {
           </div>
         </div>
       </section>
+
 
       {/* Open Positions */}
       <section className="py-16 bg-white">
@@ -422,8 +463,8 @@ const Careers = () => {
                     key={job.id}
                     onClick={() => setSelectedJob(job.id)}
                     className={`bg-white/90 backdrop-blur-xl p-4 sm:p-6 rounded-2xl border transition-all duration-300 cursor-pointer hover:shadow-lg hover:-translate-y-1 w-full ${selectedJob === job.id
-                        ? 'border-blue-500 shadow-lg ring-2 ring-blue-500/20'
-                        : 'border-slate-200 hover:border-blue-300'
+                      ? 'border-blue-500 shadow-lg ring-2 ring-blue-500/20'
+                      : 'border-slate-200 hover:border-blue-300'
                       }`}
                   >
                     <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-4">
@@ -624,7 +665,7 @@ const Careers = () => {
                       {/* Subtle glow effect */}
                       <div className={`absolute inset-0 w-16 h-16 bg-gradient-to-r ${value.color} rounded-2xl opacity-20 blur-xl group-hover:opacity-30 transition-opacity duration-300`}></div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="text-left md:text-center">
                       <h3 className="font-bold text-slate-900 mb-4 text-xl group-hover:text-blue-600 transition-colors duration-300">
@@ -634,7 +675,7 @@ const Careers = () => {
                         {value.description}
                       </p>
                     </div>
-                    
+
                     {/* Decorative element */}
                     <div className="absolute top-4 right-4 w-8 h-8 border border-slate-200 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute inset-1 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20"></div>
@@ -656,7 +697,7 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* Benefits & Perks */}
+      {/* Benefits & Perks
       <section className="py-16 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="md:text-center mb-12">
@@ -682,7 +723,7 @@ const Careers = () => {
             })}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Hiring Process */}
       <section className="py-16 bg-white">
@@ -713,7 +754,7 @@ const Careers = () => {
                     </div>
                     <p className="text-slate-600">{step.description}</p>
                   </div>
-                  {index < hiringProcess.length  && (
+                  {index < hiringProcess.length && (
                     <div className="absolute mt-12 w-0.5 h-8 bg-gradient-to-b from-emerald-300 to-green-300"></div>
                   )}
                 </div>
@@ -723,8 +764,45 @@ const Careers = () => {
         </div>
       </section>
 
+      <section className="py-16 bg-gradient-to-br from-slate-50 to-gray-50">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {socialPlatforms.map((platform, index) => {
+            const Icon = platform.icon;
+            return (
+              <a
+                key={index}
+                href={platform.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white/90 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 hover:border-purple-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 group md:text-center"
+              >
+                <div
+                  className={`w-12 h-12 bg-gradient-to-r ${platform.color} rounded-xl flex items-center justify-center md:mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}
+                >
+                  <Icon className="h-6 w-6 text-white" />
+                </div>
+
+                {/* Platform Name */}
+                <h3 className="font-bold text-slate-900 mb-2">{platform.name}</h3>
+
+                {/* Handle */}
+                <p className="text-slate-600 text-sm">{platform.handle}</p>
+
+                {/* LinkedIn follower highlight */}
+                {platform.name === "LinkedIn" && (
+                  <p className="mt-1 text-sm font-semibold text-blue-600">
+                    35K followers
+                  </p>
+                )}
+              </a>
+            );
+          })}
+        </div>
+
+      </section>
+
       {/* Life at GradXpert */}
-      <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="md:text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6">Life at GradXpert</h2>
@@ -771,15 +849,15 @@ const Careers = () => {
                   className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                {/* <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                   <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm opacity-90">{item.description}</p>
-                </div> */}
+                </div> 
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       {/* <section className="py-16 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">

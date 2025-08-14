@@ -5,7 +5,7 @@ const testimonials = [
   {
     name: "Ritika Sharma",
     role: "Software Engineer at TCS",
-    college: "VIT Vellore, B.Tech CSE",
+    campus: "VIT Vellore, B.Tech CSE",
     year: "2024 Graduate",
     text: "I joined GradXpert in my 2nd year without any clear direction. The ecosystem approach changed everything - from I/O School courses to Kickstack internships. Today, I'm working at TCS with a starting package of ₹7 LPA. The portfolio I built through Powerfolio was the key differentiator in my interviews.",
     rating: 5,
@@ -17,7 +17,7 @@ const testimonials = [
   {
     name: "Yash Patel",
     role: "Founder, EduTech Startup",
-    college: "NIT Surat, B.Tech Mechanical",
+    campus: "NIT Surat, B.Tech Mechanical",
     year: "2023 Graduate",
     text: "What started as a simple project in I/O School became a real product through BoldtStartup. The mentorship helped me validate my idea, build an MVP, and pitch to investors. We've now raised ₹50 lakhs in seed funding and have 10,000+ users.",
     rating: 5,
@@ -29,7 +29,7 @@ const testimonials = [
   {
     name: "Sakshi Gupta",
     role: "Product Manager at Flipkart",
-    college: "BITS Pilani, B.Tech ECE",
+    campus: "BITS Pilani, B.Tech ECE",
     year: "2024 Graduate",
     text: "Kickstack internships gave me real industry experience that no classroom could provide. Working on actual projects with deadlines and team collaboration prepared me for the corporate world. The confidence I gained helped me crack PM interviews at top companies.",
     rating: 5,
@@ -41,7 +41,7 @@ const testimonials = [
   {
     name: "Arjun Mehta",
     role: "Data Scientist at Google",
-    college: "IIT Delhi, B.Tech CSE",
+    campus: "IIT Delhi, B.Tech CSE",
     year: "2024 Graduate",
     text: "The AI tools in StudentOS helped me identify my passion for data science early. Combined with specialized courses from I/O School and real projects through Kickstack, I built a portfolio that impressed Google recruiters. The mentorship was invaluable.",
     rating: 5,
@@ -53,7 +53,7 @@ const testimonials = [
   {
     name: "Priya Singh",
     role: "UX Designer at Zomato",
-    college: "IIIT Hyderabad, B.Tech IT",
+    campus: "IIIT Hyderabad, B.Tech IT",
     year: "2023 Graduate",
     text: "I discovered my love for design through GradXpert's ecosystem. The design courses, internship experience, and portfolio showcase through Powerfolio helped me transition from coding to design. Now I'm creating user experiences for millions of users.",
     rating: 5,
@@ -65,7 +65,7 @@ const testimonials = [
   {
     name: "Karan Joshi",
     role: "DevOps Engineer at Amazon",
-    college: "DTU Delhi, B.Tech ECE",
+    campus: "DTU Delhi, B.Tech ECE",
     year: "2024 Graduate",
     text: "The cloud and DevOps courses at I/O School were game-changers. Real-world projects through Kickstack gave me hands-on experience with AWS, Docker, and Kubernetes. Amazon was impressed with my practical knowledge and project portfolio.",
     rating: 5,
@@ -77,7 +77,7 @@ const testimonials = [
   {
     name: "Sneha Reddy",
     role: "Marketing Manager at Swiggy",
-    college: "Manipal University, BBA",
+    campus: "Manipal University, BBA",
     year: "2023 Graduate",
     text: "Coming from a non-tech background, I was worried about career prospects. GradXpert's marketing courses and digital marketing internships through Kickstack gave me the skills and confidence. My portfolio got noticed by top companies.",
     rating: 5,
@@ -89,7 +89,7 @@ const testimonials = [
   {
     name: "Rohit Kumar",
     role: "Full Stack Developer at Paytm",
-    college: "Jadavpur University, B.Tech CSE",
+    campus: "Jadavpur University, B.Tech CSE",
     year: "2024 Graduate",
     text: "The comprehensive web development track at I/O School, combined with real internship projects, made me job-ready. The mentorship and peer learning environment at GradXpert accelerated my growth beyond what I thought possible.",
     rating: 5,
@@ -101,7 +101,7 @@ const testimonials = [
   {
     name: "Ananya Reddy",
     role: "Business Analyst at McKinsey",
-    college: "IIM Bangalore, MBA",
+    campus: "IIM Bangalore, MBA",
     year: "2024 Graduate",
     text: "The business and consulting courses at I/O School, combined with real case study projects through Kickstack, gave me the analytical skills and confidence to crack top consulting interviews. The structured approach to problem-solving was invaluable.",
     rating: 5,
@@ -369,7 +369,7 @@ const Testimonials = () => {
                           <div className="space-y-1">
                             <div className="flex items-center space-x-2 text-xs text-slate-600">
                               <MapPin className="h-3 w-3 flex-shrink-0" />
-                              <span className="truncate">{testimonial.college}</span>
+                              <span className="truncate">{testimonial.campus}</span>
                             </div>
                             <div className="flex items-center space-x-2 text-xs text-slate-600">
                               <Calendar className="h-3 w-3 flex-shrink-0" />
@@ -489,7 +489,7 @@ const Testimonials = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-emerald-500" />
-                <span>Tier 1, 2, 3 Colleges</span>
+                <span>Tier 1, 2, 3 Campuses</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="h-4 w-4 text-emerald-500" />

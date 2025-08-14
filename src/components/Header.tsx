@@ -11,7 +11,7 @@ const Header = () => {
   const handleNavigation = (path: string) => {
     setIsMenuOpen(false);
     setIsQuickLinksOpen(false);
-    
+
     // If it's a hash link and we're already on the homepage
     if (path.startsWith('#') && location.pathname === '/') {
       const section = document.querySelector(path);
@@ -20,18 +20,18 @@ const Header = () => {
       }
       return;
     }
-    
+
     // If it's a hash link but we're not on homepage
     if (path.startsWith('#')) {
       navigate('/', { state: { scrollTo: path }, replace: true });
       return;
     }
-    
+
     // Regular route navigation - reset scroll position
     navigate(path);
     window.scrollTo(0, 0);
   };
-  
+
   useEffect(() => {
     // Only handle scroll if we have a hash in the URL and no scrollTo state
     if (location.hash && !location.state?.scrollTo) {
@@ -42,7 +42,7 @@ const Header = () => {
         }, 300); // Increased delay for more reliability
       }
     }
-    
+
     // Handle scrollTo state from navigation
     if (location.state?.scrollTo) {
       const section = document.querySelector(location.state.scrollTo);
@@ -64,7 +64,7 @@ const Header = () => {
         setIsQuickLinksOpen(false);
       }
     };
-    
+
     const handleClickOutside = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (isMenuOpen && !target.closest('.mobile-menu') && !target.closest('.menu-button')) {
@@ -75,7 +75,7 @@ const Header = () => {
 
     document.addEventListener('keydown', handleEscape);
     document.addEventListener('click', handleClickOutside);
-    
+
     return () => {
       document.removeEventListener('keydown', handleEscape);
       document.removeEventListener('click', handleClickOutside);
@@ -89,7 +89,7 @@ const Header = () => {
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     return () => {
       document.body.style.overflow = 'unset';
     };
@@ -120,7 +120,7 @@ const Header = () => {
     { href: '/explore?filter=internship', label: 'Internships', icon: Briefcase },
     { href: '#events', label: 'Events', icon: Users },
     { href: '/partner-with-us', label: 'Partner With Us', icon: Handshake },
-    { href: '/invite-to-college', label: 'Invite to College', icon: GraduationCap },
+    { href: '/invite-to-campus', label: 'Invite to Campus', icon: GraduationCap },
     { href: '/collaboration-program', label: 'Collaboration Program', icon: Users },
     { href: '/become-mentor', label: 'Become a Mentor', icon: Star }
   ];
@@ -133,20 +133,20 @@ const Header = () => {
           <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-slate-200/50 shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-3">
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-3">
-                <img onClick={() =>handleNavigation('/')} src="/Red-Black-Name-Logo.png" alt="GradXpert Logo" className="h-10 w-auto cursor-pointer" />
+                <img onClick={() => handleNavigation('/')} src="/Red-Black-Name-Logo.png" alt="GradXpert Logo" className="h-10 w-auto cursor-pointer" />
               </div>
-            
+
               {/* Desktop Navigation */}
               <nav className="hidden lg:flex items-center space-x-1">
                 <button onClick={() => handleNavigation('/')} className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-slate-500 hover:to-gray-500 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   Home
                 </button>
-                <button  onClick={() => handleNavigation('#studentos')}
-className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                <button onClick={() => handleNavigation('#studentos')}
+                  className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-orange-500 hover:to-orange-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   StudentOS
                 </button>
                 <button onClick={() => handleNavigation('#ioschool')}
-                   className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-violet-500 hover:to-violet-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
+                  className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-violet-500 hover:to-violet-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   I/O School
                 </button>
                 <button onClick={() => handleNavigation('#kickstack')} className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-indigo-700 hover:to-indigo-800 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
@@ -155,14 +155,14 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                 <button onClick={() => handleNavigation('#powerfolio')} className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105">
                   Powerfolio
                 </button>
-                
+
                 {/* Quick Links Dropdown */}
                 <div className="relative group">
                   <button className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-slate-500 hover:to-gray-500 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105 flex items-center space-x-1">
                     <span>Quick Links</span>
                     <ChevronDown className="h-4 w-4" />
                   </button>
-                  
+
                   {/* Quick Links Dropdown Menu */}
                   <div className="absolute top-full left-0 mt-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                     <div className="p-2">
@@ -170,11 +170,11 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                         <BookOpen className="h-4 w-4" />
                         <span>Courses</span>
                       </button>
-                      <button onClick={() => handleNavigation('/explore?filter=internship')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-150">
+                      <button onClick={() => handleNavigation('/explore?filter=internship')} className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-indigo-50 hover:to-blue-50 hover:text-indigo-700 transition-all duration-150">
                         <Briefcase className="h-4 w-4" />
                         <span>Internships</span>
                       </button>
-                      
+
                       {/* Events Submenu */}
                       <div className="relative group/events">
                         <button onClick={() => handleNavigation('#events')} className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150">
@@ -184,7 +184,7 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                           </div>
                         </button>
                       </div>
-                      
+
                       {/* Partnerships Submenu */}
                       <div className="relative group/partnerships">
                         <button className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-orange-50 hover:to-red-50 hover:text-orange-700 transition-all duration-150">
@@ -194,15 +194,15 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                           </div>
                           <ChevronDown className="h-3 w-3" />
                         </button>
-                        
+
                         {/* Partnerships Submenu Items */}
                         <div className="absolute left-full top-0 ml-1 w-52 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover/partnerships:opacity-100 group-hover/partnerships:visible transition-all duration-150 z-50">
                           <div className="p-2">
                             <button onClick={() => handleNavigation('/partner-with-us')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150 text-sm">
                               Partner With Us
                             </button>
-                            <button onClick={() => handleNavigation('/invite-to-college')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150 text-sm">
-                              Invite to College
+                            <button onClick={() => handleNavigation('/invite-to-campus')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:text-emerald-700 transition-all duration-150 text-sm">
+                              Invite to Campus
                             </button>
                             <button onClick={() => handleNavigation('/collaboration-program')} className="block px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150 text-sm">
                               Collaboration Program
@@ -216,30 +216,30 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                     </div>
                   </div>
                 </div>
-                
+
                 {/* More Dropdown */}
                 <div className="relative group">
                   <button className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradient-to-r hover:from-slate-500 hover:to-gray-500 transition-all duration-150 font-medium text-sm hover:shadow-lg hover:scale-105 flex items-center space-x-1">
                     <span>More</span>
                     <ChevronDown className="h-4 w-4" />
                   </button>
-                  
+
                   {/* Dropdown Menu */}
                   <div className="absolute top-full left-0 mt-2 w-48 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
                     <div className="p-2">
-                      <button onClick={() => handleNavigation('#boldstartup')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
+                      <button onClick={() => handleNavigation('#boldstartup')} className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-150">
                         <Rocket className="h-4 w-4" />
                         <span>BoldStartup</span>
                       </button>
-                      <button onClick={() => handleNavigation('#talentpool')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150">
+                      <button onClick={() => handleNavigation('#talentpool')} className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-yellow-50 hover:to-orange-50 hover:text-yellow-700 transition-all duration-150">
                         <Star className="h-4 w-4" />
                         <span>Talent Pool</span>
                       </button>
-                      <button onClick={() => handleNavigation('/about')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150">
+                      <button onClick={() => handleNavigation('/about')} className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:text-blue-700 transition-all duration-150">
                         <Users className="h-4 w-4" />
                         <span>About Us</span>
                       </button>
-                      <button onClick={() => handleNavigation('/careers')}  className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150">
+                      <button onClick={() => handleNavigation('/careers')} className="flex items-center space-x-3 px-3 py-2 rounded-lg text-slate-700 hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 hover:text-purple-700 transition-all duration-150">
                         <Briefcase className="h-4 w-4" />
                         <span>Careers</span>
                       </button>
@@ -251,7 +251,7 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                   </div>
                 </div>
               </nav>
-              
+
               {/* CTA Buttons */}
               <div className="hidden lg:flex items-center space-x-3">
                 <button onClick={() => handleNavigation('/explore')} className="bg-gradient-to-r from-amber-500 to-yellow-500 text-white px-4 py-2 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center space-x-2">
@@ -259,9 +259,9 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                   <span>Explore Our Programs</span>
                 </button>
               </div>
-            
+
               {/* Mobile Menu Button */}
-              <button 
+              <button
                 className="lg:hidden menu-button p-2 rounded-xl hover:bg-slate-100 transition-colors"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
@@ -274,33 +274,26 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
 
       {/* Mobile/Tablet Slide-out Menu */}
       {/* Backdrop */}
-      <div 
-        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 lg:hidden ${
-          isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+      <div
+        className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-50 transition-opacity duration-300 lg:hidden ${isMenuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          }`}
       />
-      
+
       {/* Slide-out Menu */}
-      <div 
-        className={`mobile-menu fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white/95 backdrop-blur-xl shadow-2xl z-50 transform transition-transform duration-300 ease-out lg:hidden overflow-y-auto ${
-          isMenuOpen ? 'translate-x-0' : '-translate-x-full'
-        } scrollbar-hide`}
+      <div
+        className={`mobile-menu fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white/95 backdrop-blur-xl shadow-2xl z-50 transform transition-transform duration-300 ease-out lg:hidden overflow-y-auto ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'
+          } scrollbar-hide`}
         style={{
-          scrollbarWidth: 'none', /* Firefox */
-          msOverflowStyle: 'none', /* Internet Explorer 10+ */
+          scrollbarWidth: 'none',  /* Firefox */
+          msOverflowStyle: 'none', /* IE 10+ */
         }}
       >
-        <style jsx>{`
-          .scrollbar-hide::-webkit-scrollbar {
-            display: none; /* Safari and Chrome */
-          }
-        `}</style>
         {/* Menu Header */}
         <div className="flex items-center justify-between p-6 border-b border-slate-200/50">
           <div className="flex items-center space-x-3">
             <img src="/Red-Black-Name-Logo.png" alt="GradXpert Logo" className="h-10 w-auto" />
           </div>
-          <button 
+          <button
             onClick={() => setIsMenuOpen(false)}
             className="p-2 rounded-xl hover:bg-slate-100 transition-colors"
           >
@@ -332,7 +325,7 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
 
             {/* Quick Links Dropdown Section for Mobile */}
             <div className="mt-6">
-              <button 
+              <button
                 onClick={() => setIsQuickLinksOpen(!isQuickLinksOpen)}
                 className="w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-gradient-to-r hover:from-slate-50 hover:to-slate-100 transition-all duration-150 group"
               >
@@ -342,17 +335,15 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                   </div>
                   <span className="font-semibold text-sm">Quick Links</span>
                 </div>
-                <ChevronRight 
-                  className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${
-                    isQuickLinksOpen ? 'rotate-90' : ''
-                  }`} 
+                <ChevronRight
+                  className={`h-4 w-4 text-slate-500 transition-transform duration-200 ${isQuickLinksOpen ? 'rotate-90' : ''
+                    }`}
                 />
               </button>
-              
+
               {/* Quick Links Dropdown Items */}
-              <div className={`overflow-hidden transition-all duration-300 ${
-                isQuickLinksOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}>
+              <div className={`overflow-hidden transition-all duration-300 ${isQuickLinksOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                 <div className="pl-4 mt-2 space-y-1 border-l-2 border-slate-100 ">
                   {quickLinksItems.map((item, index) => {
                     const Icon = item.icon;
@@ -382,7 +373,7 @@ className="px-4 py-2 rounded-xl text-slate-600 hover:text-white hover:bg-gradien
                 <span>Explore Our Programs</span>
               </button>
             </div>
-            
+
             {/* Quick Stats */}
             <div className="mt-3 grid grid-cols-2 gap-2 text-center">
               <div className="bg-white/60 backdrop-blur-sm p-2 rounded-xl border border-slate-200/30">

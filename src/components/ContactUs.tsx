@@ -31,6 +31,7 @@ import {
   Contact
 } from 'lucide-react';
 import { FaConnectdevelop } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const departments = [
   {
@@ -42,9 +43,9 @@ const departments = [
   },
   {
     icon: Building,
-    title: "College Partnerships",
+    title: "Campus Partnerships",
     purpose: "Onboarding, events, workshops",
-    email: "colleges@gradxpert.in",
+    email: "campus@gradxpert.in",
     color: "from-purple-500 to-pink-500"
   },
   {
@@ -194,7 +195,7 @@ const ContactUs = () => {
               </h1>
             </div>
             <p className="text-lg text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Whether you're a student, parent, college, mentor, or partner — we're here to help.
+              Whether you're a student, parent, campus, mentor, or partner — we're here to help.
             </p>
             <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
               <p className="text-slate-800 font-medium">
@@ -211,7 +212,7 @@ const ContactUs = () => {
           <div className="md:text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center md:justify-center space-x-3">
               <MessageCircle className="h-8 w-8 text-blue-600" />
-              <span>Still Have Questions?</span>
+              <span>Have Questions?</span>
             </h2>
             <p className="text-xl text-slate-700">Fill out this form and we'll get back to you within 24 hours</p>
           </div>
@@ -266,7 +267,7 @@ const ContactUs = () => {
                 >
                   <option value="">Select a purpose</option>
                   <option value="student-support">Student Support</option>
-                  <option value="college-partnership">College Partnership</option>
+                  <option value="campus-partnership">Campus Partnership</option>
                   <option value="mentorship">Mentorship/Hiring</option>
                   <option value="media">Media/Press</option>
                   <option value="partnership">Strategic Partnership</option>
@@ -329,28 +330,45 @@ const ContactUs = () => {
       </section>
 
       {/* Trust & Privacy */}
+
       <section className="py-12 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
+            {/* Heading */}
             <div className="flex items-center justify-center space-x-3 mb-4">
               <Shield className="h-6 w-6 text-slate-600" />
               <h3 className="text-lg font-bold text-slate-900">Trust & Privacy</h3>
             </div>
+
+            {/* Subtitle */}
             <p className="text-slate-600 mb-6">We respect your data and privacy.</p>
+
+            {/* Links */}
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="#" className="inline-flex items-center space-x-2 text-slate-700 hover:text-slate-900 font-medium transition-colors duration-300">
+              {/* Privacy Policy */}
+              <Link
+                to="/privacy-policy"
+                className="inline-flex items-center space-x-2 text-slate-700 hover:text-slate-900 font-medium transition-colors duration-300"
+              >
                 <FileText className="h-4 w-4" />
                 <span>Privacy Policy</span>
-              </a>
+              </Link>
+
               <span className="text-slate-400">|</span>
-              <a href="#" className="inline-flex items-center space-x-2 text-slate-700 hover:text-slate-900 font-medium transition-colors duration-300">
+
+              {/* Terms & Conditions */}
+              <Link
+                to="/terms-and-conditions"
+                className="inline-flex items-center space-x-2 text-slate-700 hover:text-slate-900 font-medium transition-colors duration-300"
+              >
                 <FileText className="h-4 w-4" />
                 <span>Terms of Use</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* Talk to the Right Team */}
       <section className="py-16 bg-white relative">
@@ -413,7 +431,7 @@ const ContactUs = () => {
       </section>
 
       {/* our partners */}
-      <section className="py-12 bg-slate-100">
+      {/* <section className="py-12 bg-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="md:text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center md:justify-center space-x-3">
@@ -468,16 +486,16 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Social Media */}
       <section className="py-16 bg-gradient-to-br from-slate-50 to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className=" md:text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center md:justify-center space-x-3">
+            {/* <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 flex items-center md:justify-center space-x-3">
               <Globe className="h-12 w-12 md:h-8 md:w-8 text-purple-600" />
               <span>Follow Us & Stay Connected</span>
-            </h2>
+            </h2> */}
             <p className="text-xl text-slate-700">Join our community across all platforms</p>
           </div>
 
