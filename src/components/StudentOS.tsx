@@ -8,20 +8,20 @@ const aiTools = [
   { name: "Skill Gap Analyzer", description: "Identify learning gaps", icon: TrendingUp, color: "from-orange-500 to-red-500", link: "/tools/skill-analyzer" },
   { name: "Project Idea Generator", description: "AI project suggestions", icon: Lightbulb, color: "from-yellow-500 to-orange-500", link: "/tools/project-generator" },
   { name: "Code Review Assistant", description: "AI code optimization", icon: Code, color: "from-cyan-500 to-blue-500", link: "/tools/code-review" },
-  { name: "Study Planner AI", description: "Personalized study schedules", icon: Calendar, color: "from-green-500 to-emerald-500", link: "/tools/study-planner" },
-  { name: "Productivity Booster", description: "AI task management", icon: Zap, color: "from-red-500 to-pink-500", link: "/tools/productivity" },
-  { name: "Portfolio Analyzer", description: "AI portfolio feedback", icon: FileText, color: "from-indigo-500 to-purple-500", link: "/tools/portfolio-analyzer" },
-  { name: "Learning Path AI", description: "Personalized learning routes", icon: Brain, color: "from-teal-500 to-cyan-500", link: "/tools/learning-path" },
-  { name: "Networking Assistant", description: "AI networking suggestions", icon: Target, color: "from-pink-500 to-rose-500", link: "/tools/networking" },
-  { name: "Time Tracker Pro", description: "Smart time management", icon: Calendar, color: "from-violet-500 to-purple-500", link: "/tools/time-tracker" },
-  { name: "Goal Setting AI", description: "AI-powered goal planning", icon: Target, color: "from-amber-500 to-yellow-500", link: "/tools/goal-setting" },
-  { name: "Habit Builder", description: "Build productive habits", icon: Zap, color: "from-lime-500 to-green-500", link: "/tools/habit-builder" },
-  { name: "Stress Manager", description: "AI wellness coaching", icon: Brain, color: "from-sky-500 to-blue-500", link: "/tools/stress-manager" }
+  // { name: "Study Planner AI", description: "Personalized study schedules", icon: Calendar, color: "from-green-500 to-emerald-500", link: "/tools/study-planner" },
+  // { name: "Productivity Booster", description: "AI task management", icon: Zap, color: "from-red-500 to-pink-500", link: "/tools/productivity" },
+  // { name: "Portfolio Analyzer", description: "AI portfolio feedback", icon: FileText, color: "from-indigo-500 to-purple-500", link: "/tools/portfolio-analyzer" },
+  // { name: "Learning Path AI", description: "Personalized learning routes", icon: Brain, color: "from-teal-500 to-cyan-500", link: "/tools/learning-path" },
+  // { name: "Networking Assistant", description: "AI networking suggestions", icon: Target, color: "from-pink-500 to-rose-500", link: "/tools/networking" },
+  // { name: "Time Tracker Pro", description: "Smart time management", icon: Calendar, color: "from-violet-500 to-purple-500", link: "/tools/time-tracker" },
+  // { name: "Goal Setting AI", description: "AI-powered goal planning", icon: Target, color: "from-amber-500 to-yellow-500", link: "/tools/goal-setting" },
+  // { name: "Habit Builder", description: "Build productive habits", icon: Zap, color: "from-lime-500 to-green-500", link: "/tools/habit-builder" },
+  // { name: "Stress Manager", description: "AI wellness coaching", icon: Brain, color: "from-sky-500 to-blue-500", link: "/tools/stress-manager" }
 ];
 
 const StudentOS = () => {
   return (
-    <section id='studentos' className="py-20 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
+    <section id='studentos' className="py-20 md:py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(59,130,246,0.2),transparent_50%)]"></div>
@@ -57,16 +57,16 @@ const StudentOS = () => {
           <div className="flex md:items-center md:justify-center space-x-4 mb-8">
             <div className="relative">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center shadow-2xl shadow-blue-500/30">
-                <Settings className="h-8 w-8 text-white" />
+                <Settings className="h-10 w-10  text-white" />
               </div>
               <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-xl">
-                <Sparkles className="h-4 w-4 text-white animate-spin" />
+                <Sparkles className="h-5 w-5 text-white animate-spin" />
               </div>
               {/* <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                 <Zap className="h-3 w-3 text-white" />
               </div> */}
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
               Try Our Latest{' '}
               <span className="bg-gradient-to-r from-blue-300 via-purple-300 to-indigo-300 bg-clip-text text-transparent drop-shadow-sm">
                 StudentOS
@@ -84,7 +84,7 @@ const StudentOS = () => {
         
         {/* AI Tools Grid */}
         <div className="mb-16">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
             {aiTools.slice(0, 10).map((tool, index) => {
               const Icon = tool.icon;
               return (
@@ -110,6 +110,7 @@ const StudentOS = () => {
                   </div>
                   <h3 className="font-bold text-slate-800 text-sm mb-2 relative z-10">{tool.name}</h3>
                   <p className="text-slate-600 text-xs leading-tight relative z-10">{tool.description}</p>
+
                 </a>
               );
             })}
@@ -171,17 +172,18 @@ const StudentOS = () => {
             
             <h3 className="text-2xl font-bold text-white mb-4 relative z-10">Ready to Supercharge Your Productivity?</h3>
             <p className="text-slate-300 mb-6 relative z-10">Join thousands of students already using StudentOS to accelerate their career journey</p>
-            <button className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105 flex items-center space-x-3 mx-auto relative overflow-hidden group">
+            <button onClick={() => window.location.href = "https://studentos.in"} className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 hover:scale-105 flex items-center space-x-3 mx-auto relative overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-purple-700 to-indigo-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <Settings className="h-5 w-5 relative z-10" />
               <span className="relative">Try StudentOS Tools</span>
               <ArrowRight className="h-5 w-5 relative z-10" />
             </button>
+            <p className="text-slate-400 text-sm mt-8">
+              ✨ Premium AI tools • 🚀 Advanced features for serious students • 🎯 Boost your productivity
+            </p>
           </div>
           
-          <p className="text-slate-400 text-sm">
-            ✨ Premium AI tools • 🚀 Advanced features for serious students • 🎯 Boost your productivity
-          </p>
+
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Settings, GraduationCap, Briefcase, FolderOpen, Rocket, Star, Users, Zap, Layers, ExternalLink } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const ecosystemItems = [
   {
@@ -29,7 +30,7 @@ const ecosystemItems = [
     name: "Kickstack",
     description: "Internships & simulations",
     benefit: "Gain real experience with industry workflows",
-    color: "from-indigo-500 to-indigo-600",
+    color: "from-indigo-900 to-indigo-900",
     bgGradient: "from-indigo-50 to-indigo-100",
     borderColor: "border-indigo-400 hover:border-indigo-200",
     image: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=400",
@@ -40,26 +41,15 @@ const ecosystemItems = [
     name: "Powerfolio",
     description: "Public portfolio builder",
     benefit: "Show proof of your work — not just certificates",
-    color: "from-blue-500 to-blue-600",
+    color: "from-blue-400 to-blue-500",
     bgGradient: "from-blue-50 to-blue-100",
     borderColor: "border-blue-400 hover:border-blue-200",
     image: "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=400",
     link: "#portfolio"
   },
   {
-    icon: Rocket,
-    name: "BoldStartup",
-    description: "Startup support for students",
-    benefit: "Turn your projects into products & pitch for support",
-    color: "from-green-500 to-green-600",
-    bgGradient: "from-green-50 to-green-100",
-    borderColor: "border-green-400 hover:border-green-200",
-    image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400",
-    link: "#boldstartup"
-  },
-  {
     icon: Star,
-    name: "GradXpert Talent Pool",
+    name: "Talent Pool",
     description: "For top performers",
     benefit: "Get discovered by companies, startups & mentors",
     color: "from-yellow-400 to-yellow-500",
@@ -67,13 +57,26 @@ const ecosystemItems = [
     borderColor: "border-yellow-400 hover:border-yellow-200",
     image: "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400",
     link: "#talentpool"
+  },
+  {
+    icon: Rocket,
+    name: "Bold Startup",
+    description: "Startup support for students",
+    benefit: "Turn your projects into products & pitch for support",
+    color: "from-green-500 to-green-600",
+    bgGradient: "from-green-50 to-green-100",
+    borderColor: "border-green-400 hover:border-green-200",
+    image: "https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400",
+    link: "#boldstartup"
   }
 ];
 
 
 const Ecosystem = () => {
+    const navigate = useNavigate();
+
   return (
-    <section id="ecosystem" className="section-padding bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
+    <section id="ecosystem" className="section py-20 md:py-24 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 relative overflow-hidden">
       {/* Light background elements */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(59,130,246,0.15),transparent_60%)]"></div>
@@ -106,7 +109,7 @@ const Ecosystem = () => {
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4 md:mb-6 tracking-tight">
             <div className="flex md:items-center md:justify-center space-x-3 md:space-x-4 mb-2">
             <div className="relative hidden md:block">
-              <Layers className="h-6 w-6 md:h-8 md:w-8 text-purple-600" />
+              <Layers className="h-10 w-10  md:h-10 md:w-10 text-purple-600" />
               <div className="absolute -top-1 -right-1 w-3 h-3 md:w-4 md:h-4 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full animate-pulse"></div>
             </div>
             {/* <div className="relative  md:hidden">
@@ -133,7 +136,7 @@ const Ecosystem = () => {
               'from-blue-500/20 via-indigo-500/15 to-purple-500/20',
               'from-emerald-500/20 via-teal-500/15 to-cyan-500/20', 
               'from-orange-500/20 via-red-500/15 to-pink-500/20',
-              'from-purple-500/20 via-violet-500/15 to-indigo-500/20',
+              'from-blue-400/20 via-white-500/15 to-blue-500/20',
               'from-yellow-500/20 via-orange-500/15 to-red-500/20',
               'from-teal-500/20 via-emerald-500/15 to-green-500/20'
             ];
@@ -177,7 +180,7 @@ const Ecosystem = () => {
         </div>
         
         <div className="text-center">
-          <button className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 overflow-hidden group px-6 md:px-10 py-3 md:py-4 text-base md:text-lg font-bold rounded-xl md:rounded-2xl transition-all duration-300 mx-4">
+          <button onClick={() => navigate('/explore')} className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white hover:shadow-2xl hover:shadow-purple-500/40 hover:scale-105 overflow-hidden group px-6 md:px-10 py-3 md:py-4 text-base md:text-lg font-bold rounded-xl md:rounded-2xl transition-all duration-300 mx-4">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-rose-500 opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300"></div>
             <span className="relative flex items-center space-x-3">
@@ -187,7 +190,7 @@ const Ecosystem = () => {
             </span>
           </button>
           <p className="text-slate-600 mt-4 font-medium text-sm md:text-base px-4">
-            ✨ Transform your career with our integrated platform • 🚀 Join 10,000+ successful students
+            🚀 Transform your career with our integrated platform
           </p>
         </div>
       </div>

@@ -1,10 +1,15 @@
 import React from 'react';
 import { ArrowRight, Search, Sparkles, Zap } from 'lucide-react';
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
   return (
     // <section className="relative bg-white section-padding pt-32 md:pt-40 overflow-hidden">
-      <section id='#' className="relative  bg-gradient-to-br from-gray-50/30 via-white to-indigo-50/20 pt-32 md:pt-40  overflow-hidden grid-pattern">
+    //   <section id='#' className="relative  bg-gradient-to-br from-gray-50/30 via-white to-indigo-50/20 pt-32 md:pt-40  overflow-hidden grid-pattern">
+<section id="#" className="relative pt-28 md:pt-40 overflow-hidden grid-pattern">
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/70 to-white pointer-events-none" />
 
       {/* Animated background elements */}
       {/* <div className="absolute inset-0">
@@ -56,18 +61,18 @@ const Hero = () => {
             </p>
             <p className="text-sm md:text-base text-slate-600 mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Get career clarity, master job-ready skills, build real projects, land internships, 
-              and showcase proof — all in one sophisticated platform designed for the future.
+              and showcase proof - all in one sophisticated platform designed for the future.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 md:gap-5 justify-center lg:justify-start items-center mb-8 md:mb-12">
-              <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base group relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25 overflow-hidden transition-all duration-300">
+              <button onClick={() => navigate('/explore')} className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base group relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white hover:scale-105 hover:shadow-xl hover:shadow-purple-500/25 overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative flex items-center space-x-3  justify-center">
-                  <span>Start Your Journey</span>
+                  <span>Explore our Programs</span>
                   <ArrowRight className="h-4 w-4 md:h-5 md:w-5 group-hover:translate-x-1 transition-transform" />
                 </div>
               </button>
-              <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base group border-2 border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-400/25 backdrop-blur-sm flex items-center justify-center space-x-3 transition-all duration-300">
+              <button onClick={() => navigate('#ecosystem')} className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base group border-2 border-blue-300 text-blue-700 hover:bg-blue-50 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-400/25 backdrop-blur-sm flex items-center justify-center space-x-3 transition-all duration-300">
                 <Search className="h-4 w-4 md:h-5 md:w-5" />
                 <span>Explore Ecosystem</span>
               </button>
@@ -76,7 +81,7 @@ const Hero = () => {
             {/* Trust Indicators */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 text-center">
               <div className="bg-white/80 backdrop-blur-sm p-3 md:p-4 rounded-xl border border-slate-200 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
-                <div className="text-lg md:text-xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-1">10,000+</div>
+                <div className="text-lg md:text-xl font-bold bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent mb-1">7200+</div>
                 <div className="text-xs md:text-sm text-slate-600 font-medium">Students Impact</div>
               </div>
               <div className="bg-white/80 backdrop-blur-sm p-3 md:p-4 rounded-xl border border-slate-200 hover:scale-105 transition-all duration-300 shadow-sm hover:shadow-md">
@@ -96,30 +101,30 @@ const Hero = () => {
           
           {/* Hero Image */}
           <div className="relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-purple-500/20">
+            <div className="relative rounded-2xl overflow-hidden">
               <img 
-                src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                src="https://gradxpert.com/website-assets/homepage/social-og.jpg"
                 alt="Students collaborating on futuristic technology"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-blue-900/20"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10"></div>
+              {/*<div className="absolute inset-0 bg-gradient-to-t from-purple-900/60 via-transparent to-blue-900/20"></div>*/}
+              {/*<div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10"></div>*/}
             </div>
             
             {/* Floating UI elements */}
-            <div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-purple-500 p-3 rounded-xl shadow-2xl animate-float">
-              <div className="text-white text-center">
-                <div className="text-sm font-bold">AI-Powered</div>
-                <div className="text-xs opacity-90">Career Guidance</div>
-              </div>
-            </div>
+            {/*<div className="absolute -top-4 -right-4 bg-gradient-to-r from-blue-500 to-purple-500 p-3 rounded-xl shadow-2xl animate-float">*/}
+            {/*  <div className="text-white text-center">*/}
+            {/*    <div className="text-sm font-bold">AI-Powered</div>*/}
+            {/*    <div className="text-xs opacity-90">Career Guidance</div>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
             
-            <div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-pink-500 to-orange-500 p-3 rounded-xl shadow-2xl animate-float-delayed">
-              <div className="text-white text-center">
-                <div className="text-sm font-bold">Real Projects</div>
-                <div className="text-xs opacity-90">Industry Ready</div>
-              </div>
-            </div>
+            {/*<div className="absolute -bottom-4 -left-4 bg-gradient-to-r from-pink-500 to-orange-500 p-3 rounded-xl shadow-2xl animate-float-delayed">*/}
+            {/*  <div className="text-white text-center">*/}
+            {/*    <div className="text-sm font-bold">Real Projects</div>*/}
+            {/*    <div className="text-xs opacity-90">Industry Ready</div>*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </div>
         </div>
       </div>
