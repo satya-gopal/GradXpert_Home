@@ -11,7 +11,6 @@ const Header = () => {
   const handleNavigation = (path: string) => {
     setIsMenuOpen(false);
     setIsQuickLinksOpen(false);
-    
     // If it's a hash link and we're already on the homepage
     if (path.startsWith('#') && location.pathname === '/') {
       const section = document.querySelector(path);
@@ -20,14 +19,10 @@ const Header = () => {
       }
       return;
     }
-    
-    // If it's a hash link but we're not on homepage
     if (path.startsWith('#')) {
       navigate('/', { state: { scrollTo: path }, replace: true });
       return;
     }
-    
-    // Regular route navigation - reset scroll position
     navigate(path);
     window.scrollTo(0, 0);
   };
