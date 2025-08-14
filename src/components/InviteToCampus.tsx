@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  Building, 
-  Users, 
-  Calendar, 
-  CheckCircle, 
+import {
+  Building,
+  Users,
+  Calendar,
+  CheckCircle,
   ArrowRight,
   Star,
   Clock,
@@ -18,10 +18,11 @@ import {
   Mail
 } from 'lucide-react';
 
-export default function InviteToCollege() {
-  const [formData, setFormData] = useState({
-    collegeName: '',
-    collegeWebsite: '',
+export default function InviteToCampus() {
+  const [
+    formData, setFormData] = useState({
+    campusName: '',
+    campusWebsite: '',
     campusLocation: '',
     institutionType: '',
     contactName: '',
@@ -104,7 +105,7 @@ export default function InviteToCollege() {
         // Handle array checkboxes
         setFormData(prev => ({
           ...prev,
-          [name]: checked 
+          [name]: checked
             ? [...(prev[name as keyof typeof prev] as string[]), value]
             : (prev[name as keyof typeof prev] as string[]).filter(item => item !== value)
         }));
@@ -124,7 +125,7 @@ export default function InviteToCollege() {
     {
       number: 1,
       title: 'Submit Your Invitation',
-      description: 'Fill out the form with your college details and requirements',
+      description: 'Fill out the form with your campus details and requirements',
       icon: BookOpen,
       gradient: 'from-blue-500 to-cyan-500'
     },
@@ -160,7 +161,7 @@ export default function InviteToCollege() {
     {
       icon: Shield,
       title: 'Proven Track Record',
-      description: '50+ colleges trained with 95% satisfaction rate',
+      description: 'Achieved a 95% student satisfaction rate',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
@@ -171,12 +172,12 @@ export default function InviteToCollege() {
     }
   ];
 
-  const stats = [
-    { value: '50+', label: 'Colleges Trained', gradient: 'from-blue-500 to-cyan-500' },
-    { value: '5000+', label: 'Students Impacted', gradient: 'from-emerald-500 to-teal-500' },
-    { value: '100+', label: 'Programs Conducted', gradient: 'from-purple-500 to-pink-500' },
-    { value: '95%', label: 'Satisfaction Rate', gradient: 'from-orange-500 to-red-500' }
-  ];
+  // const stats = [
+  //   { value: '50+', label: 'Colleges Trained', gradient: 'from-blue-500 to-cyan-500' },
+  //   { value: '5000+', label: 'Students Impacted', gradient: 'from-emerald-500 to-teal-500' },
+  //   { value: '100+', label: 'Programs Conducted', gradient: 'from-purple-500 to-pink-500' },
+  //   { value: '95%', label: 'Satisfaction Rate', gradient: 'from-orange-500 to-red-500' }
+  // ];
 
   if (isSubmitted) {
     return (
@@ -186,16 +187,16 @@ export default function InviteToCollege() {
             <div className="w-20 h-20 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg">
               <CheckCircle className="h-10 w-10 text-white" />
             </div>
-            
+
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
               Invitation Submitted Successfully!
             </h1>
-            
+
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Thank you for your interest! Our program manager will connect with you shortly to take this forward. 
+              Thank you for your interest! Our program manager will connect with you shortly to take this forward.
               We're excited about the possibility of partnering with your institution.
             </p>
-            
+
             <div className="bg-white rounded-2xl p-8 border border-gray-100 shadow-lg mb-8">
               <h3 className="text-xl font-bold text-gray-900 mb-4">What happens next?</h3>
               <div className="space-y-4 text-left">
@@ -225,16 +226,16 @@ export default function InviteToCollege() {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
+              <Link
                 to="/"
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-xl font-semibold hover:from-cyan-400 hover:to-blue-500 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Back to Home
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
-              
+
               <button className="inline-flex items-center px-8 py-4 bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 transform hover:scale-105 shadow-lg">
                 <Mail className="mr-2 h-5 w-5" />
                 Contact Us Directly
@@ -259,21 +260,25 @@ export default function InviteToCollege() {
           <div className="text-center">
             <div className="flex items-center justify-center space-x-4 mb-8">
               <Building className="h-12 w-12 text-blue-600 hidden md:block" />
-              
+
               <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-2 tracking-tight">
                 Invite{' '}
+                <span>GradXpert</span>{' '}
+                  
+                
+                to Your{' '}
                 <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  GradXpert
+                  Campus
                 </span>
-                {' '}to Your College
               </h1>
+
             </div>
-            
+
             <p className="text-lg text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Bring industry-ready training programs to your campus. Our expert mentors from IIITs will 
+              Bring industry-ready training programs to your campus. Our expert mentors from IIITs will
               conduct comprehensive bootcamps tailored to your students' needs.
             </p>
-            
+
             <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
               <p className="text-slate-800 font-medium">
                 Transform your students with cutting-edge industry training programs
@@ -284,9 +289,9 @@ export default function InviteToCollege() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 relative overflow-hidden">
+      {/* <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -299,7 +304,7 @@ export default function InviteToCollege() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Steps Section */}
       <section className="py-16 bg-white/50 backdrop-blur-sm">
@@ -318,12 +323,12 @@ export default function InviteToCollege() {
                   <div className={`w-16 h-16 bg-gradient-to-r ${step.gradient} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg mx-auto`}>
                     <step.icon className="h-8 w-8 text-white" />
                   </div>
-                  
+
                   <div className="text-sm text-gray-500 mb-2">Step {step.number}</div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">{step.description}</p>
                 </div>
-                
+
                 {/* Arrow for desktop */}
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute -right-4 top-1/2 transform -translate-y-1/2 text-gray-300">
@@ -342,7 +347,7 @@ export default function InviteToCollege() {
           <div className="bg-white rounded-3xl p-8 md:p-12 border border-gray-100 shadow-2xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                College Training Program Request
+                Campus Training Program Request
               </h2>
               <p className="text-gray-600 text-lg">
                 Fill out the form below to invite GradXpert to your campus
@@ -350,43 +355,43 @@ export default function InviteToCollege() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-8">
-              {/* College & Contact Information */}
+              {/* Campus & Contact Information */}
               <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
                   <Building className="h-6 w-6 text-blue-600 mr-3" />
-                  College & Contact Information
+                  Campus & Contact Information
                 </h3>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      College Name *
+                      Campus Name *
                     </label>
                     <input
                       type="text"
-                      name="collegeName"
-                      value={formData.collegeName}
+                      name="campusName"
+                      value={formData.campusName}
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your college name"
+                      placeholder="Enter your campus name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      College Website (if available)
+                      Campus Website (if available)
                     </label>
                     <input
                       type="url"
-                      name="collegeWebsite"
-                      value={formData.collegeWebsite}
+                      name="campusWebsite"
+                      value={formData.campusWebsite}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="https://www.yourcollege.edu"
+                      placeholder="https://www.yourcampus.edu"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Campus Location (City, State) *
@@ -401,7 +406,7 @@ export default function InviteToCollege() {
                       placeholder="e.g., Hyderabad, Telangana"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Affiliated University / Type of Institution *
@@ -419,7 +424,7 @@ export default function InviteToCollege() {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Point of Contact – Full Name *
@@ -434,7 +439,7 @@ export default function InviteToCollege() {
                       placeholder="Enter contact person's name"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Designation *
@@ -449,7 +454,7 @@ export default function InviteToCollege() {
                       placeholder="e.g., Training & Placement Officer, HOD, Faculty Coordinator"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Official Email ID *
@@ -461,10 +466,10 @@ export default function InviteToCollege() {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                      placeholder="official.email@college.edu"
+                      placeholder="official.email@campus.edu"
                     />
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Phone Number (WhatsApp Preferred) *
@@ -488,7 +493,7 @@ export default function InviteToCollege() {
                   <Users className="h-6 w-6 text-purple-600 mr-3" />
                   Student Details
                 </h3>
-                
+
                 <div className="space-y-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
@@ -509,7 +514,7 @@ export default function InviteToCollege() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
                       Year of Students to Be Trained *
@@ -529,7 +534,7 @@ export default function InviteToCollege() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Approximate Number of Students Interested *
@@ -545,9 +550,9 @@ export default function InviteToCollege() {
                       placeholder="e.g., 150"
                     />
                   </div>
-                  
+
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    {/* <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Have you hosted any bootcamps or workshops earlier? *
                     </label>
                     <select
@@ -560,8 +565,8 @@ export default function InviteToCollege() {
                       <option value="">Select option</option>
                       <option value="yes">Yes</option>
                       <option value="no">No</option>
-                    </select>
-                    
+                    </select> */}
+
                     {formData.previousBootcamps === 'yes' && (
                       <textarea
                         name="previousBootcampsDescription"
@@ -582,7 +587,7 @@ export default function InviteToCollege() {
                   <Calendar className="h-6 w-6 text-emerald-600 mr-3" />
                   Program Expectations
                 </h3>
-                
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
@@ -601,7 +606,7 @@ export default function InviteToCollege() {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Preferred Mode *
@@ -619,7 +624,7 @@ export default function InviteToCollege() {
                       ))}
                     </select>
                   </div>
-                  
+
                   <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-3">
                       Interested Topics *
@@ -639,7 +644,7 @@ export default function InviteToCollege() {
                       ))}
                     </div>
                   </div>
-                  
+
                   <div className="md:col-span-2">
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
                       Preferred Date or Month for Hosting
@@ -683,7 +688,7 @@ export default function InviteToCollege() {
                   Submit Invitation
                   <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
-                
+
                 <p className="text-gray-500 text-sm mt-4">
                   Our program manager will connect with you within 24-48 hours
                 </p>
@@ -696,7 +701,7 @@ export default function InviteToCollege() {
       {/* Benefits Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {benefits.map((benefit, index) => (

@@ -85,7 +85,7 @@ export default function CollaborationProgram() {
     {
       icon: Target,
       title: 'Expand Your Reach',
-      description: 'Access our network of 10,000+ students and 50+ partner colleges',
+      description: 'Access to 10,000+ students across colleges in Andhra Pradesh',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
@@ -201,7 +201,7 @@ export default function CollaborationProgram() {
             
             <p className="text-lg text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
               Join forces with us to create impactful educational programs. Whether you're a TPO, trainer, 
-              or college club leader, let's work together to empower students with industry-ready skills.
+              or campus club leader, let's work together to empower students with industry-ready skills.
             </p>
             
             <div className="bg-white/80 backdrop-blur-xl p-6 rounded-2xl border border-slate-200 shadow-lg max-w-2xl mx-auto">
@@ -214,7 +214,7 @@ export default function CollaborationProgram() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 relative overflow-hidden">
+      {/* <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%236366f1%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%2230%22 cy=%2230%22 r=%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -229,7 +229,7 @@ export default function CollaborationProgram() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Steps Section */}
       <section className="py-16 bg-white/50 backdrop-blur-sm">
@@ -335,7 +335,7 @@ export default function CollaborationProgram() {
                   
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">
-                      Organization / College Name *
+                      Organization / Campus Name *
                     </label>
                     <input
                       type="text"
@@ -344,7 +344,7 @@ export default function CollaborationProgram() {
                       onChange={handleInputChange}
                       required
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200"
-                      placeholder="Enter your organization or college name"
+                      placeholder="Enter your organization or campus name"
                     />
                   </div>
                   

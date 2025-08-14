@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import {
-  Code, Database, Brain, Cloud, GitBranch, Rocket, ArrowRight, Clock, Star, Users,
+import { 
+  Code, Database, Brain, Cloud, GitBranch, Rocket, ArrowRight, Clock, Star, Users, 
   Calendar, MapPin, Filter, Search, Building, Award, Play, Zap, Trophy, Target,
   ChevronDown, X, BookOpen, Briefcase, GraduationCap, Settings, Plus, Edit3,
   Save, Eye, EyeOff, Shield, UserCheck, LogOut
@@ -54,11 +54,11 @@ export default function Explore() {
   const [showFilters, setShowFilters] = useState(false);
   const [levelFilter, setLevelFilter] = useState<ProgramLevel | 'all'>('all');
   const [formatFilter, setFormatFilter] = useState<ProgramFormat | 'all'>('all');
-
+  
   console.log('activeFilter:', activeFilter);
   // Admin states
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
-  const [showAdminLogin, setShowAdminLogin] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(true);
   const [showAddProgram, setShowAddProgram] = useState(false);
   const [showAddCategory, setShowAddCategory] = useState(false);
   const [adminCredentials, setAdminCredentials] = useState({ username: '', password: '' });
@@ -70,10 +70,10 @@ export default function Explore() {
       setActiveFilter(filter as 'all' | ProgramType);
     }
   }
-    , [searchParams]);
+  , [searchParams]);
 
-  // Check if admin is logged in from localStorage
-
+    // Check if admin is logged in from localStorage
+    
 
   // Mock admin user (in real app, this would be handled by backend authentication)
   const adminUser: AdminUser = {
@@ -417,7 +417,7 @@ export default function Explore() {
   ]);
 
   // Program categories (can be extended by admin)
-  const [programCategories, setProgramCategories] = useState<{ [key: string]: string }>({
+  const [programCategories, setProgramCategories] = useState<{[key: string]: string}>({
     course: 'Courses',
     internship: 'Internships',
     training: 'Training Programs',
@@ -593,7 +593,7 @@ export default function Explore() {
 
   const renderProgramCard = (program: Program) => {
     const IconComponent = program.icon;
-
+    
     return (
       <div key={program.id} className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 transition-all duration-500 transform hover:scale-[1.02] hover:shadow-xl shadow-lg">
         {/* Program Image */}
@@ -604,46 +604,48 @@ export default function Explore() {
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-
+          
           {/* Tag/Status */}
           {(program.tag || program.status) && (
             <div className={`absolute top-3 right-3 bg-gradient-to-r ${program.tagColor || 'from-blue-500 to-cyan-500'} text-white px-3 py-1 rounded-full text-xs font-medium backdrop-blur-sm shadow-lg`}>
               {program.tag || program.status}
             </div>
           )}
-
+          
           {/* Icon */}
           <div className={`absolute bottom-3 left-3 w-12 h-12 bg-gradient-to-r ${program.gradient} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
             <IconComponent className="h-6 w-6 text-white" />
           </div>
         </div>
-
+        
         {/* Content */}
         <div className="relative p-6">
           <div className="flex items-center justify-between mb-2">
-            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${program.type === 'course' ? 'bg-blue-100 text-blue-800' :
+            <span className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium ${
+              program.type === 'course' ? 'bg-blue-100 text-blue-800' :
               program.type === 'internship' ? 'bg-purple-100 text-purple-800' :
-                program.type === 'training' ? 'bg-emerald-100 text-emerald-800' :
-                  'bg-orange-100 text-orange-800'
-              }`}>
+              program.type === 'training' ? 'bg-emerald-100 text-emerald-800' :
+              'bg-orange-100 text-orange-800'
+            }`}>
               {program.type === 'course' ? <BookOpen className="h-3 w-3 mr-1" /> :
-                program.type === 'internship' ? <Briefcase className="h-3 w-3 mr-1" /> :
-                  program.type === 'training' ? <GraduationCap className="h-3 w-3 mr-1" /> :
-                    <Calendar className="h-3 w-3 mr-1" />}
+               program.type === 'internship' ? <Briefcase className="h-3 w-3 mr-1" /> :
+               program.type === 'training' ? <GraduationCap className="h-3 w-3 mr-1" /> :
+               <Calendar className="h-3 w-3 mr-1" />}
               {program.type.charAt(0).toUpperCase() + program.type.slice(1)}
             </span>
-            <span className={`text-xs px-2 py-1 rounded-full ${program.level === 'beginner' ? 'bg-green-100 text-green-800' :
+            <span className={`text-xs px-2 py-1 rounded-full ${
+              program.level === 'beginner' ? 'bg-green-100 text-green-800' :
               program.level === 'intermediate' ? 'bg-yellow-100 text-yellow-800' :
-                'bg-red-100 text-red-800'
-              }`}>
+              'bg-red-100 text-red-800'
+            }`}>
               {program.level}
             </span>
           </div>
-
+          
           <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-gray-800 transition-colors duration-300 line-clamp-2">
             {program.title}
           </h3>
-
+          
           {/* Meta Info */}
           <div className="flex items-center justify-between mb-3 text-sm">
             <div className="flex items-center text-gray-500">
@@ -662,12 +664,12 @@ export default function Explore() {
               <div className="text-emerald-600 font-bold">{program.stipend}</div>
             )}
           </div>
-
+          
           {/* Description */}
           <p className="text-gray-600 mb-4 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300 line-clamp-2">
             {program.description}
           </p>
-
+          
           {/* Additional Info */}
           {program.date && (
             <div className="flex items-center text-gray-600 mb-2 text-sm">
@@ -687,7 +689,7 @@ export default function Explore() {
               <span>{program.company}</span>
             </div>
           )}
-
+          
           {/* Stats */}
           <div className="flex items-center justify-between mb-4 p-2 bg-gray-50 rounded-lg">
             <div className="flex items-center text-gray-600 text-sm">
@@ -703,7 +705,7 @@ export default function Explore() {
               </div>
             )}
           </div>
-
+          
           {/* Topics */}
           <div className="mb-4">
             <div className="flex flex-wrap gap-1">
@@ -719,14 +721,14 @@ export default function Explore() {
               )}
             </div>
           </div>
-
+          
           {/* CTA Button */}
-          <button onClick={() => handleButton(program.type)} className={`w-full bg-gradient-to-r ${program.gradient} text-white py-3 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group-hover:scale-105 relative overflow-hidden`}>
+          <button onClick={()=> handleButton(program.type) } className={`w-full bg-gradient-to-r ${program.gradient} text-white py-3 px-4 rounded-xl font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center group-hover:scale-105 relative overflow-hidden`}>
             <span className="relative">
               {program.type === 'course' ? 'Enroll Now' :
-                program.type === 'internship' ? 'Apply Now' :
-                  program.type === 'training' ? 'Request Program' :
-                    'Register Free'}
+               program.type === 'internship' ? 'Apply Now' :
+               program.type === 'training' ? 'Request Program' :
+               'Register Free'}
             </span>
             <ArrowRight className="ml-2 h-4 w-4 relative" />
           </button>
@@ -744,7 +746,7 @@ export default function Explore() {
           <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         </div>
-
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-12">
             <div className="text-center flex-1">
@@ -753,21 +755,17 @@ export default function Explore() {
                 <span>Explore All Programs</span>
                 <Zap className="h-5 w-5" />
               </div>
-
+              
               <h1 className="text-5xl font-bold mb-6">
-                <span className="text-white">Find Your Perfect</span>{' '}
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  Learning Path
-                </span>
+                Find Your Perfect <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">Learning Path</span>
               </h1>
-
               <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Discover courses, internships, training programs, and bootcamps designed to accelerate your tech career
               </p>
             </div>
-
+            
             {/* Admin Section */}
-            {/* <div className="absolute top-6 right-6 hidden md:block">
+            <div className="absolute top-6 right-6 hidden md:block">
               {!isAdminLoggedIn ? (
                 <button
                   onClick={() => setShowAdminLogin(true)}
@@ -791,9 +789,9 @@ export default function Explore() {
                   </button>
                 </div>
               )}
-            </div> */}
+            </div>
           </div>
-
+          
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto">
             <div className="relative">
@@ -826,26 +824,26 @@ export default function Explore() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-
+            
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Username</label>
                 <input
                   type="text"
                   value={adminCredentials.username}
-                  onChange={(e) => setAdminCredentials({ ...adminCredentials, username: e.target.value })}
+                  onChange={(e) => setAdminCredentials({...adminCredentials, username: e.target.value})}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   placeholder="Enter username"
                 />
               </div>
-
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
                 <div className="relative">
                   <input
                     type={showPassword ? 'text' : 'password'}
                     value={adminCredentials.password}
-                    onChange={(e) => setAdminCredentials({ ...adminCredentials, password: e.target.value })}
+                    onChange={(e) => setAdminCredentials({...adminCredentials, password: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 pr-12"
                     placeholder="Enter password"
                   />
@@ -858,7 +856,7 @@ export default function Explore() {
                   </button>
                 </div>
               </div>
-
+              
               <div className="flex space-x-3 pt-4">
                 <button
                   onClick={() => setShowAdminLogin(false)}
@@ -874,7 +872,7 @@ export default function Explore() {
                 </button>
               </div>
             </div>
-
+            
             {/* <div className="mt-6 p-4 bg-gray-50 rounded-lg">
               <p className="text-sm text-gray-600 mb-2">Demo Credentials:</p>
               <p className="text-xs text-gray-500">Username: admin</p>
@@ -895,7 +893,7 @@ export default function Explore() {
                 Admin Controls
               </h3>
             </div>
-
+            
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => setShowAddProgram(true)}
@@ -904,7 +902,7 @@ export default function Explore() {
                 <Plus className="h-4 w-4" />
                 <span>Add New Program</span>
               </button>
-
+              
               <button
                 onClick={() => setShowAddCategory(true)}
                 className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-lg hover:from-purple-400 hover:to-pink-500 transition-all duration-300 shadow-lg"
@@ -918,39 +916,38 @@ export default function Explore() {
 
         {/* Filter Tabs */}
         <div className="flex flex-wrap items-center justify-between mb-8">
-          <div className="flex gap-2 mb-4 lg:mb-0 overflow-x-auto no-scrollbar">
+          <div className="flex flex-wrap gap-2 mb-4 lg:mb-0">
             {filterTabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setActiveFilter(tab.key)}
-                className={`flex-shrink-0 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${activeFilter === tab.key
+                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center space-x-2 ${
+                  activeFilter === tab.key
                     ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg'
                     : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
-                  }`}
+                }`}
               >
                 <span>{tab.label}</span>
-                <span
-                  className={`px-2 py-1 rounded-full text-xs ${activeFilter === tab.key
-                      ? 'bg-white/20 text-white'
-                      : 'bg-gray-100 text-gray-600'
-                    }`}
-                >
+                <span className={`px-2 py-1 rounded-full text-xs ${
+                  activeFilter === tab.key
+                    ? 'bg-white/20 text-white'
+                    : 'bg-gray-100 text-gray-600'
+                }`}>
                   {tab.count}
                 </span>
               </button>
             ))}
           </div>
-
-
+          
           {/* Advanced Filters Toggle */}
-          {/* <button
+          <button
             onClick={() => setShowFilters(!showFilters)}
             className="flex items-center space-x-2 px-4 py-2 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-all duration-300"
           >
             <Filter className="h-4 w-4" />
             <span>Filters</span>
             <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${showFilters ? 'rotate-180' : ''}`} />
-          </button> */}
+          </button>
         </div>
 
         {/* Advanced Filters */}
@@ -970,7 +967,7 @@ export default function Explore() {
                   <option value="advanced">Advanced</option>
                 </select>
               </div>
-
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Format</label>
                 <select
@@ -985,7 +982,7 @@ export default function Explore() {
                   <option value="hybrid">Hybrid</option>
                 </select>
               </div>
-
+              
               <button
                 onClick={clearFilters}
                 className="flex items-center space-x-2 px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors duration-300"
@@ -1048,17 +1045,17 @@ export default function Explore() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-
+            
             <div className="grid md:grid-cols-2 gap-6">
               {/* Basic Info */}
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Basic Information</h3>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Program Type *</label>
                   <select
                     value={newProgram.type}
-                    onChange={(e) => setNewProgram({ ...newProgram, type: e.target.value as ProgramType })}
+                    onChange={(e) => setNewProgram({...newProgram, type: e.target.value as ProgramType})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                   >
                     {Object.entries(programCategories).map(([key, label]) => (
@@ -1066,46 +1063,46 @@ export default function Explore() {
                     ))}
                   </select>
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Title *</label>
                   <input
                     type="text"
                     value={newProgram.title || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, title: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, title: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="Enter program title"
                   />
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Duration *</label>
                   <input
                     type="text"
                     value={newProgram.duration || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, duration: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, duration: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="e.g., 8 weeks, 3 days"
                   />
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Description *</label>
                   <textarea
                     value={newProgram.description || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, description: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, description: e.target.value})}
                     rows={3}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="Enter program description"
                   />
                 </div>
-
+                
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Level</label>
                     <select
                       value={newProgram.level}
-                      onChange={(e) => setNewProgram({ ...newProgram, level: e.target.value as ProgramLevel })}
+                      onChange={(e) => setNewProgram({...newProgram, level: e.target.value as ProgramLevel})}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     >
                       <option value="beginner">Beginner</option>
@@ -1113,12 +1110,12 @@ export default function Explore() {
                       <option value="advanced">Advanced</option>
                     </select>
                   </div>
-
+                  
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Format</label>
                     <select
                       value={newProgram.format}
-                      onChange={(e) => setNewProgram({ ...newProgram, format: e.target.value as ProgramFormat })}
+                      onChange={(e) => setNewProgram({...newProgram, format: e.target.value as ProgramFormat})}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     >
                       <option value="live">Live</option>
@@ -1129,46 +1126,46 @@ export default function Explore() {
                   </div>
                 </div>
               </div>
-
+              
               {/* Additional Details */}
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900 border-b pb-2">Additional Details</h3>
-
+                
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Price</label>
                     <input
                       type="text"
                       value={newProgram.price || ''}
-                      onChange={(e) => setNewProgram({ ...newProgram, price: e.target.value })}
+                      onChange={(e) => setNewProgram({...newProgram, price: e.target.value})}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                       placeholder="e.g., ₹4,999"
                     />
                   </div>
-
+                  
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Original Price</label>
                     <input
                       type="text"
                       value={newProgram.originalPrice || ''}
-                      onChange={(e) => setNewProgram({ ...newProgram, originalPrice: e.target.value })}
+                      onChange={(e) => setNewProgram({...newProgram, originalPrice: e.target.value})}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                       placeholder="e.g., ₹9,999"
                     />
                   </div>
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Students/Seats</label>
                   <input
                     type="text"
                     value={newProgram.students || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, students: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, students: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="e.g., 2.5K+, 50 positions"
                   />
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Rating</label>
                   <input
@@ -1177,34 +1174,34 @@ export default function Explore() {
                     max="5"
                     step="0.1"
                     value={newProgram.rating || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, rating: parseFloat(e.target.value) })}
+                    onChange={(e) => setNewProgram({...newProgram, rating: parseFloat(e.target.value)})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="e.g., 4.9"
                   />
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Topics (comma-separated)</label>
                   <input
                     type="text"
                     value={newProgram.topics?.join(', ') || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, topics: e.target.value.split(',').map(t => t.trim()).filter(t => t) })}
+                    onChange={(e) => setNewProgram({...newProgram, topics: e.target.value.split(',').map(t => t.trim()).filter(t => t)})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="React, Node.js, MongoDB"
                   />
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Image URL</label>
                   <input
                     type="url"
                     value={newProgram.image || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, image: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, image: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="https://images.unsplash.com/..."
                   />
                 </div>
-
+                
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Icon</label>
@@ -1212,7 +1209,7 @@ export default function Explore() {
                       value={iconOptions.find(opt => opt.component === newProgram.icon)?.name || 'Code'}
                       onChange={(e) => {
                         const selectedIcon = iconOptions.find(opt => opt.name === e.target.value);
-                        setNewProgram({ ...newProgram, icon: selectedIcon?.component || Code });
+                        setNewProgram({...newProgram, icon: selectedIcon?.component || Code});
                       }}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     >
@@ -1221,12 +1218,12 @@ export default function Explore() {
                       ))}
                     </select>
                   </div>
-
+                  
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Gradient</label>
                     <select
                       value={newProgram.gradient}
-                      onChange={(e) => setNewProgram({ ...newProgram, gradient: e.target.value })}
+                      onChange={(e) => setNewProgram({...newProgram, gradient: e.target.value})}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     >
                       {gradientOptions.map(gradient => (
@@ -1237,7 +1234,7 @@ export default function Explore() {
                 </div>
               </div>
             </div>
-
+            
             {/* Optional Fields */}
             <div className="mt-6 pt-6 border-t border-gray-200">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Optional Fields</h3>
@@ -1247,36 +1244,36 @@ export default function Explore() {
                   <input
                     type="text"
                     value={newProgram.tag || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, tag: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, tag: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="Live, Project-Based"
                   />
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
                   <input
                     type="text"
                     value={newProgram.location || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, location: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, location: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="JNTU Kakinada"
                   />
                 </div>
-
+                
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Company</label>
                   <input
                     type="text"
                     value={newProgram.company || ''}
-                    onChange={(e) => setNewProgram({ ...newProgram, company: e.target.value })}
+                    onChange={(e) => setNewProgram({...newProgram, company: e.target.value})}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500"
                     placeholder="TechCorp Solutions"
                   />
                 </div>
               </div>
             </div>
-
+            
             <div className="flex space-x-3 pt-6 mt-6 border-t border-gray-200">
               <button
                 onClick={() => setShowAddProgram(false)}
@@ -1312,32 +1309,32 @@ export default function Explore() {
                 <X className="h-5 w-5" />
               </button>
             </div>
-
+            
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Category Key *</label>
                 <input
                   type="text"
                   value={newCategory.key}
-                  onChange={(e) => setNewCategory({ ...newCategory, key: e.target.value })}
+                  onChange={(e) => setNewCategory({...newCategory, key: e.target.value})}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="e.g., workshop"
                 />
                 <p className="text-xs text-gray-500 mt-1">Used internally (lowercase, no spaces)</p>
               </div>
-
+              
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Category Label *</label>
                 <input
                   type="text"
                   value={newCategory.label}
-                  onChange={(e) => setNewCategory({ ...newCategory, label: e.target.value })}
+                  onChange={(e) => setNewCategory({...newCategory, label: e.target.value})}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   placeholder="e.g., Workshops"
                 />
                 <p className="text-xs text-gray-500 mt-1">Displayed to users</p>
               </div>
-
+              
               <div className="flex space-x-3 pt-4">
                 <button
                   onClick={() => setShowAddCategory(false)}

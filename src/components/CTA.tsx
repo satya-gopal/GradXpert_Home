@@ -15,7 +15,7 @@ export default function Partnership() {
       icon: Building,
       title: 'Colleges – Host a Program',
       description: 'Bring our training programs to your campus to give your students a competitive edge.',
-      cta: 'Invite Us to Your College',
+      cta: 'Invite Us to Your Campus',
       gradient: 'from-purple-500 to-pink-500'
     },
     {
@@ -118,9 +118,9 @@ export default function Partnership() {
               <h3 className="relative text-xl font-semibold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors duration-300">{partnership.title}</h3>
               <p className="relative text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">{partnership.description}</p>
               
-              {partnership.title.includes('Colleges') ? (
+              {partnership.title.includes('Campuses') ? (
                 <Link 
-                  to="/invite-to-college"
+                  to="/invite-to-campus"
                   className={`relative inline-flex items-center bg-gradient-to-r ${partnership.gradient} bg-clip-text text-transparent font-semibold hover:scale-105 transition-transform duration-300`}
                 >
                   {partnership.cta}

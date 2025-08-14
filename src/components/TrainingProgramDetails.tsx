@@ -35,7 +35,7 @@ import {
 export default function TrainingProgramDetails() {
   const [activeTab, setActiveTab] = useState('overview');
   const [formData, setFormData] = useState({
-    collegeName: '',
+    campusName: '',
     contactName: '',
     email: '',
     phone: '',
@@ -61,10 +61,10 @@ export default function TrainingProgramDetails() {
     subtitle: 'Transform Your Students into Industry-Ready Developers',
     duration: '3-5 Days',
     capacity: '100-300 Students',
-    price: 'Free for Partner Colleges',
+    price: 'Free for Partner Campuses',
     rating: 4.9,
     studentsImpacted: '5000+',
-    collegesHosted: '50+',
+    campusesHosted: '50+',
     description: 'Our flagship Campus Coding Bootcamp is an intensive, hands-on program designed to transform students from beginners to confident programmers. This comprehensive workshop combines theoretical knowledge with practical application, ensuring students build real projects they can showcase to employers.',
     image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop'
   };
@@ -132,7 +132,7 @@ export default function TrainingProgramDetails() {
       text: "The bootcamp completely transformed my understanding of programming. The hands-on approach and real projects gave me the confidence to apply for developer roles.",
       author: "Priya Sharma",
       role: "Final Year Student",
-      college: "JNTU Kakinada",
+      campus: "JNTU Kakinada",
       image: "https://images.unsplash.com/photo-1494790108755-2616b25aa556?w=80&h=80&fit=crop&crop=face",
       rating: 5
     },
@@ -140,7 +140,7 @@ export default function TrainingProgramDetails() {
       text: "Our students showed remarkable improvement after the bootcamp. 80% of participants got placed in tech companies within 6 months.",
       author: "Dr. Rajesh Kumar",
       role: "Training & Placement Officer",
-      college: "Andhra University",
+      campus: "Andhra University",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
       rating: 5
     },
@@ -148,7 +148,7 @@ export default function TrainingProgramDetails() {
       text: "The mentors were exceptional! They made complex concepts easy to understand and were always available for doubts and guidance.",
       author: "Kavya Reddy",
       role: "CSE Student",
-      college: "GITAM University",
+      campus: "GITAM University",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
       rating: 5
     }
@@ -160,12 +160,12 @@ export default function TrainingProgramDetails() {
       answer: "No prior programming experience required! The bootcamp is designed for beginners. Students should have basic computer literacy and enthusiasm to learn."
     },
     {
-      question: "What infrastructure is needed from the college?",
+      question: "What infrastructure is needed from the campus?",
       answer: "We need a computer lab with internet connectivity, projector/smart board, and power backup. We can accommodate 50-300 students depending on the lab capacity."
     },
     {
       question: "How much does it cost?",
-      answer: "The bootcamp is completely FREE for our partner colleges. We only ask for basic infrastructure and student coordination support."
+      answer: "The bootcamp is completely FREE for our partner campuses. We only ask for basic infrastructure and student coordination support."
     },
     {
       question: "What certificates do students receive?",
@@ -183,7 +183,7 @@ export default function TrainingProgramDetails() {
 
   const stats = [
     { icon: Users, value: '5000+', label: 'Students Trained', gradient: 'from-blue-500 to-cyan-500' },
-    { icon: Building, value: '50+', label: 'Colleges Partnered', gradient: 'from-emerald-500 to-teal-500' },
+    { icon: Building, value: '50+', label: 'Campuses Partnered', gradient: 'from-emerald-500 to-teal-500' },
     { icon: Trophy, value: '95%', label: 'Completion Rate', gradient: 'from-purple-500 to-pink-500' },
     { icon: Briefcase, value: '80%', label: 'Placement Success', gradient: 'from-orange-500 to-red-500' }
   ];
@@ -344,8 +344,8 @@ export default function TrainingProgramDetails() {
                         <div className="text-xs text-gray-600">Students Trained</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-lg font-bold text-gray-900">{program.collegesHosted}</div>
-                        <div className="text-xs text-gray-600">Colleges</div>
+                        <div className="text-lg font-bold text-gray-900">{program.campusesHosted}</div>
+                        <div className="text-xs text-gray-600">Campuses</div>
                       </div>
                       <div className="text-center">
                         <div className="text-lg font-bold text-gray-900">95%</div>
@@ -360,50 +360,8 @@ export default function TrainingProgramDetails() {
         </div>
       </section>
 
-      {/* Program Highlights */}
-      <section className="py-16 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Training Program</span>?
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Comprehensive, industry-focused training designed to make your students job-ready
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {highlights.map((highlight, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <highlight.icon className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{highlight.title}</h3>
-                <p className="text-gray-600 text-sm">{highlight.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Stats Section */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="group text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <div className={`w-16 h-16 bg-gradient-to-r ${stat.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <stat.icon className="h-8 w-8 text-white" />
-                </div>
-                <div className={`text-3xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
-                  {stat.value}
-                </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Detailed Content Tabs */}
       <section className="py-16 bg-white/50 backdrop-blur-sm">
@@ -588,7 +546,7 @@ export default function TrainingProgramDetails() {
 
             {activeTab === 'testimonials' && (
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">What Students & Colleges Say</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">What Students & Campuses Say</h3>
                 <div className="grid lg:grid-cols-3 gap-8">
                   {testimonials.map((testimonial, index) => (
                     <div key={index} className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-6 border border-gray-200 shadow-lg">
@@ -611,7 +569,7 @@ export default function TrainingProgramDetails() {
                         <div>
                           <h4 className="font-semibold text-gray-900">{testimonial.author}</h4>
                           <p className="text-gray-600 text-sm">{testimonial.role}</p>
-                          <p className="text-blue-600 text-sm font-medium">{testimonial.college}</p>
+                          <p className="text-blue-600 text-sm font-medium">{testimonial.campus}</p>
                         </div>
                       </div>
                     </div>
@@ -640,8 +598,57 @@ export default function TrainingProgramDetails() {
         </div>
       </section>
 
+
+
+      {/* Program Highlights */}
+      <section className="py-16 bg-white/50 backdrop-blur-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Why Choose Our <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Training Program</span>?
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Comprehensive, industry-focused training designed to make your students job-ready
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {highlights.map((highlight, index) => (
+              <div key={index} className="group bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <highlight.icon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{highlight.title}</h3>
+                <p className="text-gray-600 text-sm">{highlight.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="group text-center bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
+                <div className={`w-16 h-16 bg-gradient-to-r ${stat.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <stat.icon className="h-8 w-8 text-white" />
+                </div>
+                <div className={`text-3xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                  {stat.value}
+                </div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+
       {/* Request Form */}
-      <section id="request-form" className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 text-white relative overflow-hidden">
+      {/* <section id="request-form" className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-cyan-600 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(255,255,255,0.1),transparent_50%)]"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.1),transparent_50%)]"></div>
         
@@ -778,7 +785,7 @@ export default function TrainingProgramDetails() {
             </form>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section className="py-16 bg-white">
