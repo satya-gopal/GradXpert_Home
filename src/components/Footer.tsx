@@ -20,22 +20,34 @@ const Footer = () => {
   const location = useLocation();
 
   const handleNavigation = (path: string) => {
-    // If it's a hash link and we're already on the homepage
-    if (path.startsWith('#') && location.pathname === '/') {
-      const section = document.querySelector(path);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+    // If path is just '#', navigate to home without trying to scroll
+    if (path === '#') {
+      navigate('/');
+      window.scrollTo(0, 0);
       return;
     }
-
+  
+    // Handle WhatsApp links
     if (path.startsWith('https://wa.me/')) {
       window.location.href = path;
       return;
     }
-
-    // If it's a hash link but we're not on homepage
-    if (path.startsWith('#')) {
+  
+    // If it's a valid hash link and we're already on the homepage
+    if (path.startsWith('#') && path.length > 1 && location.pathname === '/') {
+      try {
+        const section = document.querySelector(path);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      } catch (e) {
+        console.error('Invalid selector:', path);
+      }
+      return;
+    }
+  
+    // If it's a valid hash link but we're not on homepage
+    if (path.startsWith('#') && path.length > 1) {
       navigate('/', { state: { scrollTo: path }, replace: true });
       return;
     }
@@ -44,39 +56,40 @@ const Footer = () => {
     navigate(path);
     window.scrollTo(0, 0);
   };
-
+  
   useEffect(() => {
-    // Only handle scroll if we have a hash in the URL and no scrollTo state
-    if (location.hash && !location.state?.scrollTo) {
-      const section = document.querySelector(location.hash);
-      if (section) {
-        setTimeout(() => {
-          section.scrollIntoView({ behavior: 'smooth' });
-        }, 300);
+    // Only handle scroll if we have a valid hash in the URL and no scrollTo state
+    if (location.hash && location.hash.length > 1 && !location.state?.scrollTo) {
+      try {
+        const section = document.querySelector(location.hash);
+        if (section) {
+          setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      } catch (e) {
+        console.error('Invalid selector:', location.hash);
       }
     }
     
     // Handle scrollTo state from navigation
-    if (location.state?.scrollTo) {
-      const section = document.querySelector(location.state.scrollTo);
-      if (section) {
-        setTimeout(() => {
-          section.scrollIntoView({ behavior: 'smooth' });
-          // Clean up the state to prevent duplicate scrolls
-          navigate(location.pathname, { replace: true, state: {} });
-        }, 300);
+    if (location.state?.scrollTo && location.state.scrollTo.length > 1) {
+      try {
+        const section = document.querySelector(location.state.scrollTo);
+        if (section) {
+          setTimeout(() => {
+            section.scrollIntoView({ behavior: 'smooth' });
+            // Clean up the state to prevent duplicate scrolls
+            navigate(location.pathname, { replace: true, state: {} });
+          }, 300);
+        }
+      } catch (e) {
+        console.error('Invalid selector:', location.state.scrollTo);
+        navigate(location.pathname, { replace: true, state: {} });
       }
     }
   }, [location, navigate]);
 
-  const quickLinks = [
-    { name: "About", href: "#" },
-    { name: "Ecosystem", href: "#ecosystem" },
-    { name: "Courses", href: "#courses" },
-    { name: "Internships", href: "#internships" },
-    { name: "Portfolio", href: "#portfolio" },
-    { name: "Community", href: "#community" }
-  ];
 
   const programs = [
     { name: "StudentOS", href: "https://studentos.in" },
@@ -275,7 +288,7 @@ const Footer = () => {
                 {support.slice(0, 6).map((item, index) => (
                   <li key={index}>
                     <button 
-                      onClick={() => handleNavigation(item.href)}
+                      onClick={() => item.href.startsWith('http') ? window.open(item.href, '_blank') : handleNavigation(item.href)}
                       className="text-slate-300 hover:text-white transition-colors font-medium flex items-center group text-sm lg:text-base"
                     >
                       <span>{item.name}</span>

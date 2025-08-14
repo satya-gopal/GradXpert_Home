@@ -688,7 +688,7 @@ const AboutUs = () => {
               </p> */}
               <p className="text-base text-slate-700 leading-relaxed">
                 <b>Think Deep, Learn Fast, Use AI, Build Things</b>
-                <p> — that’s the modern survival skillset.</p>
+                <span> — that’s the modern survival skillset.</span>
 
 
               </p>

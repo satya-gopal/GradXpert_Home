@@ -49,6 +49,7 @@ interface AdminUser {
 export default function Explore() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const filter = searchParams.get("filter");
   const [activeFilter, setActiveFilter] = useState<'all' | ProgramType>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [showFilters, setShowFilters] = useState(false);
@@ -65,12 +66,10 @@ export default function Explore() {
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
-    const filter = searchParams.get("filter");
     if (filter) {
       setActiveFilter(filter as 'all' | ProgramType);
     }
-  }
-    , [searchParams]);
+  },[filter]);
 
   // Check if admin is logged in from localStorage
 

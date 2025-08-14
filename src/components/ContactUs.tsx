@@ -120,8 +120,8 @@ const socialPlatforms = [
   {
     icon: Instagram,
     name: "Instagram",
-    handle: "instagram.com/gradxpert.in",
-    url: "https://instagram.com/gradxpert.in",
+    handle: "instagram.com/gradxpert",
+    url: "https://instagram.com/gradxpert",
     color: "from-pink-500 to-purple-600"
   },
   {

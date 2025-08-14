@@ -11,46 +11,62 @@ const Header = () => {
   const handleNavigation = (path: string) => {
     setIsMenuOpen(false);
     setIsQuickLinksOpen(false);
-    // If it's a hash link and we're already on the homepage
-    if (path.startsWith('#') && location.pathname === '/') {
-      const section = document.querySelector(path);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
-      return;
-    }
-    if (path.startsWith('#')) {
-      navigate('/', { state: { scrollTo: path }, replace: true });
-      return;
-    }
-    navigate(path);
-    window.scrollTo(0, 0);
-  };
 
-  useEffect(() => {
-    // Only handle scroll if we have a hash in the URL and no scrollTo state
-    if (location.hash && !location.state?.scrollTo) {
+    // If path is just '#', navigate to home without trying to scroll
+    if (path === '#') {
+      navigate('/');
+      window.scrollTo(0, 0);
+      return;
+    }
+    // If it's a hash link and we're already on the homepage
+  if (path.startsWith('#') && path.length > 1 && location.pathname === '/') {
+    const section = document.querySelector(path);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+    return;
+  }
+  
+  if (path.startsWith('#') && path.length > 1) {
+    navigate('/', { state: { scrollTo: path }, replace: true });
+    return;
+  }
+  
+  navigate(path);
+  window.scrollTo(0, 0);
+};
+
+useEffect(() => {
+  // Only handle scroll if we have a valid hash in the URL
+  if (location.hash && location.hash.length > 1 && !location.state?.scrollTo) {
+    try {
       const section = document.querySelector(location.hash);
       if (section) {
         setTimeout(() => {
           section.scrollIntoView({ behavior: 'smooth' });
-        }, 300); // Increased delay for more reliability
+        }, 300);
       }
+    } catch (e) {
+      console.error('Invalid selector:', location.hash);
     }
+  }
 
-    // Handle scrollTo state from navigation
-    if (location.state?.scrollTo) {
+  // Handle scrollTo state from navigation
+  if (location.state?.scrollTo && location.state.scrollTo.length > 1) {
+    try {
       const section = document.querySelector(location.state.scrollTo);
       if (section) {
         setTimeout(() => {
           section.scrollIntoView({ behavior: 'smooth' });
-          // Clean up the state to prevent duplicate scrolls
           navigate(location.pathname, { replace: true, state: {} });
         }, 300);
       }
+    } catch (e) {
+      console.error('Invalid selector:', location.state.scrollTo);
+      navigate(location.pathname, { replace: true, state: {} });
     }
-  }, [location, navigate]);
-
+  }
+}, [location, navigate]);
   // Close menu when clicking outside or on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -98,7 +114,7 @@ const Header = () => {
   }, [isMenuOpen]);
 
   const menuItems = [
-    { href: "#", label: "Home", icon: Home },
+    { href: "/", label: "Home", icon: Home },
     { href: "#studentos", label: "StudentOS", icon: Settings },
     { href: "#ioschool", label: "I/O School", icon: BookOpen },
     { href: "#kickstack", label: "Kickstack", icon: Briefcase },
